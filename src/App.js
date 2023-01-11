@@ -13,6 +13,7 @@ const InstitutionalFurniture =  lazy(() => import("./views/app/pages/institution
 const OfficeTables =  lazy(() => import("./views/app/pages/officeTables"));
 const Products =  lazy(() => import("./views/app/pages/products"));
 const OurTeam =  lazy(() => import("./views/app/pages/ourTeam"));
+const Infrastructure =  lazy(() => import("./views/app/pages/infrastructure"));
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
             <Route path="/institutional-furniture/office-tables" element={ <Suspense fallback={<>Loading ...</>}> <OfficeTables /> </Suspense> } />
             <Route path="/home-furniture/products" element={ <Suspense fallback={<>Loading ...</>}> <Products /> </Suspense> } />
             <Route path="/our-team" element={ <Suspense fallback={<>Loading ...</>}> <OurTeam /> </Suspense> } />
+            <Route path="/infrastructure" element={ <Suspense fallback={<>Loading ...</>}> <Infrastructure /> </Suspense> } />
           </Routes>
         </BrowserRouter>
       <Footer />

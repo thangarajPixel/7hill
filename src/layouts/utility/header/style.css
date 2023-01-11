@@ -45,7 +45,7 @@ width: 14%;
 }
 
 header nav#cssmenu .logo img{
-min-width: 120px;
+  max-width: 120px;
 }
 
 header nav#cssmenu ul.header-top{
@@ -57,7 +57,6 @@ header nav#cssmenu ul.header-top{
   float: right;
   max-width: 410px;
   padding-left: 30px;
-  margin-bottom: 10px;
 }
 
 header nav#cssmenu ul.header-top:before{
@@ -151,7 +150,7 @@ display: none
 text-decoration: none;
 color:  var(--color-black);
   font-size: 16px;
-  padding: 22px 20px;
+  padding: 12px 20px;
   position: relative;
 }
 
@@ -173,7 +172,7 @@ padding-right: 25px;
 
 #cssmenu > ul > li.has-sub > a:before {
 position: absolute;
-top: 35px;
+top: 25px;
 right: 3px;
 background: rgba(0,0,0,0.4);
 width: 7px;
@@ -185,7 +184,7 @@ transition: all .25s ease;
 
 #cssmenu > ul > li.has-sub > a:after {
   position: absolute;
-  top: 35px;
+  top: 25px;
   right: 8px;
   background: rgba(0,0,0,0.4);
   width: 7px;

@@ -55,37 +55,37 @@ const Header = () => {
                                                     <h5>Home Furniture</h5>
                                                     <ul className="mar-bot-20">
                                                         <li><Link to="/home-furniture/products/" >Beds</Link></li>
-                                                        <li><Link to="/" >Sofas & Armchairs</Link></li>
-                                                        <li><Link to="/" >Dining Tables</Link></li>
-                                                        <li><Link to="/" >Dining Chairs</Link></li>
-                                                        <li><Link to="/" >Side Table</Link></li>
-                                                        <li><Link to="/" >Center Table</Link></li>
-                                                        <li><Link to="/" >Cupboards</Link></li>
-                                                        <li><Link to="/" >TV Units</Link></li>
-                                                        <li><Link to="/" >Shoe Racks</Link></li>
-                                                        <li><Link to="/" >Pooja Mandapam</Link></li>
+                                                        <li><Link to="/home-furniture/products/" >Sofas & Armchairs</Link></li>
+                                                        <li><Link to="/home-furniture/products/" >Dining Tables</Link></li>
+                                                        <li><Link to="/home-furniture/products/" >Dining Chairs</Link></li>
+                                                        <li><Link to="/home-furniture/products/" >Side Table</Link></li>
+                                                        <li><Link to="/home-furniture/products/" >Center Table</Link></li>
+                                                        <li><Link to="/home-furniture/products/" >Cupboards</Link></li>
+                                                        <li><Link to="/home-furniture/products/" >TV Units</Link></li>
+                                                        <li><Link to="/home-furniture/products/" >Shoe Racks</Link></li>
+                                                        <li><Link to="/home-furniture/products/" >Pooja Mandapam</Link></li>
                                                     </ul>
                                                     <h5>Institutional Furniture</h5>
                                                     <ul>
                                                         <li><strong>For Offices</strong>
-                                                            <Link to="/" >Office Tables</Link>
-                                                            <Link to="/" >Office Seating</Link>
-                                                            <Link to="/" >Office Sofas</Link>
+                                                            <Link to="/home-furniture/products/" >Office Tables</Link>
+                                                            <Link to="/home-furniture/products/" >Office Seating</Link>
+                                                            <Link to="/home-furniture/products/" >Office Sofas</Link>
                                                         </li>
                                                         <li><strong>For Schools</strong>
-                                                            <Link to="/" >Student Bench</Link>
-                                                            <Link to="/" >Teacher Table</Link>
-                                                            <Link to="/" >Hostel Bed</Link>
-                                                            <Link to="/" >Steel Storages</Link>
-                                                            <Link to="/" >Filing Racks</Link>
-                                                            <Link to="/" >File Cabinet</Link>
+                                                            <Link to="/home-furniture/products/" >Student Bench</Link>
+                                                            <Link to="/home-furniture/products/" >Teacher Table</Link>
+                                                            <Link to="/home-furniture/products/" >Hostel Bed</Link>
+                                                            <Link to="/home-furniture/products/" >Steel Storages</Link>
+                                                            <Link to="/home-furniture/products/" >Filing Racks</Link>
+                                                            <Link to="/home-furniture/products/" >File Cabinet</Link>
                                                         </li>
                                                         <li><strong>For Labs & Hospitals</strong>
-                                                            <Link to="/" >Hospital Bed</Link>
-                                                            <Link to="/" >Wheel Chairs</Link>
-                                                            <Link to="/" >Metal Pedestal</Link>
-                                                            <Link to="/" >Laboratory furniture</Link>
-                                                            <Link to="/" >Compactors</Link>
+                                                            <Link to="/home-furniture/products/" >Hospital Bed</Link>
+                                                            <Link to="/home-furniture/products/" >Wheel Chairs</Link>
+                                                            <Link to="/home-furniture/products/" >Metal Pedestal</Link>
+                                                            <Link to="/home-furniture/products/" >Laboratory furniture</Link>
+                                                            <Link to="/home-furniture/products/" >Compactors</Link>
                                                         </li>
                                                     </ul>
                                                 </Col>
@@ -94,7 +94,7 @@ const Header = () => {
                                                         <img src={HomeFurniture} alt="" className="img-fluid" />
                                                         <div className="furniture-menu-hover">
                                                             Home Furniture
-                                                            <Link to="/" >View Collections</Link>
+                                                            <Link to="/home-furniture/" >View Collections</Link>
                                                         </div>
                                                     </div>
                                                 </Col>
@@ -103,7 +103,7 @@ const Header = () => {
                                                         <img src={HomeInstitutionalFurniture} alt="" className="img-fluid" />
                                                         <div className="furniture-menu-hover">
                                                             Institutional Furniture
-                                                            <Link to="/" >View Collections</Link>
+                                                            <Link to="/institutional-furniture/" >View Collections</Link>
                                                         </div>
                                                     </div>
                                                 </Col>
@@ -114,11 +114,11 @@ const Header = () => {
                                     <li className="has-sub single"><Link to="/about" >About Us</Link>
                                         <ul>
                                             <li><Link to="/about" >Company Overview</Link></li>
-                                            <li><Link to="/" >Our Team</Link></li>
+                                            <li><Link to="/our-team" >Our Team</Link></li>
                                         </ul>
                                     </li>
-                                    <li><Link to="/" >Dealers</Link></li>
-                                    <li><Link to="/" >Infrastructure</Link></li>
+                                    <li><Link to="/dealers" >Dealers</Link></li>
+                                    <li><Link to="/infrastructure" >Infrastructure</Link></li>
                                     <li><Link to="/" >Blog</Link></li>
                                     <li><Link to="/" >Careers</Link></li>
                                     <li><Link to="/" >Contact Us</Link></li> 
