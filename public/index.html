@@ -2,42 +2,131 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <link rel="icon" href="../src/assets/images/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
+    <meta name="description" content=""/>
+    <link rel="apple-touch-icon" href="../src/assets/images/logo.png" />
+    <link rel="manifest" href="manifest.json" />
+    <title>7hill Furniture</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" charset="UTF-8" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/rellax/1.12.1/rellax.min.js" integrity="sha512-f5HTYZYTDZelxS7LEQYv8ppMHTZ6JJWglzeQmr0CVTS70vJgaJiIO15ALqI7bhsracojbXkezUIL+35UXwwGrQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>React App</title>
+    <script>
+      window.onload = () => {
+        var rellax = new Rellax('.rellax');
+      }
+    </script>
+    <script>      
+        $(window).scroll(function () {
+          var scroll = $(window).scrollTop();
+          //console.log(scroll);
+          if (scroll >= 200) {
+            //console.log('a');
+            $("header").addClass("fixed-top");
+            $("body").addClass("pad-top");
+          } else {
+            //console.log('a');
+            $("header").removeClass("fixed-top");
+            $("body").removeClass("pad-top");
+          }
+        });
+
+        $("header .button").click(function () {
+          $("body").toggleClass("menu-active");
+        });
+
+        $('#home-tabs-tab-institfurniture').click(function () {
+          $('#tab-image1').hide();
+          $('#tab-image2').show();
+        });
+
+
+          // Back to top button
+        $(window).scroll(function() {    
+          var scroll = $(window).scrollTop();
+          //console.log(scroll);
+          if (scroll >= 300) {
+              //console.log('a');
+              $(".back-to-top").addClass("scrollfixed");
+          } else {
+              //console.log('a');
+              $(".back-to-top").removeClass("scrollfixed");
+          }
+        });
+    </script>
+    <script>
+      	(function($) {
+        $.fn.menumaker = function(options) {  
+        var cssmenu = $(this), settings = $.extend({
+          format: "dropdown",
+          sticky: false
+        }, options);
+        return this.each(function() {
+          $(this).find(".button").on('click', function(){
+            $(this).toggleClass('menu-opened');
+            var mainmenu = $(this).next('ul');
+            if (mainmenu.hasClass('open')) { 
+              mainmenu.slideToggle().removeClass('open');
+            }
+            else {
+              mainmenu.slideToggle().addClass('open');
+              if (settings.format === "dropdown") {
+                mainmenu.find('ul').show();
+              }
+            }
+          });
+          cssmenu.find('li ul').parent().addClass('has-sub');
+        multiTg = function() {
+            cssmenu.find(".has-sub").prepend('<span class="submenu-button"></span>');
+            cssmenu.find('.submenu-button').on('click', function() {
+              $(this).toggleClass('submenu-opened');
+              if ($(this).siblings('ul').hasClass('open')) {
+                $(this).siblings('ul').removeClass('open').slideToggle();
+              }
+              else {
+                $(this).siblings('ul').addClass('open').slideToggle();
+              }
+            });
+          };
+          if (settings.format === 'multitoggle') multiTg();
+          else cssmenu.addClass('dropdown');
+          if (settings.sticky === true) cssmenu.css('position', 'fixed');
+        resizeFix = function() {
+          var mediasize = 1000;
+            if ($( window ).width() > mediasize) {
+              cssmenu.find('ul').show();
+            }
+            if ($(window).width() <= mediasize) {
+              cssmenu.find('ul').hide().removeClass('open');
+            }
+          };
+          resizeFix();
+          return $(window).on('resize', resizeFix);
+        });
+          };
+        })(jQuery);
+
+        (function($){
+        $(document).ready(function(){
+        $("#cssmenu").menumaker({
+          format: "multitoggle"
+        });
+        });
+        })(jQuery);
+    </script>    
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
   </body>
 </html>
