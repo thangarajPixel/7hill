@@ -60,6 +60,12 @@ h6 {
     line-height: 50px;
 }
 
+.heading3{
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 42px;
+}
+
 .heading5{
     font-weight: 700;
     font-size: 18px;
@@ -273,51 +279,68 @@ a:hover {
     transition: all 0.3s ease;
 }
 
-.view-btn{
-    background: var(--color-orange);
-    color: var(--color-white);
-    padding: 10px 10px;
-    font-size: 14px;
-    border: 1px solid var(--color-orange);
-    width: 45%;
-    font-weight: 500;
-    text-align: center;
-    position: relative;
-    display: inline-block;
+.view-btn, .view-btn:focus, .view-btn.btn-primary, .view-btn.btn-primary:focus{
+    background: var(--color-orange) !important;
+    color: var(--color-white) !important;
+    padding: 10px 10px !important;
+    font-size: 14px !important;
+    border: 1px solid var(--color-orange) !important;
+    width: 45% !important;
+    font-weight: 500 !important;
+    text-align: center !important;
+    position: relative !important;
+    display: inline-block !important;
     transition: all 0.3s ease;
 }
 
-.view-btn:hover{
-    background: var(--color-black);
-    border-color: var(--color-black);
-    color: var(--color-white);
+.view-btn:hover, .view-btn.btn-primary:hover{
+    background: var(--color-black) !important;
+    border-color: var(--color-black) !important;
+    color: var(--color-white) !important;
     transition: all 0.3s ease;
 }
 
-.enquire-btn{
-    background: var(--color-white);
-    color: var(--color-orange);
-    padding: 10px 10px;
-    font-size: 14px;
-    border: 1px solid var(--color-orange);
-    width: 45%;
-    font-weight: 500;
-    text-align: center;
-    position: relative;
-    display: inline-block;
+.enquire-btn, .enquire-btn:focus, .enquire-btn.btn-primary, .enquire-btn.btn-primary:focus{
+    background: var(--color-white) !important;
+    color: var(--color-orange) !important;
+    padding: 10px 5px !important;
+    font-size: 14px !important;
+    border: 1px solid var(--color-orange) !important;
+    width: 45% !important;
+    font-weight: 500 !important;
+    text-align: center !important;
+    position: relative !important;
+    display: inline-block !important;
     transition: all 0.3s ease;
 }
 
-.enquire-btn:hover{
-    background: var(--color-orange);
-    border-color: var(--color-orange);
-    color: var(--color-white);
+.enquire-btn:hover, .enquire-btn.btn-primary:hover{
+    background: var(--color-orange) !important;
+    border-color: var(--color-orange) !important;
+    color: var(--color-white) !important;
     transition: all 0.3s ease;
+}
+
+.enquire-btn.load-more-btn{
+    width: auto !important;
+    padding: 10px 30px !important;
 }
 
 section{
     padding: 100px 0px;
     position: relative;
+}
+
+.pad-30{
+    padding: 30px;
+}
+
+.pad-20{
+    padding: 20px;
+}
+
+.pad-lef-20{
+    padding-left: 20px;
 }
 
 .pad-bot-30{
@@ -1285,6 +1308,55 @@ form.product-filters .close-btn{
     background: var(--color-orange);
 }
 
+.modal{
+    padding-left: 0px !important;
+}
+
+.modal-content{
+    background: #F1F1F1;
+    border-radius: 0px;
+    border: none;
+    padding: 30px 0px 50px 0px;
+}
+
+.modal-dialog.modal-lg{
+    max-width: 1000px;
+}
+
+.modal-content .modal-header{
+    padding: 0;
+    border: none;
+}
+
+.modal-content .modal-body{
+    padding: 0px;
+}
+
+
+.modal-content .modal-header .btn-close{
+    padding: 0px;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    opacity: 0.8;
+    z-index: 999;
+    box-shadow: none !important;
+}
+
+.product-detail-slider .slick-slider .slick-slide{
+    padding: 0px 20px 30px 20px;
+}
+
+.product-detail-slider .slick-slider .slick-slide div{
+     padding: 10px;
+     background: var(--color-white);
+     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+}
+
+
+
 @media (max-width: 1400px){
     .container{
         max-width: 100%;
@@ -1343,6 +1415,11 @@ form.product-filters .close-btn{
     }
     .dealers-list .list-group .list-group-item{
         width: 50%;
+    }
+
+    .modal-dialog.modal-lg{
+        max-width: 90%;
+        margin: 5%;
     }
 }
 
@@ -1416,6 +1493,15 @@ form.product-filters .close-btn{
     }
     .home-tabs.institutional-tabs ul.nav-tabs li.nav-item button.nav-link{
         font-size: 20px;
+    }
+    .modal-content{
+        padding: 20px;
+    }
+    .product-detail-slider .slick-slider .slick-slide{
+        padding: 0px 0px 40px 0px;
+    }
+    .product-detail-slider .slick-slider{
+        margin-bottom: 50px;
     }
 }
 
@@ -1567,5 +1653,15 @@ form.product-filters .close-btn{
     }
     form.product-filters .close-btn{
         display: flex;
+    }
+    .heading3{
+        font-size: 24px;
+        line-height: 36px;
+    }
+    .modal-content{
+        padding: 40px 10px 10px 10px;
+    }
+    .mob-pad-bot-20{
+        padding-bottom: 20px !important;
     }
 }
