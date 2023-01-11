@@ -1,4 +1,4 @@
-import React from "react";
+import {useState} from "react";
 import { BrowserRouter, Link } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
@@ -15,7 +15,15 @@ const openInNewTab = url => {
 };
 
 const Header = () => {
+
+    const [isActive, setActive] = useState("false");
+
+    const ToggleClass = () => {
+        setActive(!isActive); 
+    };
+
     return (
+        <>
         <header> 
             <BrowserRouter>
             <Container>
@@ -36,7 +44,7 @@ const Header = () => {
                                     </li>
                                 </ul>                        
                                 <div id="head-mobile"></div>
-                                <div className="button"></div>
+                                <div className="button" onClick={ToggleClass}></div>
                                 <ul className="main-nav">
                                     <li className='active'><Link to="/" >Home</Link></li>
                                     <li><Link to="/" >Products</Link>
@@ -121,6 +129,8 @@ const Header = () => {
             </Container>
             </BrowserRouter>
         </header>
+        <div className={isActive ? "headerbackdrop" : "active headerbackdrop"}></div>
+        </>
     );
 }
 

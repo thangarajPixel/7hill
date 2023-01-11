@@ -10,7 +10,7 @@ const ProductFilters = () => {
 
     const ToggleClass = () => {
         setActive(!isActive); 
-       };
+    };
 
     return (
         <>
