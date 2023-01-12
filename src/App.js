@@ -15,6 +15,8 @@ const OurTeam =  lazy(() => import("./views/app/pages/ourTeam"));
 const Infrastructure =  lazy(() => import("./views/app/pages/infrastructure"));
 const Careers =  lazy(() => import("./views/app/pages/careers"));
 const ContactUs =  lazy(() => import("./views/app/pages/contact"));
+const PrivacyPolicy =  lazy(() => import("./views/app/pages/privacyPolicy"));
+const DiscriminationPolicy =  lazy(() => import("./views/app/pages/discriminationPolicy"));
 
 function App() {
   return (
@@ -33,6 +35,8 @@ function App() {
             <Route path="/infrastructure" element={ <Suspense fallback={<><div className="preloader">Loading ...</div></>}> <Infrastructure /> </Suspense> } />
             <Route path="/careers" element={ <Suspense fallback={<><div className="preloader">Loading ...</div></>}> <Careers /> </Suspense> } />
             <Route path="/contact" element={ <Suspense fallback={<><div className="preloader">Loading ...</div></>}> <ContactUs /> </Suspense> } />
+            <Route path="/privacy-policy" element={ <Suspense fallback={<><div className="preloader">Loading ...</div></>}> <PrivacyPolicy /> </Suspense> } />
+            <Route path="/discrimination-policy" element={ <Suspense fallback={<><div className="preloader">Loading ...</div></>}> <DiscriminationPolicy /> </Suspense> } />
           </Routes>
         </BrowserRouter>
     </>

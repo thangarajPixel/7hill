@@ -1,4 +1,5 @@
-import React from "react";
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -22,6 +23,14 @@ const getCurrentYear = () => {
 };
 
 const Footer = () => {
+
+  const routePath = useLocation();
+  const onTop = () => {
+    window.scrollTo(0, 0);
+  }
+  useEffect(() => {
+    onTop()
+  }, [routePath]);
 
     return (
       <footer>
@@ -96,8 +105,8 @@ const Footer = () => {
             </Col>
             <Col xs={12} sm={12} md={12} lg={6} xl={6}>
                 <p className="footer-bottom-text2">
-                  <Link to="/" >Privacy Policy</Link>
-                  <Link to="/" >Discrimination Policy</Link>
+                  <Link to="/privacy-policy" >Privacy Policy</Link>
+                  <Link to="/discrimination-policy" >Discrimination Policy</Link>
                 </p>
             </Col>
           </Row>

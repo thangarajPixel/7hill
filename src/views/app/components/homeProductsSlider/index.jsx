@@ -51,7 +51,7 @@ const HomeProductsSlider = () => {
                               <img src={HomeProduct.image} alt="" className="img-fluid w-100" />
                               <div className="collection-slider-content">
                                 <h1>{HomeProduct.heading}<span>{HomeProduct.subHeading}</span></h1>
-                                <Link to="/">Explore the Collection</Link>
+                                <Link to="/home-furniture">Explore the Collection</Link>
                               </div>
                             </div>
                       );

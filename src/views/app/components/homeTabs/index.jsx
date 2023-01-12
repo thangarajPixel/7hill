@@ -48,55 +48,55 @@ const HomeTabs = () => {
                         </Link>
                       </ListGroup.Item>
                       <ListGroup.Item>
-                        <Link to="/">
+                        <Link to="/home-furniture/products/">
                           <img src={HomeFurnitureIcon2} alt="" />
                           Sofas & Armchairs
                         </Link>
                       </ListGroup.Item>
                       <ListGroup.Item>
-                        <Link to="/">
+                        <Link to="/home-furniture/products/">
                           <img src={HomeFurnitureIcon3} alt="" />
                           Dining Tables
                         </Link>
                       </ListGroup.Item>
                       <ListGroup.Item>
-                        <Link to="/">
+                        <Link to="/home-furniture/products/">
                           <img src={HomeFurnitureIcon4} alt="" />
                           Dining Chairs
                         </Link>
                       </ListGroup.Item>
                       <ListGroup.Item>
-                        <Link to="/">
+                        <Link to="/home-furniture/products/">
                           <img src={HomeFurnitureIcon5} alt="" />
                           Side Table
                         </Link>
                       </ListGroup.Item>
                       <ListGroup.Item>
-                        <Link to="/">
+                        <Link to="/home-furniture/products/">
                           <img src={HomeFurnitureIcon6} alt="" />
                           Center Table
                         </Link>
                       </ListGroup.Item>
                       <ListGroup.Item>
-                        <Link to="/">
+                        <Link to="/home-furniture/products/">
                           <img src={HomeFurnitureIcon7} alt="" />
                           Cupboards
                         </Link>
                       </ListGroup.Item>
                       <ListGroup.Item>
-                        <Link to="/">
+                        <Link to="/home-furniture/products/">
                           <img src={HomeFurnitureIcon8} alt="" />
                           TV Units
                         </Link>
                       </ListGroup.Item>
                       <ListGroup.Item>
-                        <Link to="/">
+                        <Link to="/home-furniture/products/">
                           <img src={HomeFurnitureIcon9} alt="" />
                           Shoe Racks
                         </Link>
                       </ListGroup.Item>
                       <ListGroup.Item>
-                        <Link to="/">
+                        <Link to="/home-furniture/products/">
                           <img src={HomeFurnitureIcon10} alt="" />
                           Pooja Mandapam
                         </Link>
@@ -106,19 +106,19 @@ const HomeTabs = () => {
                   <Tab eventKey="institfurniture" title="Institutional Furniture">
                   <ListGroup>
                       <ListGroup.Item>
-                        <Link to="/">
+                        <Link to="/institutional-furniture/office-tables">
                           <img src={InstitutionalIcon1} alt="" />
                           For Offices
                         </Link>
                       </ListGroup.Item>
                       <ListGroup.Item>
-                        <Link to="/">
+                        <Link to="/institutional-furniture/office-tables">
                           <img src={InstitutionalIcon2} alt="" />
                           For Schools
                         </Link>
                       </ListGroup.Item>
                       <ListGroup.Item>
-                        <Link to="/">
+                        <Link to="/institutional-furniture/office-tables">
                           <img src={InstitutionalIcon3} alt="" />
                           For Labs & Hospitals
                         </Link>

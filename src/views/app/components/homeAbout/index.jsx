@@ -19,7 +19,7 @@ const HomeAbout = () => {
             <Col xs={12} sm={12} md={12} lg={6} xl={5}>
               <h2 className="heading2 mar-bot-20">7Hill - Your Lifetime Partner</h2>
               <p className=" mar-bot-20">7 Hill furniture is a renewed brand and unit of Hevea Furniture and Interiors Private Ltd. is one of South India’s largest manufacturer of home furniture, office furniture in Chennai in India. Quality, Commitment, Service, Innovation & Customer focused approach are the essential factors that have helped brand Hevea furniture to attain this position in furniture segment today. Over the years Hevea furniture have grown in size and volumes. Now Hevea furniture is coming up with a new sister concern company i.e 7 Hill furniture to offer a qualitative product range with memorable products, great customer service, offering eco-friendly values, nurturing social values across multiple generations while developing.</p>
-              <Link to="/" className="orange-btn mb-4">Know More <BsArrowRight /></Link>
+              <Link to="/about" className="orange-btn mb-4">Know More <BsArrowRight /></Link>
             </Col>
             <Col xs={12} sm={12} md={12} lg={6} xl={7}>
               <img src={HomeAboutImage} alt="" className="img-fluid" />
