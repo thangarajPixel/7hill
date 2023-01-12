@@ -37,7 +37,7 @@ const InstitutionalFurnitureTabs = () => {
                             </Link>
                         </Col>
                         <Col xs={12} sm={12} md={6} lg={4} xl={4}>
-                            <Link to="/" className="product-list">
+                            <Link to="/institutional-furniture/office-tables" className="product-list">
                                 <div className="blog-img">
                                     <img src={OfficeSeating} alt="" className="img-fluid w-100" />
                                 </div>
@@ -47,7 +47,7 @@ const InstitutionalFurnitureTabs = () => {
                             </Link>
                         </Col>
                         <Col xs={12} sm={12} md={6} lg={4} xl={4}>
-                            <Link to="/" className="product-list">
+                            <Link to="/institutional-furniture/office-tables" className="product-list">
                                 <div className="blog-img">
                                     <img src={OfficeSofas} alt="" className="img-fluid w-100" />
                                 </div>
@@ -61,7 +61,7 @@ const InstitutionalFurnitureTabs = () => {
                   <Tab eventKey="forSchools" title="For Schools">
                   <Row className="justify-content-center">
                         <Col xs={12} sm={12} md={6} lg={4} xl={4}>
-                            <Link to="/" className="product-list">
+                            <Link to="/institutional-furniture/office-tables" className="product-list">
                                 <div className="blog-img">
                                     <img src={OfficeTables} alt="" className="img-fluid w-100" />
                                 </div>
@@ -71,7 +71,7 @@ const InstitutionalFurnitureTabs = () => {
                             </Link>
                         </Col>
                         <Col xs={12} sm={12} md={6} lg={4} xl={4}>
-                            <Link to="/" className="product-list">
+                            <Link to="/institutional-furniture/office-tables" className="product-list">
                                 <div className="blog-img">
                                     <img src={OfficeSeating} alt="" className="img-fluid w-100" />
                                 </div>
@@ -81,7 +81,7 @@ const InstitutionalFurnitureTabs = () => {
                             </Link>
                         </Col>
                         <Col xs={12} sm={12} md={6} lg={4} xl={4}>
-                            <Link to="/" className="product-list">
+                            <Link to="/institutional-furniture/office-tables" className="product-list">
                                 <div className="blog-img">
                                     <img src={OfficeSofas} alt="" className="img-fluid w-100" />
                                 </div>
@@ -95,7 +95,7 @@ const InstitutionalFurnitureTabs = () => {
                   <Tab eventKey="forlabs" title="For Labs & Hospitals">
                   <Row className="justify-content-center">
                         <Col xs={12} sm={12} md={6} lg={4} xl={4}>
-                            <Link to="/" className="product-list">
+                            <Link to="/institutional-furniture/office-tables" className="product-list">
                                 <div className="blog-img">
                                     <img src={OfficeTables} alt="" className="img-fluid w-100" />
                                 </div>
@@ -105,7 +105,7 @@ const InstitutionalFurnitureTabs = () => {
                             </Link>
                         </Col>
                         <Col xs={12} sm={12} md={6} lg={4} xl={4}>
-                            <Link to="/" className="product-list">
+                            <Link to="/institutional-furniture/office-tables" className="product-list">
                                 <div className="blog-img">
                                     <img src={OfficeSeating} alt="" className="img-fluid w-100" />
                                 </div>
@@ -115,7 +115,7 @@ const InstitutionalFurnitureTabs = () => {
                             </Link>
                         </Col>
                         <Col xs={12} sm={12} md={6} lg={4} xl={4}>
-                            <Link to="/" className="product-list">
+                            <Link to="/institutional-furniture/office-tables" className="product-list">
                                 <div className="blog-img">
                                     <img src={OfficeSofas} alt="" className="img-fluid w-100" />
                                 </div>

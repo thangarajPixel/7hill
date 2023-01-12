@@ -63,7 +63,7 @@ const OtherProductsSlider = () => {
               <Row>
                 <Col className="other-products-slider">
                     <Slider {...settings}>
-                        <Link to="/home-furniture/products/" className="product-list">
+                        <Link to="/home-furniture/products" className="product-list">
                             <div className="blog-img">
                                 <img src={BedImage} alt="" className="img-fluid w-100" />
                             </div>
@@ -71,7 +71,7 @@ const OtherProductsSlider = () => {
                                 <h3>Bed <span><BsArrowRight /></span></h3>
                             </div>
                         </Link>
-                        <Link to="/" className="product-list">
+                        <Link to="/home-furniture/products" className="product-list">
                             <div className="blog-img">
                                 <img src={SofasArmchairs} alt="" className="img-fluid w-100" />
                             </div>
@@ -79,7 +79,7 @@ const OtherProductsSlider = () => {
                                 <h3>Sofas &amp; Armchairs <span><BsArrowRight /></span></h3>
                             </div>
                         </Link>
-                        <Link to="/" className="product-list">
+                        <Link to="/home-furniture/products" className="product-list">
                             <div className="blog-img">
                                 <img src={DinningTables} alt="" className="img-fluid w-100" />
                             </div>
@@ -87,7 +87,7 @@ const OtherProductsSlider = () => {
                                 <h3>Dinning Tables <span><BsArrowRight /></span></h3>
                             </div>
                         </Link>
-                        <Link to="/" className="product-list">
+                        <Link to="/home-furniture/products" className="product-list">
                             <div className="blog-img">
                                 <img src={DinningChairs} alt="" className="img-fluid w-100" />
                             </div>
@@ -95,7 +95,7 @@ const OtherProductsSlider = () => {
                                 <h3>Dinning Chairs <span><BsArrowRight /></span></h3>
                             </div>
                         </Link>
-                        <Link to="/" className="product-list">
+                        <Link to="/home-furniture/products" className="product-list">
                             <div className="blog-img">
                                 <img src={SideTable} alt="" className="img-fluid w-100" />
                             </div>
@@ -103,7 +103,7 @@ const OtherProductsSlider = () => {
                                 <h3>Side Table <span><BsArrowRight /></span></h3>
                             </div>
                         </Link>
-                        <Link to="/" className="product-list">
+                        <Link to="/home-furniture/products" className="product-list">
                             <div className="blog-img">
                                 <img src={CenterTable} alt="" className="img-fluid w-100" />
                             </div>
@@ -111,7 +111,7 @@ const OtherProductsSlider = () => {
                                 <h3>Center Table <span><BsArrowRight /></span></h3>
                             </div>
                         </Link>
-                        <Link to="/" className="product-list">
+                        <Link to="/home-furniture/products" className="product-list">
                             <div className="blog-img">
                                 <img src={Cupboards} alt="" className="img-fluid w-100" />
                             </div>
@@ -119,7 +119,7 @@ const OtherProductsSlider = () => {
                                 <h3>Cupboards <span><BsArrowRight /></span></h3>
                             </div>
                         </Link>
-                        <Link to="/" className="product-list">
+                        <Link to="/home-furniture/products" className="product-list">
                             <div className="blog-img">
                                 <img src={TvUnits} alt="" className="img-fluid w-100" />
                             </div>
@@ -127,7 +127,7 @@ const OtherProductsSlider = () => {
                                 <h3>TV Units <span><BsArrowRight /></span></h3>
                             </div>
                         </Link>
-                        <Link to="/" className="product-list">
+                        <Link to="/home-furniture/products" className="product-list">
                             <div className="blog-img">
                                 <img src={ShoeRacks} alt="" className="img-fluid w-100" />
                             </div>
@@ -135,7 +135,7 @@ const OtherProductsSlider = () => {
                                 <h3>Shoe Racks <span><BsArrowRight /></span></h3>
                             </div>
                         </Link>
-                        <Link to="/" className="product-list">
+                        <Link to="/home-furniture/products" className="product-list">
                             <div className="blog-img">
                                 <img src={PoojaMandapam} alt="" className="img-fluid w-100" />
                             </div>
