@@ -10,7 +10,7 @@ const AboutCertifications = () => {
 
     return (
       <>
-        <section className="page-bg-3 orange">
+        <section className="certifications page-bg-3 orange">
           <Container>
             <Row className="justify-content-center">
                 <Col>

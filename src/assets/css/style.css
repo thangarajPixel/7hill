@@ -498,7 +498,6 @@ section{
     margin-left: auto;
     display: flex;
     margin-right: 30px;
-    border: 7px solid rgba(0, 0, 0, 0.8);
 }
 
 .page-bg-3.orange img.dotted-bg-orange{
@@ -506,6 +505,11 @@ section{
     left: 50px;
     bottom: -50px;
     z-index: 0;
+}
+
+.certifications.page-bg-3.orange img{
+    margin-right: 0px;
+    border: 7px solid rgba(0, 0, 0, 0.8);
 }
 
 .page-bg-3.orange .container, .page-bg-3.vision-mission .container{
