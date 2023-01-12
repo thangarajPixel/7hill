@@ -38,7 +38,7 @@ const HomeFurnitureLists = () => {
                     </Link>
                 </Col>
                 <Col xs={12} sm={12} md={6} lg={4} xl={4}>
-                    <Link to="/" className="product-list">
+                    <Link to="/home-furniture/products/" className="product-list">
                         <div className="blog-img">
                             <img src={SofasArmchairs} alt="" className="img-fluid w-100" />
                         </div>
@@ -48,7 +48,7 @@ const HomeFurnitureLists = () => {
                     </Link>
                 </Col>
                 <Col xs={12} sm={12} md={6} lg={4} xl={4}>
-                    <Link to="/" className="product-list">
+                    <Link to="/home-furniture/products/" className="product-list">
                         <div className="blog-img">
                             <img src={DinningTables} alt="" className="img-fluid w-100" />
                         </div>
@@ -58,7 +58,7 @@ const HomeFurnitureLists = () => {
                     </Link>
                 </Col>
                 <Col xs={12} sm={12} md={6} lg={4} xl={4}>
-                    <Link to="/" className="product-list">
+                    <Link to="/home-furniture/products/" className="product-list">
                         <div className="blog-img">
                             <img src={DinningChairs} alt="" className="img-fluid w-100" />
                         </div>
@@ -68,7 +68,7 @@ const HomeFurnitureLists = () => {
                     </Link>
                 </Col>
                 <Col xs={12} sm={12} md={6} lg={4} xl={4}>
-                    <Link to="/" className="product-list">
+                    <Link to="/home-furniture/products/" className="product-list">
                         <div className="blog-img">
                             <img src={SideTable} alt="" className="img-fluid w-100" />
                         </div>
@@ -78,7 +78,7 @@ const HomeFurnitureLists = () => {
                     </Link>
                 </Col>
                 <Col xs={12} sm={12} md={6} lg={4} xl={4}>
-                    <Link to="/" className="product-list">
+                    <Link to="/home-furniture/products/" className="product-list">
                         <div className="blog-img">
                             <img src={CenterTable} alt="" className="img-fluid w-100" />
                         </div>
@@ -88,7 +88,7 @@ const HomeFurnitureLists = () => {
                     </Link>
                 </Col>
                 <Col xs={12} sm={12} md={6} lg={4} xl={4}>
-                    <Link to="/" className="product-list">
+                    <Link to="/home-furniture/products/" className="product-list">
                         <div className="blog-img">
                             <img src={Cupboards} alt="" className="img-fluid w-100" />
                         </div>
@@ -98,7 +98,7 @@ const HomeFurnitureLists = () => {
                     </Link>
                 </Col>
                 <Col xs={12} sm={12} md={6} lg={4} xl={4}>
-                    <Link to="/" className="product-list">
+                    <Link to="/home-furniture/products/" className="product-list">
                         <div className="blog-img">
                             <img src={TvUnits} alt="" className="img-fluid w-100" />
                         </div>
@@ -108,7 +108,7 @@ const HomeFurnitureLists = () => {
                     </Link>
                 </Col>                
                 <Col xs={12} sm={12} md={6} lg={4} xl={4}>
-                    <Link to="/" className="product-list">
+                    <Link to="/home-furniture/products/" className="product-list">
                         <div className="blog-img">
                             <img src={ShoeRacks} alt="" className="img-fluid w-100" />
                         </div>
@@ -118,7 +118,7 @@ const HomeFurnitureLists = () => {
                     </Link>
                 </Col>                
                 <Col xs={12} sm={12} md={6} lg={4} xl={4}>
-                    <Link to="/" className="product-list">
+                    <Link to="/home-furniture/products/" className="product-list">
                         <div className="blog-img">
                             <img src={PoojaMandapam} alt="" className="img-fluid w-100" />
                         </div>

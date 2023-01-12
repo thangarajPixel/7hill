@@ -1,5 +1,5 @@
 import {useState} from "react";
-import { BrowserRouter, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -17,15 +17,16 @@ const openInNewTab = url => {
 const Header = () => {
 
     const [isActive, setActive] = useState("false");
+    const [isActive1, setActive1] = useState("false");
+    const [isActive2, setActive2] = useState("false");
 
-    const ToggleClass = () => {
-        setActive(!isActive); 
-    };
+    const ToggleClass = () => { setActive(!isActive); };
+    const ToggleClass1 = () => { setActive1(!isActive1); };
+    const ToggleClass2 = () => { setActive2(!isActive2); };
 
     return (
         <>
         <header> 
-            <BrowserRouter>
             <Container>
                 <Row>
                     <Col>
@@ -44,15 +45,15 @@ const Header = () => {
                                     </li>
                                 </ul>                        
                                 <div id="head-mobile"></div>
-                                <div className="button" onClick={ToggleClass}></div>
-                                <ul className="main-nav">
+                                <div className={isActive ? "button" : "menu-opened button"} onClick={ToggleClass}></div>
+                                <ul className={isActive ? "main-nav" : "open main-nav"}>
                                     <li className='active'><Link to="/" >Home</Link></li>
-                                    <li><Link to="/" >Products</Link>
-                                    <ul>
+                                    <li className="has-sub"><span className={isActive1 ? "submenu-button" : "submenu-opened submenu-button"} onClick={ToggleClass1}></span><Link to="/" >Products</Link>
+                                    <ul className={isActive1 ? "closeed" : "open"}>
                                         <Container>
                                             <Row>
                                                 <Col xs={12} sm={12} md={12} lg={6}>
-                                                    <h5>Home Furniture</h5>
+                                                    <h5><Link to="/home-furniture" >Home Furniture</Link></h5>
                                                     <ul className="mar-bot-20">
                                                         <li><Link to="/home-furniture/products/" >Beds</Link></li>
                                                         <li><Link to="/home-furniture/products/" >Sofas & Armchairs</Link></li>
@@ -65,12 +66,12 @@ const Header = () => {
                                                         <li><Link to="/home-furniture/products/" >Shoe Racks</Link></li>
                                                         <li><Link to="/home-furniture/products/" >Pooja Mandapam</Link></li>
                                                     </ul>
-                                                    <h5>Institutional Furniture</h5>
+                                                    <h5><Link to="/institutional-furniture" >Institutional Furniture</Link></h5>
                                                     <ul>
                                                         <li><strong>For Offices</strong>
-                                                            <Link to="/home-furniture/products/" >Office Tables</Link>
-                                                            <Link to="/home-furniture/products/" >Office Seating</Link>
-                                                            <Link to="/home-furniture/products/" >Office Sofas</Link>
+                                                            <Link to="/institutional-furniture/office-tables" >Office Tables</Link>
+                                                            <Link to="/institutional-furniture/office-tables" >Office Seating</Link>
+                                                            <Link to="/institutional-furniture/office-tables" >Office Sofas</Link>
                                                         </li>
                                                         <li><strong>For Schools</strong>
                                                             <Link to="/home-furniture/products/" >Student Bench</Link>
@@ -111,8 +112,8 @@ const Header = () => {
                                         </Container>
                                     </ul>
                                     </li>                        
-                                    <li className="has-sub single"><Link to="/about" >About Us</Link>
-                                        <ul>
+                                    <li className="has-sub single"><span className={isActive2 ? "submenu-button" : "submenu-opened submenu-button"} onClick={ToggleClass2}></span><Link to="/about" >About Us</Link>
+                                        <ul className={isActive2 ? "closeed" : "open"}>
                                             <li><Link to="/about" >Company Overview</Link></li>
                                             <li><Link to="/our-team" >Our Team</Link></li>
                                         </ul>
@@ -120,14 +121,13 @@ const Header = () => {
                                     <li><Link to="/dealers" >Dealers</Link></li>
                                     <li><Link to="/infrastructure" >Infrastructure</Link></li>
                                     <li><Link to="/" >Blog</Link></li>
-                                    <li><Link to="/" >Careers</Link></li>
-                                    <li><Link to="/" >Contact Us</Link></li> 
+                                    <li><Link to="/careers" >Careers</Link></li>
+                                    <li><Link to="/contact" >Contact Us</Link></li> 
                                 </ul>
                         </nav>
                     </Col>
                 </Row>
             </Container>
-            </BrowserRouter>
         </header>
         <div className={isActive ? "headerbackdrop" : "active headerbackdrop"}></div>
         </>

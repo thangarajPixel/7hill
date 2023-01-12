@@ -43,7 +43,7 @@ const HomeProductsSlider = () => {
           <Container fluid className="pad-bot-30">
             <Row className="g-0 align-items-center">
               <Col>
-                <div class="home-collection">
+                <div className="home-collection">
                   <Slider {...settings}>
                     {HomeProductsData.map(HomeProduct => {
                       return (

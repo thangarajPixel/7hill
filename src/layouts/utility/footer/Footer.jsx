@@ -2,7 +2,7 @@ import React from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { BrowserRouter, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./style.css";
 import { FiPhone } from 'react-icons/fi';
 import { RiMapPinLine } from 'react-icons/ri';
@@ -25,7 +25,6 @@ const Footer = () => {
 
     return (
       <footer>
-        <BrowserRouter>
         <Container>
           <Row>
             <Col xs={12} sm={12} md={6} lg={3} xl={3}>
@@ -55,38 +54,39 @@ const Footer = () => {
               <h5>Quick Links</h5>
                 <div className="footer-links">
                   <Link to="/" >Home</Link>
-                  <Link to="/" >Products</Link>
-                  <Link to="/" >About Us</Link>
-                  <Link to="/" >Dealers</Link>
-                  <Link to="/" >Infrastructure</Link>
-                  <Link to="/" >Blogs</Link>
-                  <Link to="/" >Careers</Link>
+                  <Link to="/home-furniture" >Products</Link>
+                  <Link to="/about" >About Us</Link>
+                  <Link to="/dealers" >Dealers</Link>
+                  <Link to="/infrastructure" >Infrastructure</Link>
+                  <Link to="/" >Blog</Link>
+                  <Link to="/careers" >Careers</Link>
+                  <Link to="/contact" >Contact Us</Link>
                 </div>
             </Col>
             <Col xs={12} sm={12} md={6} lg={4} xl={4}>
               <h5>Home Furniture</h5>
                 <div className="footer-links home-furniture">
-                  <Link to="/" >Beds</Link>
-                  <Link to="/" >Sofas & Armchairs</Link>
-                  <Link to="/" >Dining Tables</Link>
-                  <Link to="/" >Dining Chairs</Link>
-                  <Link to="/" >Side Table</Link>
-                  <Link to="/" >Center Table</Link>
-                  <Link to="/" >Cupboards</Link>
-                  <Link to="/" >TV Units</Link>
-                  <Link to="/" >Shoe Racks</Link>
-                  <Link to="/" >Pooja Mandapam</Link>
+                  <Link to="/home-furniture/products/" >Beds</Link>
+                  <Link to="/home-furniture/products/" >Sofas & Armchairs</Link>
+                  <Link to="/home-furniture/products/" >Dining Tables</Link>
+                  <Link to="/home-furniture/products/" >Dining Chairs</Link>
+                  <Link to="/home-furniture/products/" >Side Table</Link>
+                  <Link to="/home-furniture/products/" >Center Table</Link>
+                  <Link to="/home-furniture/products/" >Cupboards</Link>
+                  <Link to="/home-furniture/products/" >TV Units</Link>
+                  <Link to="/home-furniture/products/" >Shoe Racks</Link>
+                  <Link to="/home-furniture/products/" >Pooja Mandapam</Link>
                 </div>
             </Col>
             
             <Col xs={12} sm={12} md={6} lg={3} xl={3}>
               <h5>Institutional Furniture</h5>
                 <div className="footer-links">
-                  <Link to="/" >Office Tables</Link>
-                  <Link to="/" >Office Seating</Link>
-                  <Link to="/" >Office Sofa</Link>
-                  <Link to="/" >School Furniture</Link>
-                  <Link to="/" >Lab & Hospital Furniture</Link>
+                  <Link to="/institutional-furniture/office-tables" >Office Tables</Link>
+                  <Link to="/institutional-furniture/office-tables" >Office Seating</Link>
+                  <Link to="/institutional-furniture/office-tables" >Office Sofa</Link>
+                  <Link to="/institutional-furniture/office-tables" >School Furniture</Link>
+                  <Link to="/institutional-furniture/office-tables" >Lab & Hospital Furniture</Link>
                 </div>
             </Col>
           </Row>
@@ -102,8 +102,7 @@ const Footer = () => {
             </Col>
           </Row>
         </Container>
-        </BrowserRouter>
-        <a href="#" class="back-to-top"><BsArrowUp /></a>
+        <a href="#" className="back-to-top"><BsArrowUp /></a>
       </footer>
     );
 }

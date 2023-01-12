@@ -1,4 +1,6 @@
 import React from "react";
+import Header from "../../../../layouts/utility/header/Header";
+import Footer from "../../../../layouts/utility/footer/Footer";
 import HomeProductSlider from '../../components/homeProductsSlider';
 import HomeAbout from '../../components/homeAbout';
 import HomeCounters from '../../components/homeCounters';
@@ -14,6 +16,7 @@ const Home = () => {
 
     return (
       <>
+        <Header />
         <HomeProductSlider />
         <HomeAbout />
         <HomeCounters />
@@ -24,6 +27,7 @@ const Home = () => {
         <HomeBlog />
         <HomeVideo />
         <HomeTestimonials />
+        <Footer />
       </>
     );
 }

@@ -99,13 +99,13 @@ ul {
 
 
 a {
-    color: #ED3237;
+    color: var(--color-orange);
     text-decoration: none;
     transition: all .5s ease;
 }
 
 a:hover {
-    color: var(--color-orange);
+    color: var(--color-black);
     text-decoration: none;
     text-decoration: none;
 }
@@ -178,21 +178,26 @@ a:hover {
 
 /* Prelaoder */
 
-#preloader {
+.preloader {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 13px;
     overflow: hidden;
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 0.9);
 }
 
-#preloader:before {
+.preloader:before {
     content: "";
     position: fixed;
-    top: calc(50% - 30px);
+    top: calc(50% - 80px);
     left: calc(50% - 30px);
     border: 6px solid #CCC;
     border-top: 6px solid var(--color-orange);
@@ -349,6 +354,10 @@ section{
 
 .pad-bot-30{
     padding-bottom: 30px;
+}
+
+.pad-top-bot-100{
+    padding: 100px 0px;
 }
 
 .mar-top-30{
@@ -550,7 +559,7 @@ section.home-cta-bg{
     background-size: cover;
 }
 
-section.orange-bg{
+section.orange-bg, .orange-bg{
     background: #fdf2e8;
 }
 section.orange-bg1{
@@ -1067,6 +1076,16 @@ input::placeholder{
     opacity: 1;
 }
 
+.form-control[type=file]{
+    line-height: 40px;
+    padding: 6px 10px;
+}
+
+textarea.form-control{
+    height: 100px;
+    resize: none;
+}
+
 .btn-primary{
     background: var(--color-orange);
     border: none !important;
@@ -1370,6 +1389,46 @@ form.product-filters .close-btn{
     text-transform: capitalize;
 }
 
+.contact-icons{
+    background: var(--color-white);
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
+    position: relative;
+    font-size: 18px;
+    line-height: 30px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 30px 30px 30px 70px;
+}
+
+.contact-icons a{
+    color: var(--color-black);
+    font-weight: 600;
+}
+
+.contact-icons a:hover{
+    color: var(--color-orange);
+}
+
+.contact-icons svg{
+    position: absolute;
+    left: 20px;
+    top: 30px;
+    fill: var(--color-orange);
+    font-size: 30px;
+}
+
+section.contact-map{
+    padding: 0px;
+    border-top: 5px solid var(--color-orange);
+}
+
+section.contact-map iframe{
+    height: 500px;
+    width: 100%;
+    border: none !important;
+}
+
+
+
 @media (max-width: 1400px){
     .container{
         max-width: 100%;
@@ -1417,7 +1476,7 @@ form.product-filters .close-btn{
     .home-tabs .tab-content{
         padding: 10px 0px;
     }
-    section{
+    section, .pad-top-bot-100{
         padding: 50px 0px;
     }
     .about-tabs ul.nav-tabs{
@@ -1679,5 +1738,9 @@ form.product-filters .close-btn{
     }
     .infrastructure-text br{
         display: none;
+    }
+    .career-section .px-5{
+        padding-right: 20px !important;
+        padding-left: 20px !important;
     }
 }

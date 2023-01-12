@@ -27,7 +27,7 @@ const OfficeTablesLists = () => {
               </Row>
               <Row className="justify-content-center">
                 <Col xs={12} sm={12} md={6} lg={4} xl={4}>
-                    <Link to="/" className="product-list">
+                    <Link to="/home-furniture/products/" className="product-list">
                         <div className="blog-img">
                             <img src={Workstations} alt="" className="img-fluid w-100" />
                         </div>
@@ -37,7 +37,7 @@ const OfficeTablesLists = () => {
                     </Link>
                 </Col>
                 <Col xs={12} sm={12} md={6} lg={4} xl={4}>
-                    <Link to="/" className="product-list">
+                    <Link to="/home-furniture/products/" className="product-list">
                         <div className="blog-img">
                             <img src={ExecutiveTables} alt="" className="img-fluid w-100" />
                         </div>
@@ -47,7 +47,7 @@ const OfficeTablesLists = () => {
                     </Link>
                 </Col>
                 <Col xs={12} sm={12} md={6} lg={4} xl={4}>
-                    <Link to="/" className="product-list">
+                    <Link to="/home-furniture/products/" className="product-list">
                         <div className="blog-img">
                             <img src={DirectorTables} alt="" className="img-fluid w-100" />
                         </div>
@@ -57,7 +57,7 @@ const OfficeTablesLists = () => {
                     </Link>
                 </Col>
                 <Col xs={12} sm={12} md={6} lg={4} xl={4}>
-                    <Link to="/" className="product-list">
+                    <Link to="/home-furniture/products/" className="product-list">
                         <div className="blog-img">
                             <img src={ConferenceTables} alt="" className="img-fluid w-100" />
                         </div>
@@ -67,7 +67,7 @@ const OfficeTablesLists = () => {
                     </Link>
                 </Col>
                 <Col xs={12} sm={12} md={6} lg={4} xl={4}>
-                    <Link to="/" className="product-list">
+                    <Link to="/home-furniture/products/" className="product-list">
                         <div className="blog-img">
                             <img src={MeetingDiscussionTables} alt="" className="img-fluid w-100" />
                         </div>
@@ -77,7 +77,7 @@ const OfficeTablesLists = () => {
                     </Link>
                 </Col>
                 <Col xs={12} sm={12} md={6} lg={4} xl={4}>
-                    <Link to="/" className="product-list">
+                    <Link to="/home-furniture/products/" className="product-list">
                         <div className="blog-img">
                             <img src={ReceptionTables} alt="" className="img-fluid w-100" />
                         </div>
@@ -87,7 +87,7 @@ const OfficeTablesLists = () => {
                     </Link>
                 </Col>
                 <Col xs={12} sm={12} md={6} lg={4} xl={4}>
-                    <Link to="/" className="product-list">
+                    <Link to="/home-furniture/products/" className="product-list">
                         <div className="blog-img">
                             <img src={FilingCabinets} alt="" className="img-fluid w-100" />
                         </div>
@@ -97,7 +97,7 @@ const OfficeTablesLists = () => {
                     </Link>
                 </Col>
                 <Col xs={12} sm={12} md={6} lg={4} xl={4}>
-                    <Link to="/" className="product-list">
+                    <Link to="/home-furniture/products/" className="product-list">
                         <div className="blog-img">
                             <img src={WoodenMetalStorages} alt="" className="img-fluid w-100" />
                         </div>
@@ -107,7 +107,7 @@ const OfficeTablesLists = () => {
                     </Link>
                 </Col>                
                 <Col xs={12} sm={12} md={6} lg={4} xl={4}>
-                    <Link to="/" className="product-list">
+                    <Link to="/home-furniture/products/" className="product-list">
                         <div className="blog-img">
                             <img src={ComputerTables} alt="" className="img-fluid w-100" />
                         </div>
