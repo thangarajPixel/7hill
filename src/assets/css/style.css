@@ -1344,7 +1344,7 @@ form.product-filters .close-btn{
     background: #F1F1F1;
     border-radius: 0px;
     border: none;
-    padding: 30px 0px 50px 0px;
+    padding: 30px 0px;
 }
 
 .modal-dialog.modal-lg{
@@ -1366,8 +1366,8 @@ form.product-filters .close-btn{
     width: 30px;
     height: 30px;
     position: absolute;
-    right: 10px;
-    top: 10px;
+    right: 20px;
+    top: 20px;
     opacity: 0.8;
     z-index: 999;
     box-shadow: none !important;
