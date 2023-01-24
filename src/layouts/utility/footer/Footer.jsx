@@ -111,6 +111,7 @@ const Footer = () => {
             </Col>
           </Row>
         </Container>
+          {/* eslint-disable-next-line */}
         <a href="#" className="back-to-top"><BsArrowUp /></a>
       </footer>
     );
