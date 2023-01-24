@@ -1748,3 +1748,9 @@ section.contact-map iframe{
         padding-left: 20px !important;
     }
 }
+.swal2-confirm {
+    border: 1px solid transparent !important;
+    box-shadow: none !important;
+    border-radius: 0px !important;
+    outline: none !important;
+}
