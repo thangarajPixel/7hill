@@ -41,7 +41,7 @@ const HomeFurnitureLists = () => {
             {homeFurniture &&
               homeFurniture?.map((product, i) => (
                 <Col xs={12} sm={12} md={6} lg={4} xl={4} key={i}>
-                  <Link to="/home-furniture/products/" className="product-list">
+                  <Link to={`/home-furniture/${product.slug}/`} className="product-list">
                     <div className="blog-img">
                       <img
                         src={product.image}

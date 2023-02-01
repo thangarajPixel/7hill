@@ -1754,3 +1754,6 @@ section.contact-map iframe{
     border-radius: 0px !important;
     outline: none !important;
 }
+.capitalize {
+    text-transform: capitalize;
+}

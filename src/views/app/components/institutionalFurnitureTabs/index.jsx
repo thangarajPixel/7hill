@@ -60,7 +60,7 @@ const InstitutionalFurnitureTabs = () => {
                       officeFurniture?.map((item, i) => (
                         <Col xs={12} sm={12} md={6} lg={4} xl={4} key={i}>
                           <Link
-                            to="/institutional-furniture/office-tables"
+                            to={`/institutional-furniture/${item.slug}`}
                             className="product-list"
                           >
                             <div className="blog-img">
@@ -89,7 +89,7 @@ const InstitutionalFurnitureTabs = () => {
                       schoolFurniture?.map((item, i) => (
                     <Col xs={12} sm={12} md={6} lg={4} xl={4}  key={i}>
                       <Link
-                        to="/institutional-furniture/office-tables"
+                        to={`/institutional-furniture/${item.slug}`}
                         className="product-list"
                       >
                         <div className="blog-img">
@@ -118,7 +118,7 @@ const InstitutionalFurnitureTabs = () => {
                       hospitalsFurniture?.map((item, i) => (
                     <Col xs={12} sm={12} md={6} lg={4} xl={4} key={i}>
                       <Link
-                        to="/institutional-furniture/office-tables"
+                        to={`/institutional-furniture/${item.slug}`}
                         className="product-list"
                       >
                         <div className="blog-img">

@@ -28,9 +28,9 @@ function App() {
           <Route path="/dealers" element={<Suspense fallback={<><div className="preloader">Loading ...</div></>}> <Dealers /> </Suspense>} />
           <Route path="/home-furniture" element={<Suspense fallback={<><div className="preloader">Loading ...</div></>}> <HomeFurniture /> </Suspense>} />
           <Route path="/institutional-furniture" element={<Suspense fallback={<><div className="preloader">Loading ...</div></>}> <InstitutionalFurniture /> </Suspense>} />
-          <Route path="/institutional-furniture/office-tables" element={<Suspense fallback={<><div className="preloader">Loading ...</div></>}> <OfficeTables /> </Suspense>} />
+          <Route path="/institutional-furniture/:inst_sub_furn" element={<Suspense fallback={<><div className="preloader">Loading ...</div></>}> <OfficeTables /> </Suspense>} />
           <Route path="/institutional-furniture/office-tables/products" element={<Suspense fallback={<><div className="preloader">Loading ...</div></>}> <InstitutionalProducts /> </Suspense>} />
-          <Route path="/home-furniture/products" element={<Suspense fallback={<><div className="preloader">Loading ...</div></>}> <Products /> </Suspense>} />
+          <Route path="/home-furniture/:products" element={<Suspense fallback={<><div className="preloader">Loading ...</div></>}> <Products /> </Suspense>} />
           <Route path="/our-team" element={<Suspense fallback={<><div className="preloader">Loading ...</div></>}> <OurTeam /> </Suspense>} />
           <Route path="/infrastructure" element={<Suspense fallback={<><div className="preloader">Loading ...</div></>}> <Infrastructure /> </Suspense>} />
           <Route path="/careers" element={<Suspense fallback={<><div className="preloader">Loading ...</div></>}> <Careers /> </Suspense>} />
