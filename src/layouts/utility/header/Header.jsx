@@ -124,7 +124,7 @@ const Header = () => {
                                   {product.parentCategory?.map((item, i) => {
                                     return (
                                       <li key={i}>
-                                        <Link to={`/${product.slug}/products/`}>
+                                        <Link to={`/${product.slug}/${item.slug}/`}>
                                           {item.name}
                                         </Link>
                                       </li>

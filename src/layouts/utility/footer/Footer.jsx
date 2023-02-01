@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
@@ -13,6 +13,7 @@ import { AiOutlineInstagram } from 'react-icons/ai';
 import { RiLinkedinFill } from 'react-icons/ri';
 import { RiTwitterFill } from 'react-icons/ri';
 import ListGroup from 'react-bootstrap/ListGroup';
+import { useSelector } from "react-redux";
 
 const openInNewTab = url => {
   window.open(url, '_blank', 'noopener,noreferrer');
@@ -23,6 +24,23 @@ const getCurrentYear = () => {
 };
 
 const Footer = () => {
+  const category = useSelector((state) => state.category);
+  const [homeFurniture, setHomeFurniture] = useState("");
+  const [institutionalFurniture, setInstitutionalFurniture] = useState("");
+  useEffect(() => {
+    let homeFurn = category?.filter((item) => item.slug === "home-furniture");
+    let institutionalFurn = category?.filter(
+      (item) => item.slug === "institutional-furniture"
+    );
+    institutionalFurn &&
+      institutionalFurn.forEach((item) => {
+        setInstitutionalFurniture(item.childCategory);
+      });
+    homeFurn &&
+      homeFurn.forEach((item) => {
+        setHomeFurniture(item.parentCategory);
+      });
+  }, [category]);
 
   const routePath = useLocation();
   const onTop = () => {
@@ -75,27 +93,28 @@ const Footer = () => {
             <Col xs={12} sm={12} md={6} lg={4} xl={4}>
               <h5>Home Furniture</h5>
                 <div className="footer-links home-furniture">
-                  <Link to="/home-furniture/products/" >Beds</Link>
-                  <Link to="/home-furniture/products/" >Sofas & Armchairs</Link>
-                  <Link to="/home-furniture/products/" >Dining Tables</Link>
-                  <Link to="/home-furniture/products/" >Dining Chairs</Link>
-                  <Link to="/home-furniture/products/" >Side Table</Link>
-                  <Link to="/home-furniture/products/" >Center Table</Link>
-                  <Link to="/home-furniture/products/" >Cupboards</Link>
-                  <Link to="/home-furniture/products/" >TV Units</Link>
-                  <Link to="/home-furniture/products/" >Shoe Racks</Link>
-                  <Link to="/home-furniture/products/" >Pooja Mandapam</Link>
+                  {
+                    homeFurniture && homeFurniture?.map((item,i)=>(
+                      <Link to={`/home-furniture/${item.slug}/`} key={i}>{item.name}</Link>
+                    ))
+                  }
                 </div>
             </Col>
             
             <Col xs={12} sm={12} md={6} lg={3} xl={3}>
               <h5>Institutional Furniture</h5>
                 <div className="footer-links">
-                  <Link to="/institutional-furniture/office-tables" >Office Tables</Link>
+                  {
+                    institutionalFurniture && institutionalFurniture.map((item,i)=> 
+                      (
+                        <Link to={`/institutional-furniture/${item.slug}`} key={i} >{item.title}</Link>
+                      ))
+                  }
+                  {/* <Link to="/institutional-furniture/office-tables" >Office Tables</Link>
                   <Link to="/institutional-furniture/office-tables" >Office Seating</Link>
                   <Link to="/institutional-furniture/office-tables" >Office Sofa</Link>
                   <Link to="/institutional-furniture/office-tables" >School Furniture</Link>
-                  <Link to="/institutional-furniture/office-tables" >Lab & Hospital Furniture</Link>
+                  <Link to="/institutional-furniture/office-tables" >Lab & Hospital Furniture</Link> */}
                 </div>
             </Col>
           </Row>
