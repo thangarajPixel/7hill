@@ -34,7 +34,7 @@ const ContactContent = () => {
             </Container>
           </section>
           <section className="contact-map">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15538.323536415275!2d80.2109917!3d13.188805!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x1483bdce7a49b8f9!2s7Hill%20Furniture%20Refurbishing!5e0!3m2!1sen!2sin!4v1673514492589!5m2!1sen!2sin"  allowfullscreen="" title="Contact Map" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15538.323536415275!2d80.2109917!3d13.188805!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x1483bdce7a49b8f9!2s7Hill%20Furniture%20Refurbishing!5e0!3m2!1sen!2sin!4v1673514492589!5m2!1sen!2sin"  allowFullScreen="" title="Contact Map" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
           </section>
         </>
     );

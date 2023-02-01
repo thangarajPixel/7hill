@@ -27,9 +27,9 @@ const HomeTestimonials = () => {
             <Col xs={12} sm={12} md={12} lg={6} xl={6}>
                 <h2 className="heading2 text-center">What our Customers are Saying</h2>      
                 <Slider {...settings}>
-                    {HomeTestimonialsData.map(HomeTestimonial => {
+                    {HomeTestimonialsData.map((HomeTestimonial,i) => {
                       return (
-                              <div className="home-testimonials">
+                              <div className="home-testimonials" key={i}>
                                 <p>{HomeTestimonial.content}</p>
                                 <h4>{HomeTestimonial.name}</h4>
                                 <span>{HomeTestimonial.designation}</span>

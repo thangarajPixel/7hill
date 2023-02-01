@@ -45,9 +45,9 @@ const HomeProductsSlider = () => {
               <Col>
                 <div className="home-collection">
                   <Slider {...settings}>
-                    {HomeProductsData.map(HomeProduct => {
+                    {HomeProductsData.map((HomeProduct,i) => {
                       return (
-                            <div className="collection-slider">
+                            <div className="collection-slider" key={i}>
                               <img src={HomeProduct.image} alt="" className="img-fluid w-100" />
                               <div className="collection-slider-content">
                                 <h1>{HomeProduct.heading}<span>{HomeProduct.subHeading}</span></h1>
