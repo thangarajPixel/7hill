@@ -15,6 +15,7 @@ import { Link } from "react-router-dom";
 // import PoojaMandapam from "../../../../assets/images/pooja-mandapam.jpg";
 import { BsArrowRight } from "react-icons/bs";
 import { useSelector } from "react-redux";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 const HomeFurnitureLists = () => {
   const category = useSelector((state) => state.category);
@@ -43,7 +44,7 @@ const HomeFurnitureLists = () => {
                 <Col xs={12} sm={12} md={6} lg={4} xl={4} key={i}>
                   <Link to={`/home-furniture/${product.slug}/`} className="product-list">
                     <div className="blog-img">
-                      <img
+                      <LazyLoadImage
                         src={product.image}
                         alt=""
                         className="img-fluid w-100"

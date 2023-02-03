@@ -1,12 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../../../../layouts/utility/header/Header";
 import Footer from "../../../../layouts/utility/footer/Footer";
 import OfficeTablesBanner from '../../../../assets/images/office-tables-banner.jpg';
 import OfficeTablesContent from '../../components/officeTablesContent';
 import OfficeTablesLists from '../../components/officeTablesLists';
+// import { useSelector } from "react-redux";
 
 const OfficeTables = () => {
-
+  // const category = useSelector((state) => state.category);
+  // const [institutionalFurniture, setInstitutionalFurniture] = useState("");
+  // useEffect(() => {
+  //   let institutionalFurn = category?.filter((item) => item.slug === "institutional-furniture");
+  //   institutionalFurn &&
+  //     institutionalFurn.forEach((item) => {
+  //       console.log(item.childCategory)
+  //       setInstitutionalFurniture(item.image);
+  //     });
+  // }, [category]);
     return (
         <>
           <Header />

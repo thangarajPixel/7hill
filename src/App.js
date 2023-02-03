@@ -2,6 +2,7 @@ import React, { lazy, Suspense} from "react";
 import { Route, Routes } from 'react-router';
 import { BrowserRouter } from 'react-router-dom';
 import '../src/assets/css/style.css';
+import NotFoundPage from "./views/app/pages/notFound";
 
 const Home = lazy(() => import("../src/views/app/pages/home"));
 const About = lazy(() => import("../src/views/app/pages/about"));
@@ -37,6 +38,7 @@ function App() {
           <Route path="/contact" element={<Suspense fallback={<><div className="preloader">Loading ...</div></>}> <ContactUs /> </Suspense>} />
           <Route path="/privacy-policy" element={<Suspense fallback={<><div className="preloader">Loading ...</div></>}> <PrivacyPolicy /> </Suspense>} />
           <Route path="/discrimination-policy" element={<Suspense fallback={<><div className="preloader">Loading ...</div></>}> <DiscriminationPolicy /> </Suspense>} />
+          <Route path="*" element={<Suspense fallback={<><div className="preloader">Loading ...</div></>}> <NotFoundPage/> </Suspense>} />
         </Routes>
       </BrowserRouter>
     </>

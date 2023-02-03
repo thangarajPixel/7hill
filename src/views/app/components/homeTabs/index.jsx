@@ -42,61 +42,61 @@ const HomeTabs = () => {
                   <Tab eventKey="homefurniture" title="Home Furniture">
                     <ListGroup>
                       <ListGroup.Item>
-                        <Link to="/home-furniture/products/">
+                        <Link to="/home-furniture/Beds/">
                           <img src={HomeFurnitureIcon1} alt="" />
                           Beds
                         </Link>
                       </ListGroup.Item>
                       <ListGroup.Item>
-                        <Link to="/home-furniture/products/">
+                        <Link to="/home-furniture/sofas-Armchairs">
                           <img src={HomeFurnitureIcon2} alt="" />
                           Sofas & Armchairs
                         </Link>
                       </ListGroup.Item>
                       <ListGroup.Item>
-                        <Link to="/home-furniture/products/">
+                        <Link to="/home-furniture/dining-tables">
                           <img src={HomeFurnitureIcon3} alt="" />
                           Dining Tables
                         </Link>
                       </ListGroup.Item>
                       <ListGroup.Item>
-                        <Link to="/home-furniture/products/">
+                        <Link to="/home-furniture/dining-chairs">
                           <img src={HomeFurnitureIcon4} alt="" />
                           Dining Chairs
                         </Link>
                       </ListGroup.Item>
                       <ListGroup.Item>
-                        <Link to="/home-furniture/products/">
+                        <Link to="/home-furniture/side-table">
                           <img src={HomeFurnitureIcon5} alt="" />
                           Side Table
                         </Link>
                       </ListGroup.Item>
                       <ListGroup.Item>
-                        <Link to="/home-furniture/products/">
+                        <Link to="/home-furniture/center-table">
                           <img src={HomeFurnitureIcon6} alt="" />
                           Center Table
                         </Link>
                       </ListGroup.Item>
                       <ListGroup.Item>
-                        <Link to="/home-furniture/products/">
+                        <Link to="/home-furniture/cupboards">
                           <img src={HomeFurnitureIcon7} alt="" />
                           Cupboards
                         </Link>
                       </ListGroup.Item>
                       <ListGroup.Item>
-                        <Link to="/home-furniture/products/">
+                        <Link to="/home-furniture/tv-units">
                           <img src={HomeFurnitureIcon8} alt="" />
                           TV Units
                         </Link>
                       </ListGroup.Item>
                       <ListGroup.Item>
-                        <Link to="/home-furniture/products/">
+                        <Link to="/home-furniture/shoe-racks">
                           <img src={HomeFurnitureIcon9} alt="" />
                           Shoe Racks
                         </Link>
                       </ListGroup.Item>
                       <ListGroup.Item>
-                        <Link to="/home-furniture/products/">
+                        <Link to="/home-furniture/pooja-mandapam">
                           <img src={HomeFurnitureIcon10} alt="" />
                           Pooja Mandapam
                         </Link>
@@ -106,19 +106,19 @@ const HomeTabs = () => {
                   <Tab eventKey="institfurniture" title="Institutional Furniture">
                   <ListGroup>
                       <ListGroup.Item>
-                        <Link to="/institutional-furniture/office-tables">
+                        <Link to="/institutional-furniture/for-offices">
                           <img src={InstitutionalIcon1} alt="" />
                           For Offices
                         </Link>
                       </ListGroup.Item>
                       <ListGroup.Item>
-                        <Link to="/institutional-furniture/office-tables">
+                        <Link to="/institutional-furniture/for-schools">
                           <img src={InstitutionalIcon2} alt="" />
                           For Schools
                         </Link>
                       </ListGroup.Item>
                       <ListGroup.Item>
-                        <Link to="/institutional-furniture/office-tables">
+                        <Link to="/institutional-furniture/for-labs-and-hospitals">
                           <img src={InstitutionalIcon3} alt="" />
                           For Labs & Hospitals
                         </Link>
