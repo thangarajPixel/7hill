@@ -5,13 +5,14 @@ import WorkstationsBanner from '../../../../assets/images/workstations-banner.jp
 import ProductListingContentWorkstation from '../../components/productListingContentWorkstation';
 import ProductListingWorkstation from '../../components/productListingWorkstation';
 import OtherProductsScroll from '../../components/otherProductScroll';
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const InstitutionalProducts = () => {
 
     return (
         <>
           <Header />
-          <img src={WorkstationsBanner} alt="" className="img-fluid w-100" />
+          <LazyLoadImage src={WorkstationsBanner} alt="" className="img-fluid w-100" />
           <ProductListingContentWorkstation />
           <ProductListingWorkstation />
           <OtherProductsScroll />

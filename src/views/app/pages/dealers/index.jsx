@@ -5,13 +5,14 @@ import AboutBanner from '../../../../assets/images/about-banner.jpg';
 import DealersSection from '../../components/dealersContent';
 import DealersForm from '../../components/dealersForm';
 import DealerIcons from '../../components/dealerIcons';
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const Dealers = () => {
 
     return (
         <>
           <Header />
-          <img src={AboutBanner} alt="" className="img-fluid w-100" />
+          <LazyLoadImage src={AboutBanner} alt="" className="img-fluid w-100" />
           <DealersSection />
           <DealersForm />
           <DealerIcons />

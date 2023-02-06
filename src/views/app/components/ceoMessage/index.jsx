@@ -3,6 +3,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import CeoImage from '../../../../assets/images/home-vision-image.jpg';
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const CeoMessage = () => {
 
@@ -12,7 +13,7 @@ const CeoMessage = () => {
             <Container>
               <Row>
               <Col xs={12} sm={12} md={5} lg={5} xl={4}>
-                <img src={CeoImage} alt="" className="img-fluid mar-bot-30" />
+                <LazyLoadImage src={CeoImage} alt="" className="img-fluid mar-bot-30" />
               </Col>
               <Col xs={12} sm={12} md={7} lg={7} xl={8}>
                 <h1 className="heading2 mar-bot-20">CEO Message</h1>

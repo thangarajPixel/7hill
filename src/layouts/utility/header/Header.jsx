@@ -158,22 +158,26 @@ const Header = () => {
                             ))}
                           </Col>
                           {category?.map((product, i) => {
-                            if(i === 0 || i === 1 ) {
-                              return <Col xs={12} sm={12} md={12} lg={3} key={i}>
-                              <div className="furniture-menu">
-                                <img
-                                  src={product.image}
-                                  alt=""
-                                  className="img-fluid h-22-rem"
-                                />
-                                <div className="furniture-menu-hover">
-                                  {product.title}
-                                  <Link to={`/${product.slug}`}>
-                                    View Collections
-                                  </Link>
-                                </div>
-                              </div>
-                            </Col>
+                            if (i === 0 || i === 1) {
+                              return (
+                                <Col xs={12} sm={12} md={12} lg={3} key={i}>
+                                  <div className="furniture-menu">
+                                    <img
+                                      src={product.image}
+                                      alt=""
+                                      className="img-fluid h-22-rem"
+                                    />
+                                    <div className="furniture-menu-hover">
+                                      {product.title}
+                                      <Link to={`/${product.slug}`}>
+                                        View Collections
+                                      </Link>
+                                    </div>
+                                  </div>
+                                </Col>
+                              );
+                            } else {
+                              return <></>;
                             }
                           })}
                         </Row>

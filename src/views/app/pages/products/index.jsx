@@ -5,13 +5,14 @@ import ProductListingBanner from '../../../../assets/images/product-listing-bann
 import ProductListingContent from '../../components/productListingContent';
 import ProductListing from '../../components/productListing';
 import OtherProductsScroll from '../../components/otherProductScroll';
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const Products = () => {
 
     return (
         <>
           <Header />
-          <img src={ProductListingBanner} alt="" className="img-fluid w-100" />
+          <LazyLoadImage src={ProductListingBanner} alt="" className="img-fluid w-100" />
           <ProductListingContent />
           <ProductListing />
           <OtherProductsScroll />
