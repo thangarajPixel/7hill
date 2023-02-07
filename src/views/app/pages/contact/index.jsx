@@ -10,7 +10,7 @@ const ContactUs = () => {
   return (
     <>
       <Helmet>
-        <title>7Hill Furniture | Contact US</title>
+        <title>7Hill Furniture | Contact Us</title>
         <meta
           name="description"
           content="Home furniture, office furniture in Chennai in India"
