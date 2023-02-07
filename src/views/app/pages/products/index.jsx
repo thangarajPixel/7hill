@@ -27,7 +27,7 @@ const Products = () => {
   const getProducts = () => {
     return axios
       .get(
-        "http://192.168.0.56/7hillAdmin/public/api/get/products",
+        "https://www.pixel-studios.net/7hills-admin/public/api/get/products",
         requestOptions
       )
       .then((res) => {

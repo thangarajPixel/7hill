@@ -47,7 +47,7 @@ const Header = () => {
   const getCategory = () => {
     return axios
       .get(
-        "http://192.168.0.56/7hillAdmin/public/api/get/category",
+        "https://www.pixel-studios.net/7hills-admin/public/api/get/category",
         requestOptions
       )
       .then((res) => {
