@@ -15,12 +15,12 @@ const Products = () => {
     // eslint-disable-next-line
   }, []);
 
-  var formdata = new FormData();
-  formdata.append("category ", "bed");
+  // var formdata = new FormData();
+  // formdata.append("category ", "Bed");
 
   var requestOptions = {
     method: "POST",
-    body: formdata,
+    // body: formdata,
     redirect: "follow",
   };
 
@@ -31,7 +31,7 @@ const Products = () => {
         requestOptions
       )
       .then((res) => {
-        console.log(res.data);
+        console.log(res);
       })
       .catch((err) => console.error(err));
   };
