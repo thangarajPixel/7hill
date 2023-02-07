@@ -47,11 +47,11 @@ const Header = () => {
   const getCategory = () => {
     return axios
       .get(
-        "http://192.168.0.56/7hillAdmin/public/api/product-category",
+        "http://192.168.0.56/7hillAdmin/public/api/get/category",
         requestOptions
       )
       .then((res) => {
-        dispatch(productCategoryAction(res.data));
+        dispatch(productCategoryAction(res.data.data));
       })
       .catch((err) => console.error(err));
   };

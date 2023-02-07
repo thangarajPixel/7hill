@@ -19,7 +19,7 @@ const Products = () => {
   // formdata.append("category ", "Bed");
 
   var requestOptions = {
-    method: "POST",
+    method: "GET",
     // body: formdata,
     redirect: "follow",
   };
@@ -31,7 +31,7 @@ const Products = () => {
         requestOptions
       )
       .then((res) => {
-        console.log(res);
+        console.log(res.data.products);
       })
       .catch((err) => console.error(err));
   };
