@@ -16,10 +16,10 @@ const Products = () => {
   }, []);
 
   var formdata = new FormData();
-  formdata.append("category ", "Bed");
+  formdata.append("category ", "bed");
 
   var requestOptions = {
-    method: "GET",
+    method: "POST",
     body: formdata,
     redirect: "follow",
   };
