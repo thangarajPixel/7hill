@@ -34,8 +34,14 @@ function App() {
       <BrowserRouter>
         <Helmet>
           <title>7Hill Furniture</title>
-          <meta name="description" content="Home furniture, office furniture in Chennai in India" />
-          <meta name="keywords" content="Furniture, Home furniture, office furniture" />
+          <meta
+            name="description"
+            content="Home furniture, office furniture in Chennai in India"
+          />
+          <meta
+            name="keywords"
+            content="Furniture, Home furniture, office furniture"
+          />
         </Helmet>
         <Routes>
           <Route
@@ -48,8 +54,7 @@ function App() {
                   </>
                 }
               >
-                {" "}
-                <Home />{" "}
+                <Home />
               </Suspense>
             }
           />
@@ -63,8 +68,7 @@ function App() {
                   </>
                 }
               >
-                {" "}
-                <About />{" "}
+                <About />
               </Suspense>
             }
           />
@@ -78,8 +82,7 @@ function App() {
                   </>
                 }
               >
-                {" "}
-                <Dealers />{" "}
+                <Dealers />
               </Suspense>
             }
           />
@@ -93,8 +96,7 @@ function App() {
                   </>
                 }
               >
-                {" "}
-                <HomeFurniture />{" "}
+                <HomeFurniture />
               </Suspense>
             }
           />
@@ -108,8 +110,7 @@ function App() {
                   </>
                 }
               >
-                {" "}
-                <InstitutionalFurniture />{" "}
+                <InstitutionalFurniture />
               </Suspense>
             }
           />
@@ -123,8 +124,7 @@ function App() {
                   </>
                 }
               >
-                {" "}
-                <OfficeTables />{" "}
+                <OfficeTables />
               </Suspense>
             }
           />
@@ -138,8 +138,7 @@ function App() {
                   </>
                 }
               >
-                {" "}
-                <InstitutionalProducts />{" "}
+                <InstitutionalProducts />
               </Suspense>
             }
           />
@@ -153,8 +152,7 @@ function App() {
                   </>
                 }
               >
-                {" "}
-                <Products />{" "}
+                <Products />
               </Suspense>
             }
           />
@@ -168,8 +166,7 @@ function App() {
                   </>
                 }
               >
-                {" "}
-                <OurTeam />{" "}
+                <OurTeam />
               </Suspense>
             }
           />
@@ -183,8 +180,7 @@ function App() {
                   </>
                 }
               >
-                {" "}
-                <Infrastructure />{" "}
+                <Infrastructure />
               </Suspense>
             }
           />
@@ -198,8 +194,7 @@ function App() {
                   </>
                 }
               >
-                {" "}
-                <Careers />{" "}
+                <Careers />
               </Suspense>
             }
           />
@@ -213,8 +208,7 @@ function App() {
                   </>
                 }
               >
-                {" "}
-                <ContactUs />{" "}
+                <ContactUs />
               </Suspense>
             }
           />
@@ -228,8 +222,7 @@ function App() {
                   </>
                 }
               >
-                {" "}
-                <PrivacyPolicy />{" "}
+                <PrivacyPolicy />
               </Suspense>
             }
           />
@@ -243,8 +236,7 @@ function App() {
                   </>
                 }
               >
-                {" "}
-                <DiscriminationPolicy />{" "}
+                <DiscriminationPolicy />
               </Suspense>
             }
           />
@@ -258,8 +250,7 @@ function App() {
                   </>
                 }
               >
-                {" "}
-                <NotFoundPage />{" "}
+                <NotFoundPage />
               </Suspense>
             }
           />

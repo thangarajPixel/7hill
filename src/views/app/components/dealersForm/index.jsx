@@ -7,6 +7,7 @@ import Form from "react-bootstrap/Form";
 import { useForm } from "react-hook-form";
 import { ErrorMessage } from "@hookform/error-message";
 import { ContactResponse } from "../../helpers/FormResponse";
+import { API_URL } from "../../../../redux/constant/ApiRoute";
 
 const DealersForm = () => {
   const {
@@ -17,7 +18,6 @@ const DealersForm = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
     var formdata = new FormData();
     formdata.append("name", data.name);
     formdata.append("email", data.email);
@@ -32,7 +32,7 @@ const DealersForm = () => {
       redirect: "follow",
     };
 
-    fetch("http://192.168.0.56/7hillAdmin/public/api/dealers", requestOptions)
+    fetch(API_URL.DEALERS, requestOptions)
       .then((response) => response.text())
       .then((result) => {
         ContactResponse();
