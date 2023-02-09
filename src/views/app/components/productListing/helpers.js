@@ -1,7 +1,7 @@
 import { useState } from "react";
-import ProductDetailImage1 from "../../../../assets/images/product-details-image1.jpg";
-import ProductDetailImage2 from "../../../../assets/images/product-details-image2.jpg";
-import ProductDetailImage3 from "../../../../assets/images/product-details-image3.jpg";
+// import ProductDetailImage1 from "../../../../assets/images/product-details-image1.jpg";
+// import ProductDetailImage2 from "../../../../assets/images/product-details-image2.jpg";
+// import ProductDetailImage3 from "../../../../assets/images/product-details-image3.jpg";
 import Slider from "react-slick";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -23,6 +23,7 @@ function ProductEnquiryModal(props) {
   } = useForm();
 
   const onSubmit = (data) => {
+    console.log(data);
     var formdata = new FormData();
     formdata.append("name", data.name);
     formdata.append("email", data.email);
@@ -37,10 +38,7 @@ function ProductEnquiryModal(props) {
       redirect: "follow",
     };
 
-    fetch(
-      API_URL.PRODUCT_ENQUIRY,
-      requestOptions
-    )
+    fetch(API_URL.PRODUCT_ENQUIRY, requestOptions)
       .then((response) => response.text())
       .then((result) => {
         ProductEnquiryResponse();
@@ -154,7 +152,7 @@ function ProductEnquiryModal(props) {
                   <Form.Group className="mar-bot-30" controlId="product_id">
                     <Form.Control
                       type="text"
-                      value="Natural Finish Orchid Queen Bed - With Side Storage"
+                      defaultValue={props?.product?.product_name}
                       {...register("product_id")}
                       disabled
                     />
@@ -173,6 +171,7 @@ function ProductEnquiryModal(props) {
     </Modal>
   );
 }
+
 function ProductDetailsModal(props) {
   const [modalShow1, setModalShow1] = useState(false);
 
@@ -189,6 +188,7 @@ function ProductDetailsModal(props) {
   return (
     <>
       <ProductEnquiryModal
+        {...props}
         show={modalShow1}
         onHide={() => setModalShow1(false)}
       />
@@ -211,7 +211,17 @@ function ProductDetailsModal(props) {
                 className="product-detail-slider"
               >
                 <Slider {...settings}>
-                  <img
+                  {props.product?.gallery?.map((item, i) => {
+                    return (
+                      <img
+                        key={i}
+                        src={item}
+                        alt=""
+                        className="img-fluid w-100 h-25-rem"
+                      />
+                    );
+                  })}
+                  {/* <img
                     src={ProductDetailImage1}
                     alt=""
                     className="img-fluid w-100"
@@ -225,14 +235,12 @@ function ProductDetailsModal(props) {
                     src={ProductDetailImage3}
                     alt=""
                     className="img-fluid w-100"
-                  />
+                  /> */}
                 </Slider>
               </Col>
               <Col xs={12} sm={12} md={12} lg={6} xl={5}>
                 <div>
-                  <h3 className="heading3">
-                    Natural Finish Orchid Queen Bed - With Side Storage
-                  </h3>
+                  <h3 className="heading3">{props.product.product_name}</h3>
                   <h6 className="text-orange heading6 mb-0">Wood Type</h6>
                   <p>Premium Teak Wood</p>
                   <h6 className="text-orange heading6 mb-0">Bed Size</h6>

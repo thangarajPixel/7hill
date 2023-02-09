@@ -2,7 +2,7 @@ import React from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { BsArrowRight } from "react-icons/bs";
 // import Workstations from "../../../../assets/images/workstations.jpg";
 // import ExecutiveTables from "../../../../assets/images/executive-tables.jpg";
@@ -15,6 +15,7 @@ import { BsArrowRight } from "react-icons/bs";
 // import ComputerTables from "../../../../assets/images/computer-tables.jpg";
 
 const OfficeTablesLists = ({ product }) => {
+  const { inst_sub_furn } = useParams();
   return (
     <>
       <section className="orange-bg">
@@ -32,7 +33,7 @@ const OfficeTablesLists = ({ product }) => {
                 return (
                   <Col xs={12} sm={12} md={6} lg={4} xl={4} key={i}>
                     <Link
-                      to="/institutional-furniture/office-tables/products"
+                      to={`/institutional-furniture/${inst_sub_furn}/${item.product_url}`}
                       className="product-list"
                     >
                       <div className="blog-img">
@@ -44,7 +45,7 @@ const OfficeTablesLists = ({ product }) => {
                       </div>
                       <div className="product-list-content">
                         <h3>
-                          Workstations{" "}
+                          {item.product_name}
                           <span>
                             <BsArrowRight />
                           </span>

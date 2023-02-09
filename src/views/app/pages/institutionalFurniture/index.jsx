@@ -7,7 +7,6 @@ import InstitutionalFurnitureTabs from "../../components/institutionalFurnitureT
 import HomeCTA from "../../components/homeCTA";
 import HomeBlog from "../../components/homeBlog";
 import { useSelector } from "react-redux";
-import { LazyLoadImage } from "react-lazy-load-image-component";
 import { Helmet } from "react-helmet";
 
 const InstitutionalFurniture = () => {
@@ -36,7 +35,7 @@ const InstitutionalFurniture = () => {
         />
       </Helmet>
       <Header />
-      <LazyLoadImage
+      <img
         src={institutionalFurniture}
         alt=""
         className="img-fluid w-100 h-25-rem"

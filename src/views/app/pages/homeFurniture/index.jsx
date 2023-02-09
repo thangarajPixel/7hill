@@ -7,7 +7,6 @@ import HomeFurnitureLists from "../../components/homeFurnitureLists";
 import HomeCTA from "../../components/homeCTA";
 import HomeBlog from "../../components/homeBlog";
 import { useSelector } from "react-redux";
-import { LazyLoadImage } from "react-lazy-load-image-component";
 import { Helmet } from "react-helmet";
 
 const HomeFurniture = () => {
@@ -34,7 +33,7 @@ const HomeFurniture = () => {
         />
       </Helmet>
       <Header />
-      <LazyLoadImage
+      <img
         src={homeFurnitureImage}
         alt=""
         className="img-fluid w-100 h-25-rem"

@@ -135,11 +135,9 @@ const Header = () => {
                                   {product.childCategory?.map((item, i) => {
                                     return (
                                       <li key={i}>
-                                        <Link
-                                          to={`/${product.slug}/${item.slug}/`}
-                                        >
-                                          <strong>{item.title}</strong>
-                                        </Link>
+                                        
+                                          <strong style={{color:"black"}}>{item.title}</strong>
+                                     
                                         {item.category?.map((item, i) => {
                                           return (
                                             <Link

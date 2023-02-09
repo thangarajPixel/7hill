@@ -5,14 +5,12 @@ import Footer from "../../../../layouts/utility/footer/Footer";
 import ProductListingContent from "../../components/productListingContent";
 import ProductListing from "../../components/productListing";
 import OtherProductsScroll from "../../components/otherProductScroll";
-import { LazyLoadImage } from "react-lazy-load-image-component";
 import { Helmet } from "react-helmet";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import { API_URL } from "../../../../redux/constant/ApiRoute";
 
 const Products = () => {
-  const productURL =
-    "https://www.pixel-studios.net/7hills-admin/public/api/get/products";
   let { products } = useParams();
   const [product, setProduct] = useState("");
   const [productDetails, setProductDetails] = useState("");
@@ -25,7 +23,7 @@ const Products = () => {
 
   const getProducts = () => {
     return axios
-      .post(productURL, {
+      .post(API_URL.PRODUCTS, {
         category: { products },
       })
       .then((res) => {
@@ -37,7 +35,7 @@ const Products = () => {
   const getProductDetails = () => {
     return axios
       .get(
-        `https://www.pixel-studios.net/7hills-admin/public/api/get/subcategory/details/${products}`
+        `${API_URL.SUBCATEGORY_DETAILS}/${products}`
       )
       .then((res) => {
         setProductDetails(res.data.category);
@@ -59,7 +57,7 @@ const Products = () => {
         />
       </Helmet>
       <Header />
-      <LazyLoadImage
+      <img
         src={productDetails.image}
         alt=""
         className="img-fluid w-100 h-22-rem"

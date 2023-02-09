@@ -4,7 +4,6 @@ import Footer from "../../../../layouts/utility/footer/Footer";
 // import OfficeTablesBanner from "../../../../assets/images/office-tables-banner.jpg";
 import OfficeTablesContent from "../../components/officeTablesContent";
 import OfficeTablesLists from "../../components/officeTablesLists";
-import { LazyLoadImage } from "react-lazy-load-image-component";
 import { Helmet } from "react-helmet";
 import axios from "axios";
 import { useParams } from "react-router";
@@ -14,7 +13,7 @@ const OfficeTables = () => {
   const { inst_sub_furn } = useParams();
   const [product, setProduct] = useState("");
   const [productDetails, setProductDetails] = useState("");
-
+  
   useEffect(() => {
     getProducts();
     getProductDetails();
@@ -55,7 +54,7 @@ const OfficeTables = () => {
         />
       </Helmet>
       <Header />
-      <LazyLoadImage
+      <img
         src={productDetails.image}
         alt=""
         className="img-fluid w-100 h-22-rem"
