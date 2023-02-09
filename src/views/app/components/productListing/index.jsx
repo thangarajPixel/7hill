@@ -55,7 +55,7 @@ const ProductListing = ({ product }) => {
                 </small>
               </p>
               <Row className="justify-content-center">
-                {product &&
+                {product.length !== 0 ? (
                   product?.map((item, i) => {
                     return (
                       <Col xs={12} sm={6} md={6} lg={4} xl={4} key={i}>
@@ -83,7 +83,12 @@ const ProductListing = ({ product }) => {
                         </div>
                       </Col>
                     );
-                  })}
+                  })
+                ) : (
+                  <>
+                    <h2>No Products</h2>
+                  </>
+                )}
                 {/* <Col xs={12} sm={6} md={6} lg={4} xl={4}>
                   <div className="products-div">
                     <img
@@ -108,18 +113,20 @@ const ProductListing = ({ product }) => {
                     </div>
                   </div>
                 </Col> */}
-                <Col
-                  xs={12}
-                  sm={12}
-                  md={12}
-                  lg={12}
-                  xl={12}
-                  className="text-center"
-                >
-                  <Link to="/" className="enquire-btn load-more-btn">
-                    Load More
-                  </Link>
-                </Col>
+                {product.length > 10 && (
+                  <Col
+                    xs={12}
+                    sm={12}
+                    md={12}
+                    lg={12}
+                    xl={12}
+                    className="text-center"
+                  >
+                    <Link to="/" className="enquire-btn load-more-btn">
+                      Load More
+                    </Link>
+                  </Col>
+                )}
               </Row>
             </Col>
           </Row>

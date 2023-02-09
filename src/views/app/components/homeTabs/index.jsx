@@ -42,7 +42,7 @@ const HomeTabs = () => {
                   <Tab eventKey="homefurniture" title="Home Furniture">
                     <ListGroup>
                       <ListGroup.Item>
-                        <Link to="/home-furniture/Beds/">
+                        <Link to="/home-furniture/bed/">
                           <img src={HomeFurnitureIcon1} alt="" />
                           Beds
                         </Link>
