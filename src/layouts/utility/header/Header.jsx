@@ -12,6 +12,7 @@ import { FiPhone } from "react-icons/fi";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import productCategoryAction from "../../../redux/action";
+import { API_URL } from "../../../redux/constant/ApiRoute";
 
 const openInNewTab = (url) => {
   window.open(url, "_blank", "noopener,noreferrer");
@@ -47,11 +48,11 @@ const Header = () => {
   const getCategory = () => {
     return axios
       .get(
-        "https://www.pixel-studios.net/7hills-admin/public/api/get/category",
+        API_URL.CATEGORY,
         requestOptions
       )
       .then((res) => {
-        dispatch(productCategoryAction(res.data.data));
+        dispatch(productCategoryAction(res.data));
       })
       .catch((err) => console.error(err));
   };
@@ -121,7 +122,7 @@ const Header = () => {
                                   </Link>
                                 </h5>
                                 <ul className="mar-bot-20">
-                                  {product.parentCategory?.map((item, i) => {
+                                  {product.child?.map((item, i) => {
                                     return (
                                       <li key={i}>
                                         <Link
@@ -132,13 +133,11 @@ const Header = () => {
                                       </li>
                                     );
                                   })}
-                                  {product.childCategory?.map((item, i) => {
+                                  {product.child?.map((item, i) => {
                                     return (
                                       <li key={i}>
-                                        
-                                          <strong style={{color:"black"}}>{item.title}</strong>
-                                     
-                                        {item.category?.map((item, i) => {
+                                          <strong style={{color:"black"}}>{item.title}</strong>              
+                                        {item.child?.map((item, i) => {
                                           return (
                                             <Link
                                               to={`/institutional-furniture/${item.slug}`}

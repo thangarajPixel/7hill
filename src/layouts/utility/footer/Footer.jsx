@@ -32,13 +32,13 @@ const Footer = () => {
     let institutionalFurn = category?.filter(
       (item) => item.slug === "institutional-furniture"
     );
-    institutionalFurn &&
-      institutionalFurn.forEach((item) => {
-        setInstitutionalFurniture(item.childCategory);
-      });
     homeFurn &&
       homeFurn.forEach((item) => {
-        setHomeFurniture(item.parentCategory);
+        setHomeFurniture(item.child);
+      });
+    institutionalFurn &&
+      institutionalFurn.forEach((item) => {
+        setInstitutionalFurniture(item.child);
       });
   }, [category]);
 
@@ -124,11 +124,14 @@ const Footer = () => {
             <h5>Home Furniture</h5>
             <div className="footer-links home-furniture">
               {homeFurniture &&
-                homeFurniture?.map((item, i) => (
-                  <Link to={`/home-furniture/${item.slug}/`} key={i}>
-                    {item.name}
-                  </Link>
-                ))}
+                homeFurniture?.map((item, i) => {
+                  // console.log(item);
+                  return (
+                    <Link to={`/home-furniture/${item.slug}/`} key={i}>
+                      {item.name}
+                    </Link>
+                  );
+                })}
             </div>
           </Col>
 
@@ -137,19 +140,19 @@ const Footer = () => {
             <div className="footer-links">
               {institutionalFurniture &&
                 institutionalFurniture.map((item, i) => {
-                  return(
-                    item.category?.map((item, i) => {
-                      return (
-                        <Link
-                          to={`/institutional-furniture/${item.slug}`}
-                          key={i}
-                        >
-                          {item.name}
-                        </Link>
-                      );
-                    })
-                  )
+                  return item.child?.map((item, i) => {
+                    return(
+                      <Link
+                        to={`/institutional-furniture/${item.slug}`}
+                        key={i}
+                      >
+                        {item.name}
+                      </Link>
+                    )
+                  });
                 })}
+
+              {/*  */}
               {/* <Link to="/institutional-furniture/office-tables" >Office Tables</Link>
                   <Link to="/institutional-furniture/office-tables" >Office Seating</Link>
                   <Link to="/institutional-furniture/office-tables" >Office Sofa</Link>

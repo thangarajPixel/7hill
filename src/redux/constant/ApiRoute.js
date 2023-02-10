@@ -3,7 +3,7 @@ export const API_URL = {
     DEALERS                             : `${process.env.REACT_APP_BASE_URL}/dealers`,
     CAREER                              : `${process.env.REACT_APP_BASE_URL}/career`,
     CONTACT_US                          : `${process.env.REACT_APP_BASE_URL}/contact-us`,
-    CATEGORY                            : `${process.env.REACT_APP_BASE_URL}/get/category`,
+    CATEGORY                            : `${process.env.REACT_APP_BASE_URL}/get/allMenu`,
     PRODUCTS                            : `${process.env.REACT_APP_BASE_URL}/get/products`,
     PRODUCTS_BY_SLUG                    : `${process.env.REACT_APP_BASE_URL}/get/products/by/slug`,
     SUBCATEGORY_DETAILS                 : `${process.env.REACT_APP_BASE_URL}/get/subcategory/details`

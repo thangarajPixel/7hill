@@ -24,7 +24,7 @@ const ProductListing = ({ product }) => {
       .get(`${API_URL.PRODUCTS_BY_SLUG}/${product[0]?.product_url}`)
       .then((res) => {
         setProductDetails(res.data);
-        // console.log(res.data);
+        console.log(res.data);
       })
       .catch((err) => console.error(err));
   };
