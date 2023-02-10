@@ -151,13 +151,6 @@ const Footer = () => {
                     )
                   });
                 })}
-
-              {/*  */}
-              {/* <Link to="/institutional-furniture/office-tables" >Office Tables</Link>
-                  <Link to="/institutional-furniture/office-tables" >Office Seating</Link>
-                  <Link to="/institutional-furniture/office-tables" >Office Sofa</Link>
-                  <Link to="/institutional-furniture/office-tables" >School Furniture</Link>
-                  <Link to="/institutional-furniture/office-tables" >Lab & Hospital Furniture</Link> */}
             </div>
           </Col>
         </Row>
