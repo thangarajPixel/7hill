@@ -137,7 +137,6 @@ const Footer = () => {
             <div className="footer-links">
               {institutionalFurniture &&
                 institutionalFurniture.map((item, i) => {
-                  console.log(item.category);
                   return(
                     item.category?.map((item, i) => {
                       return (

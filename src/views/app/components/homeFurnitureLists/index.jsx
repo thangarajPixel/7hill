@@ -47,7 +47,7 @@ const HomeFurnitureLists = () => {
                       <LazyLoadImage
                         src={product.image}
                         alt=""
-                        className="img-fluid w-100"
+                        className="img-fluid w-100 h-15-rem"
                       />
                     </div>
                     <div className="product-list-content">

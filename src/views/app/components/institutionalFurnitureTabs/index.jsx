@@ -67,7 +67,7 @@ const InstitutionalFurnitureTabs = () => {
                               <img
                                 src={item.image}
                                 alt=""
-                                className="img-fluid w-100"
+                                className="img-fluid w-100 h-15-rem"
                               />
                             </div>
                             <div className="product-list-content">
@@ -96,7 +96,7 @@ const InstitutionalFurnitureTabs = () => {
                           <img
                             src={item.image}
                             alt=""
-                            className="img-fluid w-100"
+                            className="img-fluid w-100 h-15-rem"
                           />
                         </div>
                         <div className="product-list-content">
@@ -125,7 +125,7 @@ const InstitutionalFurnitureTabs = () => {
                           <img
                             src={item.image}
                             alt=""
-                            className="img-fluid w-100"
+                            className="img-fluid w-100 h-15-rem"
                           />
                         </div>
                         <div className="product-list-content">

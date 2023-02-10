@@ -23,7 +23,7 @@ function ProductEnquiryModal(props) {
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
+    // console.log(data);
     var formdata = new FormData();
     formdata.append("name", data.name);
     formdata.append("email", data.email);

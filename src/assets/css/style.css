@@ -1757,6 +1757,9 @@ section.contact-map iframe{
 .capitalize {
     text-transform: capitalize;
 }
+.h-15-rem{
+    height: 15rem;
+}
 .h-22-rem{
     height: 22rem;
 }
