@@ -5,7 +5,6 @@ import Footer from "../../../../layouts/utility/footer/Footer";
 import InstitutionalFurnitureContent from "../../components/institutionalFurnitureContent";
 import InstitutionalFurnitureTabs from "../../components/institutionalFurnitureTabs";
 import HomeCTA from "../../components/homeCTA";
-import HomeBlog from "../../components/homeBlog";
 import { useSelector } from "react-redux";
 import { Helmet } from "react-helmet";
 
@@ -43,7 +42,6 @@ const InstitutionalFurniture = () => {
       <InstitutionalFurnitureContent />
       <InstitutionalFurnitureTabs />
       <HomeCTA />
-      <HomeBlog />
       <Footer />
     </>
   );

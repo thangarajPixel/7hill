@@ -5,7 +5,6 @@ import Footer from "../../../../layouts/utility/footer/Footer";
 import HomeFurnitureContent from "../../components/homeFurnitureContent";
 import HomeFurnitureLists from "../../components/homeFurnitureLists";
 import HomeCTA from "../../components/homeCTA";
-import HomeBlog from "../../components/homeBlog";
 import { useSelector } from "react-redux";
 import { Helmet } from "react-helmet";
 
@@ -41,7 +40,6 @@ const HomeFurniture = () => {
       <HomeFurnitureContent />
       <HomeFurnitureLists />
       <HomeCTA />
-      <HomeBlog />
       <Footer />
     </>
   );
