@@ -19,8 +19,10 @@ const HomeVision = () => {
               <img src={HomeVisionImage} alt="" className="img-fluid" />
             </Col>
             <Col xs={12} sm={12} md={12} lg={6} xl={7}>
-              <h2 className="heading2 mar-bot-20">The Man. The Idea. The Vision</h2>
-              <p className=" mar-bot-20">Shri. Rajendran Elumalai, is a pioneer in manufacturing of wooden furniture and other wooden products who has elevated wooden craftsmanship to a whole new level with his vast experience, able guidance and inspiring leadership. A veteran in furniture manufacturing, he is known for his experience and tactful consulting for set up of furniture manufacturing facilities and is an encyclopedia of everything from planning, products, technology and management of furniture manufacturing. Shri. Rajendran Elumalai has international experience working extensively with reputed plant, machinery, tools, equipment and furniture manufacturers across Europe, Taiwan, China.</p>
+              <h2 className="heading2 mar-bot-20">The Man. The Idea. The Vision.</h2>
+              <p className=" mar-bot-20">One of the leading names in the furniture industry, Shri. Rajendran Elumalai, pioneer in manufacturing of wooden furniture and other wooden products, has time and again elevated wooden craftsmanship to a whole new level with his vast experience, able guidance and inspiring leadership. </p>
+              <p className=" mar-bot-20">A veteran in furniture manufacturing, E. Rajendran  is known for his experience and tactful consulting for setting up furniture manufacturing facilities and is an encyclopedia of everything from planning, products, technology and management of furniture manufacturing.</p>
+              <p className=" mar-bot-20">Mr. Rajendran has a strong conviction about Teakwood, which he believes is not only a durable raw material, but also something that creates strong family values. Apart from having a good resale value, Rajendran believes that Teakwood’s legacy is one that can be passed down across generations.</p>
               <Link to="/our-team" className="orange-btn">Know More <BsArrowRight /></Link>
             </Col>
             </Row>

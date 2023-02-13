@@ -7,12 +7,11 @@ import { Link } from "react-router-dom";
 import "./style.css";
 import { FiPhone } from "react-icons/fi";
 import { RiMapPinLine } from "react-icons/ri";
-import { BsArrowUp } from "react-icons/bs";
 import { TfiEmail } from "react-icons/tfi";
 import { AiOutlineInstagram } from "react-icons/ai";
-import { RiLinkedinFill } from "react-icons/ri";
-import { RiTwitterFill } from "react-icons/ri";
+import { RiLinkedinFill, RiFacebookFill, RiTwitterFill, RiYoutubeFill } from 'react-icons/ri';
 import ListGroup from "react-bootstrap/ListGroup";
+import WhatsappIcon from '../../../assets/images/whatsapp-icon.png';
 import { useSelector } from "react-redux";
 
 const openInNewTab = (url) => {
@@ -24,6 +23,11 @@ const getCurrentYear = () => {
 };
 
 const Footer = () => {
+
+  const location = useLocation();
+  const { pathname } = location;
+  const splitLocation = pathname.split("/");
+
   const category = useSelector((state) => state.category);
   const [homeFurniture, setHomeFurniture] = useState("");
   const [institutionalFurniture, setInstitutionalFurniture] = useState("");
@@ -81,43 +85,43 @@ const Footer = () => {
               </Link>
             </p>
             <ListGroup>
-              <ListGroup.Item>
-                <Link
-                  rel="noopener noreferrer"
-                  onClick={() => openInNewTab("/")}
-                >
-                  <AiOutlineInstagram />
-                </Link>
-              </ListGroup.Item>
-              <ListGroup.Item>
-                <Link
-                  rel="noopener noreferrer"
-                  onClick={() => openInNewTab("/")}
-                >
-                  <RiLinkedinFill />
-                </Link>
-              </ListGroup.Item>
-              <ListGroup.Item>
-                <Link
-                  rel="noopener noreferrer"
-                  onClick={() => openInNewTab("/")}
-                >
-                  <RiTwitterFill />
-                </Link>
-              </ListGroup.Item>
-            </ListGroup>
+                      <ListGroup.Item>
+                        <Link rel="noopener noreferrer" onClick={() => openInNewTab('https://www.instagram.com/7hillfurniturerefurbishing/')} >
+                          <AiOutlineInstagram />
+                        </Link>
+                      </ListGroup.Item>
+                      <ListGroup.Item>
+                        <Link rel="noopener noreferrer" onClick={() => openInNewTab('https://www.linkedin.com/company/7hill-refurbishing%20/')} >
+                          <RiLinkedinFill />
+                        </Link>
+                      </ListGroup.Item>
+                      <ListGroup.Item>
+                        <Link rel="noopener noreferrer" onClick={() => openInNewTab('https://twitter.com/7hillR')} >
+                          <RiTwitterFill />
+                        </Link>
+                      </ListGroup.Item>
+                      <ListGroup.Item>
+                        <Link rel="noopener noreferrer" onClick={() => openInNewTab('https://www.facebook.com/7hillfurniturerefurbishing/')} >
+                          <RiFacebookFill />
+                        </Link>
+                      </ListGroup.Item>
+                      <ListGroup.Item>
+                        <Link rel="noopener noreferrer" onClick={() => openInNewTab('https://www.youtube.com/@7hillfurniturerefurbishing998')} >
+                          <RiYoutubeFill />
+                        </Link>
+                      </ListGroup.Item>
+                </ListGroup>
           </Col>
           <Col xs={12} sm={12} md={6} lg={2} xl={2}>
             <h5>Quick Links</h5>
             <div className="footer-links">
-              <Link to="/">Home</Link>
-              <Link to="/home-furniture">Products</Link>
-              <Link to="/about">About Us</Link>
-              <Link to="/dealers">Dealers</Link>
-              <Link to="/infrastructure">Infrastructure</Link>
-              <Link to="/">Blog</Link>
-              <Link to="/careers">Careers</Link>
-              <Link to="/contact">Contact Us</Link>
+              <Link className={splitLocation[1] === "" ? "active" : ""} to="/" >Home</Link>
+              <Link className={splitLocation[1] === "home-furniture" ? "active" : ""} to="/home-furniture" >Products</Link>
+              <Link className={splitLocation[1] === "about" ? "active" : ""} to="/about" >About Us</Link>
+              <Link className={splitLocation[1] === "dealers" ? "active" : ""} to="/dealers" >Dealers</Link>
+              <Link className={splitLocation[1] === "infrastructure" ? "active" : ""} to="/infrastructure" >Infrastructure</Link>
+              <Link className={splitLocation[1] === "careers" ? "active" : ""} to="/careers" >Careers</Link>
+              <Link className={splitLocation[1] === "contact" ? "active" : ""} to="/contact" >Contact Us</Link>
             </div>
           </Col>
           <Col xs={12} sm={12} md={6} lg={4} xl={4}>
@@ -169,16 +173,16 @@ const Footer = () => {
           </Col>
           <Col xs={12} sm={12} md={12} lg={6} xl={6}>
             <p className="footer-bottom-text2">
-              <Link to="/privacy-policy">Privacy Policy</Link>
-              <Link to="/discrimination-policy">Discrimination Policy</Link>
+            <Link className={splitLocation[1] === "privacy-policy" ? "active" : ""} to="/privacy-policy" >Privacy Policy</Link>
+                  <Link className={splitLocation[1] === "discrimination-policy" ? "active" : ""} to="/discrimination-policy" >Discrimination Policy</Link>
             </p>
           </Col>
         </Row>
       </Container>
       {/* eslint-disable-next-line */}
-      <a href="#" className="back-to-top">
-        <BsArrowUp />
-      </a>
+      <Link rel="noopener noreferrer" className="whatsapp-btn" onClick={() => openInNewTab('https://api.whatsapp.com/send?phone=919840896388')} >
+          <img src={WhatsappIcon} alt="" />
+        </Link>
     </footer>
   );
 };

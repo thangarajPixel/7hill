@@ -14,7 +14,7 @@ const HomeVideo = () => {
                 <h2 className="heading2 text-white">Get a Virtual Tour of our State-of-the-art Factory</h2>
             </Col>
             <Col xs={12} sm={12} md={12} lg={6} xl={7}>
-                <a href="https://www.youtube.com/watch?v=ZLy4iTMwt04" data-fancybox className="video-play-button">
+                <a href="https://www.youtube.com/watch?v=7qgCdxTfy4Q" data-fancybox className="video-play-button">
                 <span></span>
                 </a>
             </Col>

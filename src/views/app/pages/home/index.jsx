@@ -8,7 +8,7 @@ import HomeTabs from "../../components/homeTabs";
 import HomeCTA from "../../components/homeCTA";
 import HomeVision from "../../components/homeVision";
 import HomeFurnish from "../../components/homeFurnish";
-import HomeBlog from "../../components/homeBlog";
+import HomeBrandPersonality from "../../components/homeBrandPersonality";
 import HomeVideo from "../../components/homeVideo";
 import HomeTestimonials from "../../components/homeTestimonials";
 import { Helmet } from "react-helmet";
@@ -35,7 +35,7 @@ const Home = () => {
       <HomeCTA />
       <HomeVision />
       <HomeFurnish />
-      <HomeBlog />
+      <HomeBrandPersonality />
       <HomeVideo />
       <HomeTestimonials />
       <Footer />

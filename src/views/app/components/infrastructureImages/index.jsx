@@ -10,7 +10,6 @@ import InfrastructureImage5 from '../../../../assets/images/infrastructure-image
 import InfrastructureImage6 from '../../../../assets/images/infrastructure-image6.jpg';
 import InfrastructureImage7 from '../../../../assets/images/infrastructure-image7.jpg';
 import InfrastructureImage8 from '../../../../assets/images/infrastructure-image8.jpg';
-import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const InfrastructureImages = () => {
 
@@ -26,49 +25,65 @@ const InfrastructureImages = () => {
               <Row className="justify-content-center">
                 <Col xs={12} sm={6} md={6} lg={4} xl={3}>
                     <a href={InfrastructureImage1} data-fancybox>
-                        <LazyLoadImage src={InfrastructureImage1} alt="" className="img-fluid shadow1 w-100" />
+                        <div className="teams-image">
+                            <img src={InfrastructureImage1} alt="" className="img-fluid shadow1 w-100" />
+                        </div>
                         <h6 className="infrastructure-text">In house wood <br/>processing facility</h6>
                     </a>
                 </Col>
                 <Col xs={12} sm={6} md={6} lg={4} xl={3}>
                     <a href={InfrastructureImage2} data-fancybox>
-                        <LazyLoadImage src={InfrastructureImage2} alt="" className="img-fluid shadow1 w-100" />
+                        <div className="teams-image">
+                            <img src={InfrastructureImage2} alt="" className="img-fluid shadow1 w-100" />
+                        </div>
                         <h6 className="infrastructure-text">Saw mill <br/>plant</h6>
                     </a>
                 </Col>
                 <Col xs={12} sm={6} md={6} lg={4} xl={3}>
                     <a href={InfrastructureImage3} data-fancybox>
-                        <LazyLoadImage src={InfrastructureImage3} alt="" className="img-fluid shadow1 w-100" />
+                        <div className="teams-image">
+                            <img src={InfrastructureImage3} alt="" className="img-fluid shadow1 w-100" />
+                        </div>
                         <h6 className="infrastructure-text">in house panel <br/>processing facility</h6>
                     </a>
                 </Col>
                 <Col xs={12} sm={6} md={6} lg={4} xl={3}>
                     <a href={InfrastructureImage4} data-fancybox>
-                        <LazyLoadImage src={InfrastructureImage4} alt="" className="img-fluid shadow1 w-100" />
+                        <div className="teams-image">
+                            <img src={InfrastructureImage4} alt="" className="img-fluid shadow1 w-100" />
+                        </div>
                         <h6 className="infrastructure-text">in house metal product manufacturing facility</h6>
                     </a>
                 </Col>
                 <Col xs={12} sm={6} md={6} lg={4} xl={3}>
                     <a href={InfrastructureImage5} data-fancybox>
-                        <LazyLoadImage src={InfrastructureImage5} alt="" className="img-fluid shadow1 w-100" />
+                        <div className="teams-image">
+                            <img src={InfrastructureImage5} alt="" className="img-fluid shadow1 w-100" />
+                        </div>
                         <h6 className="infrastructure-text">in house SPM <br/>manufacturing facility</h6>
                     </a>
                 </Col>
                 <Col xs={12} sm={6} md={6} lg={4} xl={3}>
                     <a href={InfrastructureImage6} data-fancybox>
-                        <LazyLoadImage src={InfrastructureImage6} alt="" className="img-fluid shadow1 w-100" />
+                        <div className="teams-image">
+                            <img src={InfrastructureImage6} alt="" className="img-fluid shadow1 w-100" />
+                        </div>
                         <h6 className="infrastructure-text">in house <br/>tool room</h6>
                     </a>
                 </Col>
                 <Col xs={12} sm={6} md={6} lg={4} xl={3}>
                     <a href={InfrastructureImage7} data-fancybox>
-                        <LazyLoadImage src={InfrastructureImage7} alt="" className="img-fluid shadow1 w-100" />
+                        <div className="teams-image">
+                            <img src={InfrastructureImage7} alt="" className="img-fluid shadow1 w-100" />
+                        </div>
                         <h6 className="infrastructure-text">in house Power <br/>coating facility</h6>
                     </a>
                 </Col>                
                 <Col xs={12} sm={6} md={6} lg={4} xl={3}>
                     <a href={InfrastructureImage8} data-fancybox>
-                        <LazyLoadImage src={InfrastructureImage8} alt="" className="img-fluid shadow1 w-100" />
+                    <div className="teams-image">
+                        <img src={InfrastructureImage8} alt="" className="img-fluid shadow1 w-100" />
+                    </div>
                         <h6 className="infrastructure-text">in house solid wood <br/>furniture manufacturing</h6>
                     </a>
                 </Col>

@@ -28,4 +28,14 @@ const ProductEnquiryResponse = () => {
     allowOutsideClick: false,
   });
 };
-export { CareerResponse, ContactResponse, ProductEnquiryResponse };
+
+const DealersEnquiryResponse = () => {
+  return withReactContent(Swal).fire({
+    title: "Thanks for your interest",
+    html: <p className="m-0">Our team will get back to you shortly.</p>,
+    confirmButtonText: "Okay",
+    confirmButtonColor: "#ef7f1a",
+    allowOutsideClick: false,
+  });
+};
+export { CareerResponse, ContactResponse, ProductEnquiryResponse, DealersEnquiryResponse };

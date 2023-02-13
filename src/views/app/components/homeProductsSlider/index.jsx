@@ -10,32 +10,28 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 const HomeProductsSlider = () => {
   var settings = {
     autoplay: true,
-    autoplaySpeed: 3000,
-    arrows: false,
-    centerMode: true,
-    centerPadding: "100px",
-    slidesToShow: 3,
-    dots: true,
-    swipe: true,
-    slidesToScroll: 1,
-    responsive: [
-      {
-        breakpoint: 1300,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-          centerMode: false,
+      autoplaySpeed: 3000,
+      arrows: false,
+      centerMode: true,
+      centerPadding: '300px',
+      slidesToShow: 1,
+      dots: true,
+      swipe: true,
+      slidesToScroll: 1,
+      responsive: [
+        {
+          breakpoint: 1300,
+          settings: {
+            centerPadding: '100px',
+          },
         },
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          centerMode: false,
+        {
+          breakpoint: 600,
+          settings: {
+            centerPadding: '0px',
+          },
         },
-      },
-    ],
+      ],
   };
 
   return (

@@ -16,8 +16,10 @@ const HomeCounters = () => {
           <Container>
             <Row className="justify-content-center">
             <Col xs={12} sm={12} md={10} lg={7}>
-              <h2 className="heading2 mar-bot-30 text-center">Timeless, Trust-worthy & Top Notch Finish</h2>
-              <p className="text-center text-gray">To offer a qualitative product range with memorable products, great customer service, offering eco-friendly values, nurturing social values across multiple generations while developing.</p>
+              <h2 className="heading2 mar-bot-30 text-center">Timelessness, Trust-worthiness & <br/>Top Notch Finish</h2>
+              <p className="text-center text-gray">Three things define 7Hill Furniture. It is truly the one-stop destination for wooden masterpieces that come with a 7-year warranty and meet every expectation of yours, for many generations to come.</p>
+              <p className="text-center text-gray">Every piece of furniture is an exquisite work of art carved out of teak, rosewood or other rarest and highly expensive quality of wood, based on their age and pedigree. </p>
+              <p className="text-center text-gray">7Hill Furniture is built on eco-friendly values with good attention to detail and great emphasis on customer service. </p>
             </Col>
             </Row>
             <Row>

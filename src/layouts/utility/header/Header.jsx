@@ -1,11 +1,9 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Logo from "../../../assets/images/logo.png";
-// import HomeFurniture from "../../../assets/images/menu-home-furniture.jpg";
-// import HomeInstitutionalFurniture from "../../../assets/images/menu-institutional-furniture.jpg";
 import "./style.css";
 import { TfiEmail } from "react-icons/tfi";
 import { FiPhone } from "react-icons/fi";
@@ -23,6 +21,10 @@ const Header = () => {
   const [isActive, setActive] = useState("false");
   const [isActive1, setActive1] = useState("false");
   const [isActive2, setActive2] = useState("false");
+
+  const location = useLocation();
+  const { pathname } = location;
+  const splitLocation = pathname.split("/");
 
   const category = useSelector((state) => state.category);
 
@@ -97,7 +99,7 @@ const Header = () => {
                   onClick={ToggleClass}
                 ></div>
                 <ul className={isActive ? "main-nav" : "open main-nav"}>
-                  <li className="active">
+                  <li className={splitLocation[1] === "" ? "active" : ""}>
                     <Link to="/">Home</Link>
                   </li>
                   <li className="has-sub">
@@ -181,38 +183,27 @@ const Header = () => {
                       </Container>
                     </ul>
                   </li>
-                  <li className="has-sub single">
-                    <span
-                      className={
-                        isActive2
-                          ? "submenu-button"
-                          : "submenu-opened submenu-button"
-                      }
-                      onClick={ToggleClass2}
-                    ></span>
+                  <li className={splitLocation[1] === "about" || splitLocation[1] === "our-team"? "active has-sub single" : "has-sub single"}><span className={isActive2 ? "submenu-button" : "submenu-opened submenu-button"} onClick={ToggleClass2}></span>
                     <Link to="/about">About Us</Link>
                     <ul className={isActive2 ? "closeed" : "open"}>
-                      <li>
+                      <li className={splitLocation[1] === "about" ? "active" : ""}>
                         <Link to="/about">Company Overview</Link>
                       </li>
-                      <li>
+                      <li className={splitLocation[1] === "our-team" ? "active" : ""}>
                         <Link to="/our-team">Our Team</Link>
                       </li>
                     </ul>
                   </li>
-                  <li>
+                  <li className={splitLocation[1] === "dealers" ? "active" : ""}>
                     <Link to="/dealers">Dealers</Link>
                   </li>
-                  <li>
+                  <li className={splitLocation[1] === "infrastructure" ? "active" : ""}>
                     <Link to="/infrastructure">Infrastructure</Link>
                   </li>
-                  <li>
-                    <Link to="/">Blog</Link>
-                  </li>
-                  <li>
+                  <li className={splitLocation[1] === "careers" ? "active" : ""}>
                     <Link to="/careers">Careers</Link>
                   </li>
-                  <li>
+                  <li className={splitLocation[1] === "contact" ? "active" : ""}>
                     <Link to="/contact">Contact Us</Link>
                   </li>
                 </ul>

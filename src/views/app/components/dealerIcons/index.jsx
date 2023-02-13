@@ -18,7 +18,7 @@ const DealerIcons = () => {
           <Container>
             <Row className="justify-content-center">
             <Col xs={12} sm={12} md={12} lg={8} xl={6}>
-              <h2 className="heading2 mar-bot-30 text-center">Why you should become a Dealer & Distributor for Hevea?</h2>
+              <h2 className="heading2 mar-bot-30 text-center">Why you should become a Dealer & Distributor for 7Hill Furniture?</h2>
             </Col>
             </Row>
             <Row>
@@ -26,15 +26,15 @@ const DealerIcons = () => {
                 <ListGroup className="dealer-icon-list">
                     <ListGroup.Item>
                         <img src={DealerIcon1} alt="" />
-                        <p>South India’s largest solid wood <br/>furniture manufacturer</p>
+                        <p>South India’s largest solid wood, metal, and panel furniture manufacturer</p>
                     </ListGroup.Item>
                     <ListGroup.Item>
                         <img src={DealerIcon2} alt="" />
-                        <p>Own manufacturing plant equipped with state-of-the-art machinery from Germany & Italy</p>
+                        <p>World class manufacturing facilities equipped with state-of-the-art machinery from Germany and Italy</p>
                     </ListGroup.Item>
                     <ListGroup.Item>
                         <img src={DealerIcon3} alt="" />
-                        <p>In-house design & development team that attracts all range of customers.</p>
+                        <p>In-house design & development team that attracts all range of customers</p>
                     </ListGroup.Item>
                     <ListGroup.Item>
                         <img src={DealerIcon4} alt="" />
@@ -46,7 +46,7 @@ const DealerIcons = () => {
                     </ListGroup.Item>
                     <ListGroup.Item>
                         <img src={DealerIcon6} alt="" />
-                        <p>World class manufacturing <br/>facilities</p>
+                        <p>Budding teakwood furniture brand ensuring durability & Long Lasting life</p>
                     </ListGroup.Item>
                 </ListGroup>
               </Col>

@@ -1,5 +1,5 @@
 footer{
-    background: url(/src/assets/images/footer-bg.jpg) center center no-repeat var(--color-black);
+    background: url(/src/assets/images/footer-bg.webp) center center no-repeat var(--color-black);
     background-size: cover;
     position: relative;
 } 
@@ -108,36 +108,36 @@ footer .footer-links.home-furniture a{
     width: 50%;
 }
 
-footer .footer-links a:hover{
+footer .footer-links a:hover, footer .footer-links a.active{
     padding: 7px 0px 7px 15px;
     color: var(--color-orange);
 }
 
-footer .footer-links a:before{
+footer .footer-links a:before, footer .footer-links a.active:before{
     position: absolute;
     width: 7px;
     height: 1px;
     left: -10px;
-    top: 13px;
+    top: 14px;
     content: "";
     transform: rotate(45deg);
     background: transparent;
     transition: all 0.3s ease;
 }
 
-footer .footer-links a:after{
+footer .footer-links a:after, footer .footer-links a.active:after{
     position: absolute;
     width: 7px;
     height: 1px;
     left: -10px;
-    top: 18px;
+    top: 19px;
     content: "";
     transform: rotate(-45deg);
     background: transparent;
     transition: all 0.3s ease;
 }
 
-footer .footer-links a:hover:before, footer .footer-links a:hover:after{
+footer .footer-links a:hover:before, footer .footer-links a:hover:after, footer .footer-links a.active:before, footer .footer-links a.active:after{
     left: 0px;
     background: var(--color-orange);
     transition: all 0.3s ease;
@@ -170,7 +170,7 @@ footer .footer-bottom .footer-bottom-text2 a{
     color: var(--color-white);
 }
 
-footer .footer-bottom .footer-bottom-text1 a:hover, footer .footer-bottom .footer-bottom-text2 a:hover{
+footer .footer-bottom .footer-bottom-text1 a:hover, footer .footer-bottom .footer-bottom-text2 a:hover, footer .footer-bottom .footer-bottom-text2 a.active{
     color: var(--color-orange);
 }
 

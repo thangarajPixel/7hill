@@ -4,7 +4,6 @@ import Form from "react-bootstrap/Form";
 import { useForm } from "react-hook-form";
 import { ErrorMessage } from "@hookform/error-message";
 import { CareerResponse } from "../../helpers/FormResponse";
-import { API_URL } from "../../../../redux/constant/ApiRoute";
 
 const CareersForm = () => {
   const {
@@ -15,7 +14,7 @@ const CareersForm = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data)
+    console.log(data);
     var formdata = new FormData();
     formdata.append("name", data.name);
     formdata.append("email", data.email);
@@ -29,7 +28,7 @@ const CareersForm = () => {
       redirect: "follow",
     };
 
-    fetch(API_URL.CAREER, requestOptions)
+    fetch("http://192.168.0.56/7hillAdmin/public/api/career", requestOptions)
       .then((response) => response.text())
       .then((result) => {
         CareerResponse();
@@ -41,13 +40,13 @@ const CareersForm = () => {
     <>
       <div className="pad-top-bot-100 px-5">
         <h1 className="heading2 mar-bot-20">Apply Now!</h1>
-        <Form onSubmit={handleSubmit(onSubmit)}>
-          <Form.Group className="mar-bot-30" controlId="name">
+        <Form onSubmit={handleSubmit(onSubmit)} className="career-form">
+          <Form.Group className="mar-bot-30 position-relative" controlId="name">
             <Form.Control
               type="text"
-              placeholder="Name"
+              placeholder="Name *"
               {...register("name", {
-                required: "This is required.",
+                required: "Enter your Name",
               })}
             />
             <ErrorMessage
@@ -58,12 +57,12 @@ const CareersForm = () => {
               )}
             />
           </Form.Group>
-          <Form.Group className="mar-bot-30" controlId="email">
+          <Form.Group className="mar-bot-30 position-relative" controlId="email">
             <Form.Control
               type="email"
-              placeholder="Email"
+              placeholder="Email *"
               {...register("email", {
-                required: "This is required.",
+                required: "Enter your Email ID",
                 pattern: {
                   value:
                     /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
@@ -79,12 +78,12 @@ const CareersForm = () => {
               )}
             />
           </Form.Group>
-          <Form.Group className="mar-bot-30" controlId="contactnumber">
+          <Form.Group className="mar-bot-30 position-relative" controlId="contactnumber">
             <Form.Control
               type="tel"
-              placeholder="Contact Number"
+              placeholder="Contact Number *"
               {...register("mobile", {
-                required: "This is required.",
+                required: "Enter your Contact Number",
                 pattern: {
                   value: /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/,
                   message: "Not a valid Phone Number",
@@ -99,13 +98,13 @@ const CareersForm = () => {
               )}
             />
           </Form.Group>
-          <Form.Group className="mar-bot-30" controlId="message">
+          <Form.Group className="mar-bot-30 position-relative" controlId="message">
             <Form.Control
               as="textarea"
               rows={3}
-              placeholder="Message"
+              placeholder="Cover Letter *"
               {...register("message", {
-                required: "This is required.",
+                required: "Enter your Message",
               })}
             />
             <ErrorMessage
@@ -116,12 +115,12 @@ const CareersForm = () => {
               )}
             />
           </Form.Group>
-          <Form.Group className="mar-bot-30" controlId="upload">
+          <Form.Group className="mar-bot-30 position-relative file" controlId="upload">
             <Form.Control
-              type="file"
+              type="file" accept="application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
               name="chooseFile"
               {...register("chooseFile", {
-                required: "This is required.",
+                required: "Choose File",
               })}
             />
             <ErrorMessage
@@ -130,8 +129,10 @@ const CareersForm = () => {
               render={({ message }) => (
                 <small className="text-danger ml-2">* {message}</small>
               )}
-            />
+            />            
+            <small style={{fontSize: "12px"}}>Acceptable file formats (.pdf, .docx &amp; .doc)</small>
           </Form.Group>
+          <p className="mandatory-fields text-right"><small className="text-danger">* Manditory Fields</small></p>
           <Button variant="primary" type="submit">
             Submit
           </Button>

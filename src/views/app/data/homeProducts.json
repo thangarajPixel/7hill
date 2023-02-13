@@ -1,32 +1,22 @@
 [
     {
-        "image": "../../images/home-collections-image1.jpg",
+        "image": "../../images/banners/home-collections-image4.webp",
         "heading": "Elegant Dining Room Furniture",
         "subHeading": "that inspires your senses."
     },
     {
-        "image": "../../images/home-collections-image2.jpg",
+        "image": "../../images/banners/home-collections-image2.webp",
         "heading": "Creative Workplace Furniture",
         "subHeading": "that elevates your spirit."
     },    
     {
-        "image": "../../images/home-collections-image3.jpg",
+        "image": "../../images/banners/home-collections-image1.webp",
         "heading": "Aesthetic Living Room Furniture",
         "subHeading": "that uplifts your mood."
     },
     {
-        "image": "../../images/home-collections-image1.jpg",
-        "heading": "Elegant Dining Room Furniture",
-        "subHeading": "that inspires your senses."
-    },
-    {
-        "image": "../../images/home-collections-image2.jpg",
-        "heading": "Creative Workplace Furniture",
-        "subHeading": "that elevates your spirit."
-    },    
-    {
-        "image": "../../images/home-collections-image3.jpg",
-        "heading": "Aesthetic Living Room Furniture",
-        "subHeading": "that uplifts your mood."
+        "image": "../../images/banners/home-collections-image3.webp",
+        "heading": "Customised Elegant Furniture",
+        "subHeading": "that reflects your taste."
     }
 ]

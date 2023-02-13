@@ -4,7 +4,6 @@ import Form from "react-bootstrap/Form";
 import { useForm } from "react-hook-form";
 import { ErrorMessage } from "@hookform/error-message";
 import { ContactResponse } from "../../helpers/FormResponse";
-import { API_URL } from "../../../../redux/constant/ApiRoute";
 // import { API_URL } from "../../constant/apiRoute";
 
 const ContactForm = () => {
@@ -16,6 +15,7 @@ const ContactForm = () => {
   } = useForm();
 
   const onSubmit = (data) => {
+    console.log(data);
     var formdata = new FormData();
     formdata.append("name", data.name);
     formdata.append("email", data.email);
@@ -29,7 +29,7 @@ const ContactForm = () => {
     };
 
     fetch(
-      API_URL.CONTACT_US,
+      "http://192.168.0.56/7hillAdmin/public/api/contact-us",
       requestOptions
     )
       .then((response) => response.text())
@@ -43,13 +43,13 @@ const ContactForm = () => {
     <>
       <div className="pad-top-bot-100 px-5">
         <h1 className="heading2 mar-bot-20">Contact Form</h1>
-        <Form onSubmit={handleSubmit(onSubmit)}>
-          <Form.Group className="mar-bot-30" controlId="name">
+        <Form onSubmit={handleSubmit(onSubmit)} className="career-form">
+          <Form.Group className="mar-bot-30 position-relative" controlId="name">
             <Form.Control
               type="text"
-              placeholder="Name"
+              placeholder="Name *"
               {...register("name", {
-                required: "This is required.",
+                required: "Enter your Name",
               })}
             />
             <ErrorMessage
@@ -60,12 +60,12 @@ const ContactForm = () => {
               )}
             />
           </Form.Group>
-          <Form.Group className="mar-bot-30" controlId="email">
+          <Form.Group className="mar-bot-30 position-relative" controlId="email">
             <Form.Control
               type="email"
-              placeholder="Email"
+              placeholder="Email *"
               {...register("email", {
-                required: "This is required.",
+                required: "Enter your Email ID",
                 pattern: {
                   value:
                     /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
@@ -81,12 +81,12 @@ const ContactForm = () => {
               )}
             />
           </Form.Group>
-          <Form.Group className="mar-bot-30" controlId="contactnumber">
+          <Form.Group className="mar-bot-30 position-relative" controlId="contactnumber">
             <Form.Control
               type="tel"
-              placeholder="Contact Number"
+              placeholder="Contact Number *"
               {...register("mobile", {
-                required: "This is required.",
+                required: "Enter your Mobile Number",
                 pattern: {
                   value: /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/,
                   message: "Not a valid Phone Number",
@@ -101,13 +101,13 @@ const ContactForm = () => {
               )}
             />
           </Form.Group>
-          <Form.Group className="mar-bot-30" controlId="message">
+          <Form.Group className="mar-bot-30 position-relative" controlId="message">
             <Form.Control
               as="textarea"
               rows={3}
-              placeholder="Message"
+              placeholder="Message *"
               {...register("message", {
-                required: "This is required.",
+                required: "Enter your Message",
               })}
             />
             <ErrorMessage
@@ -118,6 +118,7 @@ const ContactForm = () => {
               )}
             />
           </Form.Group>
+          <p className="mandatory-fields text-right"><small className="text-danger">* Manditory Fields</small></p>
           <Button variant="primary" type="submit">
             Submit
           </Button>
