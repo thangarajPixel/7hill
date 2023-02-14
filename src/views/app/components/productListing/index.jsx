@@ -20,7 +20,6 @@ const ProductListing = ({ product }) => {
       .get(`${API_URL.PRODUCTS_BY_SLUG}/${item}`)
       .then((res) => {
         setProductDetails(res.data);
-        // console.log(res.data);
       })
       .catch((err) => console.error(err));
   };
@@ -78,7 +77,7 @@ const ProductListing = ({ product }) => {
                             <Button
                               className="enquire-btn"
                               onClick={() => {
-                                getProductDetails(item.product_url);
+                                localStorage.setItem("product_name",item.product_name)
                                 setModalShow1(true);
                               }}
                             >

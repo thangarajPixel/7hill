@@ -68,10 +68,7 @@ const OtherProductsSlider = ({ otherProducts }) => {
                 {otherProducts &&
                   otherProducts.map((item, i) => {
                     return (
-                      <Link to={`/home-furniture/${item.slug}`} className="product-list" key={i}>
-                        {
-                            // console.log(item)
-                        }
+                      <Link to={`/${item.parent_slug}/${item.slug}`} className="product-list" key={i}>
                         <div className="blog-img">
                           <img
                             src={item.image ? NoImage : item.image}

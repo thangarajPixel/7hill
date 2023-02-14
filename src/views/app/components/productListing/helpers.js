@@ -15,7 +15,7 @@ import { ProductEnquiryResponse } from "../../helpers/FormResponse";
 import { API_URL } from "../../../../redux/constant/ApiRoute";
 
 function ProductEnquiryModal(props) {
-  // console.log(props.product);
+
   const {
     register,
     formState: { errors },
@@ -153,7 +153,7 @@ function ProductEnquiryModal(props) {
                   <Form.Group className="mar-bot-30" controlId="product_id">
                     <Form.Control
                       type="text"
-                      defaultValue={props?.product?.product_name}
+                      defaultValue={localStorage.getItem("product_name")}
                       {...register("product_id")}
                       disabled
                     />
