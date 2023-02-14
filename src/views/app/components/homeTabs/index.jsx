@@ -42,55 +42,55 @@ const HomeTabs = () => {
                   <Tab eventKey="homefurniture" title="Home Furniture">
                     <ListGroup>
                       <ListGroup.Item>
-                        <Link to="/home-furniture/bed/">
+                        <Link to="/home-furniture/beds-home-furniture">
                           <img src={HomeFurnitureIcon1} alt="" />
                           Beds
                         </Link>
                       </ListGroup.Item>
                       <ListGroup.Item>
-                        <Link to="/home-furniture/sofas-Armchairs">
+                        <Link to="/home-furniture/sofas-armchairs-home-furniture">
                           <img src={HomeFurnitureIcon2} alt="" />
                           Sofas & Armchairs
                         </Link>
                       </ListGroup.Item>
                       <ListGroup.Item>
-                        <Link to="/home-furniture/dining-tables">
+                        <Link to="/home-furniture/dining-tables-home-furniture">
                           <img src={HomeFurnitureIcon3} alt="" />
                           Dining Tables
                         </Link>
                       </ListGroup.Item>
                       <ListGroup.Item>
-                        <Link to="/home-furniture/dining-chairs">
+                        <Link to="/home-furniture/dining-chairs-home-furniture">
                           <img src={HomeFurnitureIcon4} alt="" />
                           Dining Chairs
                         </Link>
                       </ListGroup.Item>
                       <ListGroup.Item>
-                        <Link to="/home-furniture/side-table">
+                        <Link to="/home-furniture/side-table-home-furniture">
                           <img src={HomeFurnitureIcon5} alt="" />
                           Side Table
                         </Link>
                       </ListGroup.Item>
                       <ListGroup.Item>
-                        <Link to="/home-furniture/center-table">
+                        <Link to="/home-furniture/center-table-home-furniture">
                           <img src={HomeFurnitureIcon6} alt="" />
                           Center Table
                         </Link>
                       </ListGroup.Item>
                       <ListGroup.Item>
-                        <Link to="/home-furniture/cupboards">
+                        <Link to="/home-furniture/cupbords-home-furniture">
                           <img src={HomeFurnitureIcon7} alt="" />
                           Cupboards
                         </Link>
                       </ListGroup.Item>
                       <ListGroup.Item>
-                        <Link to="/home-furniture/tv-units">
+                        <Link to="/home-furniture/tv-unit-home-furniture">
                           <img src={HomeFurnitureIcon8} alt="" />
                           TV Units
                         </Link>
                       </ListGroup.Item>
                       <ListGroup.Item>
-                        <Link to="/home-furniture/shoe-racks">
+                        <Link to="/home-furniture/shoe-racks-home-furniture">
                           <img src={HomeFurnitureIcon9} alt="" />
                           Shoe Racks
                         </Link>

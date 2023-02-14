@@ -6,5 +6,5 @@ export const API_URL = {
     CATEGORY                            : `${process.env.REACT_APP_BASE_URL}/get/allMenu`,
     PRODUCTS                            : `${process.env.REACT_APP_BASE_URL}/get/products`,
     PRODUCTS_BY_SLUG                    : `${process.env.REACT_APP_BASE_URL}/get/products/by/slug`,
-    SUBCATEGORY_DETAILS                 : `${process.env.REACT_APP_BASE_URL}/get/subcategory/details`
+    OTHER_CATEGORY                      : `${process.env.REACT_APP_BASE_URL}/get/other/category`,
 }

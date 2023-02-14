@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -10,21 +10,17 @@ import axios from "axios";
 import { API_URL } from "../../../../redux/constant/ApiRoute";
 
 const ProductListing = ({ product }) => {
+  let products = product.products;
   const [modalShow, setModalShow] = useState(false);
   const [modalShow1, setModalShow1] = useState(false);
   const [productDetails, setProductDetails] = useState("");
 
-  useEffect(() => {
-    getProductDetails();
-    // eslint-disable-next-line
-  }, [product]);
-
-  const getProductDetails = () => {
+  const getProductDetails = (item) => {
     return axios
-      .get(`${API_URL.PRODUCTS_BY_SLUG}/${product[0]?.product_url}`)
+      .get(`${API_URL.PRODUCTS_BY_SLUG}/${item}`)
       .then((res) => {
         setProductDetails(res.data);
-        console.log(res.data);
+        // console.log(res.data);
       })
       .catch((err) => console.error(err));
   };
@@ -50,32 +46,41 @@ const ProductListing = ({ product }) => {
             <Col xs={12} sm={12} md={9} lg={9} xl={10}>
               <p>
                 <small className="text-light-gray">
-                  Showing {product.length ? product.length : "0"} -{" "}
-                  {product.length} Results out of {product.length} Results
+                  Showing {products && products.length ? products && "1" : "0"}{" "}
+                  - {products && products.length} Results out of{" "}
+                  {products && products.length} Results
                 </small>
               </p>
               <Row className="justify-content-center">
-                {product.length !== 0 ? (
-                  product?.map((item, i) => {
+                {products && products.length !== 0 ? (
+                  products &&
+                  products?.map((item, i) => {
                     return (
                       <Col xs={12} sm={6} md={6} lg={4} xl={4} key={i}>
+                        {/* {console.log(item)} */}
                         <div className="products-div">
                           <img
-                            src={item.image}
-                            alt={item.description}
+                            src={item.base_image}
+                            alt=""
                             className="img-fluid w-100"
                           />
                           <p>{item.product_name}</p>
                           <div className="products-buttons">
                             <Button
                               className="view-btn"
-                              onClick={() => setModalShow(true)}
+                              onClick={() => {
+                                getProductDetails(item.product_url);
+                                setModalShow(true);
+                              }}
                             >
                               View Details
                             </Button>
                             <Button
                               className="enquire-btn"
-                              onClick={() => setModalShow1(true)}
+                              onClick={() => {
+                                getProductDetails(item.product_url);
+                                setModalShow1(true);
+                              }}
                             >
                               Enquire Now
                             </Button>
@@ -113,7 +118,7 @@ const ProductListing = ({ product }) => {
                     </div>
                   </div>
                 </Col> */}
-                {product.length > 10 && (
+                {products && products.length > 10 && (
                   <Col
                     xs={12}
                     sm={12}

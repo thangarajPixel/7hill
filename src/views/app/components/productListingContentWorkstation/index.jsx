@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import { RiArrowRightSLine } from "react-icons/ri";
 
 const WorkstationContent = ({ product }) => {
+  // console.log(product);
   return (
     <>
       <section>
@@ -14,7 +15,7 @@ const WorkstationContent = ({ product }) => {
           <Row className="justify-content-center">
             <Col xs={12} sm={12} md={12} lg={10} xl={9}>
               <h1 className="heading2 mar-bot-20 text-center">
-                {product.product_name}
+                {product.name}
               </h1>
               <Breadcrumb>
                 <ul>
@@ -28,13 +29,13 @@ const WorkstationContent = ({ product }) => {
                   </li>
                   <li>
                     <Link to="/institutional-furniture/office-tables">
-                      {product.category_name}
+                      {product?.industrial && product?.industrial[0]?.title}
                     </Link>
                   </li>
                   <li>
                     <RiArrowRightSLine />
                   </li>
-                  <li>{product.product_name}</li>
+                  <li>{product.name}</li>
                 </ul>
               </Breadcrumb>
               {product.description && (

@@ -2,21 +2,36 @@ import React, { useEffect, useState } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { Link } from "react-router-dom";
 import { BsArrowRight } from "react-icons/bs";
 import { useSelector } from "react-redux";
-import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import { Link } from "react-router-dom";
+// import axios from "axios";
 
 const HomeFurnitureLists = () => {
+
   const category = useSelector((state) => state.category);
   const [homeFurniture, setHomeFurniture] = useState("");
   useEffect(() => {
     let homeFurn = category?.filter((item) => item.slug === "home-furniture");
     homeFurn &&
       homeFurn.forEach((item) => {
-        setHomeFurniture(item.parentCategory);
+        setHomeFurniture(item.child);
       });
   }, [category]);
+  // console.log(homeFurniture);
+  // const { product } = useParams();
+  // const getProductDetails = () => {
+  //   return axios
+  //     .post(`https://7hillfurniture.com/admin/public/api/get/other/category`, {
+  //       category: { product },
+  //     })
+  //     .then((res) => {
+  //       // setProductDetails(res.data);
+  //       console.log(res.data);
+  //     })
+  //     .catch((err) => console.error(err));
+  // };
   return (
     <>
       <section className="orange-bg">
@@ -32,7 +47,10 @@ const HomeFurnitureLists = () => {
             {homeFurniture &&
               homeFurniture?.map((product, i) => (
                 <Col xs={12} sm={12} md={6} lg={4} xl={4} key={i}>
-                  <Link to={`/home-furniture/${product.slug}/`} className="product-list">
+                  <Link
+                    to={`/home-furniture/${product.slug}/`}
+                    className="product-list"
+                  >
                     <div className="blog-img">
                       <LazyLoadImage
                         src={product.image}

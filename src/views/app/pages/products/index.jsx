@@ -13,36 +13,34 @@ import { API_URL } from "../../../../redux/constant/ApiRoute";
 const Products = () => {
   let { products } = useParams();
   const [product, setProduct] = useState("");
-  const [productDetails, setProductDetails] = useState("");
+  const [otherProducts, setOtherProducts] = useState("");
 
   useEffect(() => {
     getProducts();
-    getProductDetails();
+    getOtherCategory();
     // eslint-disable-next-line
   }, [products]);
 
   const getProducts = () => {
     return axios
-      .post(API_URL.PRODUCTS, {
+      .post(`${API_URL.PRODUCTS}/${products}`)
+      .then((res) => {
+        setProduct(res.data[0]);
+        // console.log(res.data[0]);
+      })
+      .catch((err) => console.error(err));
+  };
+  const getOtherCategory = () => {
+    return axios
+      .post(API_URL.OTHER_CATEGORY, {
         category: { products },
       })
       .then((res) => {
-        setProduct(res.data.products);
+        // console.log(res.data);
+        setOtherProducts(res.data);
       })
       .catch((err) => console.error(err));
   };
-
-  const getProductDetails = () => {
-    return axios
-      .get(
-        `${API_URL.SUBCATEGORY_DETAILS}/${products}`
-      )
-      .then((res) => {
-        setProductDetails(res.data.category);
-      })
-      .catch((err) => console.error(err));
-  };
-
   return (
     <>
       <Helmet>
@@ -57,14 +55,10 @@ const Products = () => {
         />
       </Helmet>
       <Header />
-      <img
-        src={productDetails.image}
-        alt=""
-        className="img-fluid w-100 h-22-rem"
-      />
-      <ProductListingContent productDetails={productDetails} />
+      <img src={product && product.image} alt="" className="img-fluid w-100 h-22-rem" />
+      <ProductListingContent product={product} />
       <ProductListing product={product} />
-      <OtherProductsScroll />
+      <OtherProductsScroll otherProducts={otherProducts}/>
       <Footer />
     </>
   );

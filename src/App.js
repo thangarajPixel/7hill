@@ -129,7 +129,7 @@ function App() {
             }
           />
           <Route
-            path="/institutional-furniture/:inst_sub_furn/:products"
+            path="/institutional-furniture/:inst_sub_furn/:sub_products"
             element={
               <Suspense
                 fallback={

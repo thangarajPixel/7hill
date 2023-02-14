@@ -22,21 +22,21 @@ const InstitutionalFurnitureTabs = () => {
     let institutionalFurn = category?.filter(
       (item) => item.slug === "institutional-furniture"
     );
-
+    // console.log(institutionalFurn);
     let officeFurn = institutionalFurn
-      ?.map((item) => item.childCategory)[0]
-      ?.filter((item) => item.slug === "for-offices")[0];
-    setOfficeFurniture(officeFurn && officeFurn.category);
-    
+      ?.map((item) => item.child[0])
+      // ?.filter((item) => item.slug === "for-offices");
+    setOfficeFurniture(officeFurn && officeFurn);
+
     let schoolFurn = institutionalFurn
-    ?.map((item) => item.childCategory)[0]
-    ?.filter((item) => item.slug === "for-school")[0];
-    setSchoolFurniture(schoolFurn && schoolFurn.category);
-    
+      ?.map((item) => item.child[1])
+      // ?.filter((item) => item.slug === "for-school");
+    setSchoolFurniture(schoolFurn && schoolFurn);
+
     let hospitalsFurn = institutionalFurn
-    ?.map((item) => item.childCategory)[0]
-    ?.filter((item) => item.slug === "for-labs-hospitals")[0];
-    setHospitalsFurniture(hospitalsFurn && hospitalsFurn.category);
+      ?.map((item) => item.child[2])
+      // ?.filter((item) => item.slug === "for-labs-hospitals");
+    setHospitalsFurniture(hospitalsFurn && hospitalsFurn);
   }, [category]);
 
   return (
@@ -57,7 +57,7 @@ const InstitutionalFurnitureTabs = () => {
                 <Tab eventKey="forOffices" title="For Offices">
                   <Row className="justify-content-center">
                     {officeFurniture &&
-                      officeFurniture?.map((item, i) => (
+                      officeFurniture[0].child?.map((item, i) => (
                         <Col xs={12} sm={12} md={6} lg={4} xl={4} key={i}>
                           <Link
                             to={`/institutional-furniture/${item.slug}`}
@@ -85,60 +85,61 @@ const InstitutionalFurnitureTabs = () => {
                 </Tab>
                 <Tab eventKey="forSchools" title="For Schools">
                   <Row className="justify-content-center">
-                  {schoolFurniture &&
-                      schoolFurniture?.map((item, i) => (
-                    <Col xs={12} sm={12} md={6} lg={4} xl={4}  key={i}>
-                      <Link
-                        to={`/institutional-furniture/${item.slug}`}
-                        className="product-list"
-                      >
-                        <div className="blog-img">
-                          <img
-                            src={item.image}
-                            alt=""
-                            className="img-fluid w-100 h-15-rem"
-                          />
-                        </div>
-                        <div className="product-list-content">
-                          <h3>
-                          {item.name}
-                            <span>
-                              <BsArrowRight />
-                            </span>
-                          </h3>
-                        </div>
-                      </Link>
-                    </Col>
-                     ))}
+                    {schoolFurniture &&
+                      schoolFurniture[0].child?.map((item, i) => (
+                        <Col xs={12} sm={12} md={6} lg={4} xl={4} key={i}>
+                          
+                          <Link
+                            to={`/institutional-furniture/${item.slug}`}
+                            className="product-list"
+                          >
+                            <div className="blog-img">
+                              <img
+                                src={item.image}
+                                alt=""
+                                className="img-fluid w-100 h-15-rem"
+                              />
+                            </div>
+                            <div className="product-list-content">
+                              <h3>
+                                {item.name}
+                                <span>
+                                  <BsArrowRight />
+                                </span>
+                              </h3>
+                            </div>
+                          </Link>
+                        </Col>
+                      ))}
                   </Row>
                 </Tab>
                 <Tab eventKey="forlabs" title="For Labs & Hospitals">
                   <Row className="justify-content-center">
-                  {hospitalsFurniture &&
-                      hospitalsFurniture?.map((item, i) => (
-                    <Col xs={12} sm={12} md={6} lg={4} xl={4} key={i}>
-                      <Link
-                        to={`/institutional-furniture/${item.slug}`}
-                        className="product-list"
-                      >
-                        <div className="blog-img">
-                          <img
-                            src={item.image}
-                            alt=""
-                            className="img-fluid w-100 h-15-rem"
-                          />
-                        </div>
-                        <div className="product-list-content">
-                          <h3>
-                          {item.name}
-                            <span>
-                              <BsArrowRight />
-                            </span>
-                          </h3>
-                        </div>
-                      </Link>
-                    </Col>
-                    ))}
+                    {hospitalsFurniture &&
+                      hospitalsFurniture[0].child?.map((item, i) => (
+                        <Col xs={12} sm={12} md={6} lg={4} xl={4} key={i}>
+                          <Link
+                            to={`/institutional-furniture/${item.slug}`}
+                            className="product-list"
+                          >
+                            <div className="blog-img">
+                              <img
+                                src={item.image}
+                                alt=""
+                                className="img-fluid w-100 h-15-rem"
+                              />
+                            </div>
+                            <div className="product-list-content">
+                              <h3>
+                                {item.name}
+                                <span>
+                                  <BsArrowRight />
+                                </span>
+                              </h3>
+                            </div>
+                          </Link>
+                        </Col>
+                      ))}
                   </Row>
                 </Tab>
               </Tabs>

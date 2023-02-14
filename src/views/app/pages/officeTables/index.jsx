@@ -12,30 +12,18 @@ import { API_URL } from "../../../../redux/constant/ApiRoute";
 const OfficeTables = () => {
   const { inst_sub_furn } = useParams();
   const [product, setProduct] = useState("");
-  const [productDetails, setProductDetails] = useState("");
-  
+
   useEffect(() => {
     getProducts();
-    getProductDetails();
     // eslint-disable-next-line
   }, [inst_sub_furn]);
 
   const getProducts = () => {
     return axios
-      .post(API_URL.PRODUCTS, {
-        category: { inst_sub_furn },
-      })
+      .post(`${API_URL.PRODUCTS}/${inst_sub_furn}`)
       .then((res) => {
-        setProduct(res.data.products);
-      })
-      .catch((err) => console.error(err));
-  };
-
-  const getProductDetails = () => {
-    return axios
-      .get(`${API_URL.SUBCATEGORY_DETAILS}/${inst_sub_furn}`)
-      .then((res) => {
-        setProductDetails(res.data.category);
+        // console.log(res.data[0]);
+        setProduct(res.data[0]);
       })
       .catch((err) => console.error(err));
   };
@@ -55,11 +43,11 @@ const OfficeTables = () => {
       </Helmet>
       <Header />
       <img
-        src={productDetails.image}
+        src={product.image}
         alt=""
         className="img-fluid w-100 h-22-rem"
       />
-      <OfficeTablesContent productDetails={productDetails} />
+      <OfficeTablesContent product={product}/>
       <OfficeTablesLists product={product} />
       <Footer />
     </>

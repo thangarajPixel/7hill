@@ -6,14 +6,15 @@ import { Breadcrumb } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { RiArrowRightSLine } from "react-icons/ri";
 
-const BedsContent = ({productDetails}) => {
+
+const BedsContent = ({product}) => {
   return (
     <>
       <section>
         <Container>
           <Row className="justify-content-center">
             <Col xs={12} sm={12} md={12} lg={10} xl={9}>
-              <h1 className="heading2 mar-bot-20 text-center capitalize">{productDetails.name}</h1>
+              <h1 className="heading2 mar-bot-20 text-center capitalize">{product && product.name}</h1>
               <Breadcrumb>
                 <ul>
                   <li>
@@ -22,12 +23,12 @@ const BedsContent = ({productDetails}) => {
                   <li>
                     <RiArrowRightSLine />
                   </li>
-                  <li className="capitalize">{productDetails.name}</li>
+                  <li className="capitalize">{product && product.name}</li>
                 </ul>
               </Breadcrumb>
               <p className="text-center mar-bot-20">
                 {
-                  productDetails.description
+                  product && product.description
                 }
               </p>
             </Col>

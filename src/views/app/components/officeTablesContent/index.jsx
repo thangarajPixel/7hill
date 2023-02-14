@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { Breadcrumb } from "react-bootstrap";
 import { RiArrowRightSLine } from "react-icons/ri";
 
-const OfficeTablesContent = ({ productDetails }) => {
+const OfficeTablesContent = ({ product }) => {
   return (
     <>
       <section>
@@ -14,7 +14,7 @@ const OfficeTablesContent = ({ productDetails }) => {
           <Row className="justify-content-center">
             <Col xs={12} sm={12} md={12} lg={10} xl={9}>
               <h1 className="heading2 mar-bot-20 text-center capitalize">
-                {productDetails.name}
+                {product.name}
               </h1>
               <Breadcrumb>
                 <ul>
@@ -26,11 +26,11 @@ const OfficeTablesContent = ({ productDetails }) => {
                   <li>
                     <RiArrowRightSLine />
                   </li>
-                  <li className="capitalize">{productDetails.name}</li>
+                  <li className="capitalize">{product.name}</li>
                 </ul>
               </Breadcrumb>
               <p className="text-center mar-bot-20">
-                {productDetails.description}
+                {product.description}
               </p>
             </Col>
           </Row>

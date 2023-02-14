@@ -11,20 +11,33 @@ import { useParams } from "react-router";
 import axios from "axios";
 
 const InstitutionalProducts = () => {
-  const { products } = useParams();
+  const { sub_products } = useParams();
   const [product, setProduct] = useState("");
+  const [otherProducts, setOtherProducts] = useState("");
 
   useEffect(() => {
     getProducts();
+    getOtherCategory();
     // eslint-disable-next-line
-  }, [products]);
+  }, [sub_products]);
 
   const getProducts = () => {
     return axios
-      .get(`${API_URL.PRODUCTS_BY_SLUG}/${products}`)
+      .post(`${API_URL.PRODUCTS}/${sub_products}`)
       .then((res) => {
-        setProduct(res.data);
-        console.log(res.data);
+        setProduct(res.data[0]);
+        // console.log(res.data[0]);
+      })
+      .catch((err) => console.error(err));
+  };
+  const getOtherCategory = () => {
+    return axios
+      .post(API_URL.OTHER_CATEGORY, {
+        category: { sub_products },
+      })
+      .then((res) => {
+        // console.log(res.data);
+        setOtherProducts(res.data);
       })
       .catch((err) => console.error(err));
   };
@@ -45,7 +58,7 @@ const InstitutionalProducts = () => {
       <img src={product.image} alt="" className="img-fluid w-100 h-25-rem" />
       <ProductListingContentWorkstation product={product} />
       <ProductListingWorkstation product={product} />
-      <OtherProductsScroll />
+      <OtherProductsScroll otherProducts={otherProducts}/>
       <Footer />
     </>
   );

@@ -15,6 +15,7 @@ import { ProductEnquiryResponse } from "../../helpers/FormResponse";
 import { API_URL } from "../../../../redux/constant/ApiRoute";
 
 function ProductEnquiryModal(props) {
+  // console.log(props.product);
   const {
     register,
     formState: { errors },
@@ -241,14 +242,25 @@ function ProductDetailsModal(props) {
               <Col xs={12} sm={12} md={12} lg={6} xl={5}>
                 <div>
                   <h3 className="heading3">{props.product.product_name}</h3>
-                  <h6 className="text-orange heading6 mb-0">Wood Type</h6>
+                  {props.product &&
+                    props.product.attributes.map((item, i) => {
+                      return (
+                        <>
+                          <h6 className="text-orange heading6 mb-0">
+                            {item.title}
+                          </h6>
+                          <p>{item.items[0].attribute_values}</p>
+                        </>
+                      );
+                    })}
+                  {/* <h6 className="text-orange heading6 mb-0">Wood Type</h6>
                   <p>Premium Teak Wood</p>
                   <h6 className="text-orange heading6 mb-0">Bed Size</h6>
                   <p>Queen</p>
                   <h6 className="text-orange heading6 mb-0">Storage Type</h6>
                   <p>Side Storage</p>
                   <h6 className="text-orange heading6 mb-0">Finish Type</h6>
-                  <p>Natural</p>
+                  <p>Natural</p> */}
                   <p className="text-center">
                     <Button
                       className="view-btn"

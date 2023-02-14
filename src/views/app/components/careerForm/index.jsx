@@ -4,6 +4,7 @@ import Form from "react-bootstrap/Form";
 import { useForm } from "react-hook-form";
 import { ErrorMessage } from "@hookform/error-message";
 import { CareerResponse } from "../../helpers/FormResponse";
+import { API_URL } from "../../../../redux/constant/ApiRoute";
 
 const CareersForm = () => {
   const {
@@ -28,7 +29,7 @@ const CareersForm = () => {
       redirect: "follow",
     };
 
-    fetch("http://192.168.0.56/7hillAdmin/public/api/career", requestOptions)
+    fetch(API_URL.CAREER, requestOptions)
       .then((response) => response.text())
       .then((result) => {
         CareerResponse();

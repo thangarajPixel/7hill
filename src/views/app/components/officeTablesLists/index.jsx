@@ -16,6 +16,7 @@ import { BsArrowRight } from "react-icons/bs";
 
 const OfficeTablesLists = ({ product }) => {
   const { inst_sub_furn } = useParams();
+  // console.log(product);
   return (
     <>
       <section className="orange-bg">
@@ -29,23 +30,23 @@ const OfficeTablesLists = ({ product }) => {
           </Row>
           <Row className="justify-content-center">
             {product &&
-              product?.map((item, i) => {
+              product.child?.map((item, i) => {
                 return (
                   <Col xs={12} sm={12} md={6} lg={4} xl={4} key={i}>
                     <Link
-                      to={`/institutional-furniture/${inst_sub_furn}/${item.product_url}`}
+                      to={`/institutional-furniture/${inst_sub_furn}/${item.slug}`}
                       className="product-list"
                     >
                       <div className="blog-img">
                         <img
                           src={item.image}
-                          alt=""
+                          alt={item.description}
                           className="img-fluid w-100 h-22-rem"
                         />
                       </div>
                       <div className="product-list-content">
                         <h3>
-                          {item.product_name}
+                          {item.name}
                           <span>
                             <BsArrowRight />
                           </span>
