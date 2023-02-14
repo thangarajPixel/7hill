@@ -5,13 +5,13 @@ import Col from "react-bootstrap/Col";
 import ProductFilters from "../productFilters";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
-import { ProductDetailsModal, ProductEnquiryModal } from "./helpers";
+import  ProductEnquiryModal  from "./ProductEnquiryModal";
+import  ProductDetailsModal  from "./ProductDetailsModal";
 import axios from "axios";
 import { API_URL } from "../../../../redux/constant/ApiRoute";
 import NoImage from "../../../../assets/images/no_Image.jpg"
 
 const ProductListing = ({ product }) => {
-  // console.log(product.filter_menus);
   let products = product.products;
   const [modalShow, setModalShow] = useState(false);
   const [modalShow1, setModalShow1] = useState(false);
