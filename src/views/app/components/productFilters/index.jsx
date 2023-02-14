@@ -5,7 +5,6 @@ import { RiFilter2Fill } from "react-icons/ri";
 import { IoMdClose } from "react-icons/io";
 
 const ProductFilters = ({ menu }) => {
-  // console.log(menu);
   const [isActive, setActive] = useState("false");
 
   const ToggleClass = () => {
@@ -39,6 +38,7 @@ const ProductFilters = ({ menu }) => {
                       />
                     );
                   })}
+                  {i !== menu.length-1 && <div className="divider"></div>}
                 </div>
               );
             })}
