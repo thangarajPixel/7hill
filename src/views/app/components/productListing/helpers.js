@@ -15,7 +15,6 @@ import { ProductEnquiryResponse } from "../../helpers/FormResponse";
 import { API_URL } from "../../../../redux/constant/ApiRoute";
 
 function ProductEnquiryModal(props) {
-
   const {
     register,
     formState: { errors },
@@ -264,7 +263,11 @@ function ProductDetailsModal(props) {
                   <p className="text-center">
                     <Button
                       className="view-btn"
-                      onClick={() => [setModalShow1(true), props.onHide()]}
+                      onClick={() => [
+                        setModalShow1(true),
+                        props.onHide(),
+                        localStorage.setItem("product_name", props.product.product_name),
+                      ]}
                     >
                       Enquire Now
                     </Button>

@@ -8,8 +8,10 @@ import Button from "react-bootstrap/Button";
 import { ProductDetailsModal, ProductEnquiryModal } from "./helpers";
 import axios from "axios";
 import { API_URL } from "../../../../redux/constant/ApiRoute";
+import NoImage from "../../../../assets/images/no_Image.jpg"
 
 const ProductListing = ({ product }) => {
+  // console.log(product.filter_menus);
   let products = product.products;
   const [modalShow, setModalShow] = useState(false);
   const [modalShow1, setModalShow1] = useState(false);
@@ -40,7 +42,7 @@ const ProductListing = ({ product }) => {
         <Container>
           <Row>
             <Col xs={12} sm={12} md={3} lg={3} xl={2}>
-              <ProductFilters />
+              <ProductFilters menu={product.filter_menus} />
             </Col>
             <Col xs={12} sm={12} md={9} lg={9} xl={10}>
               <p>
@@ -56,10 +58,9 @@ const ProductListing = ({ product }) => {
                   products?.map((item, i) => {
                     return (
                       <Col xs={12} sm={6} md={6} lg={4} xl={4} key={i}>
-                        {/* {console.log(item)} */}
                         <div className="products-div">
                           <img
-                            src={item.base_image}
+                            src={item.base_image ? item.base_image : NoImage}
                             alt=""
                             className="img-fluid w-100"
                           />
@@ -77,7 +78,11 @@ const ProductListing = ({ product }) => {
                             <Button
                               className="enquire-btn"
                               onClick={() => {
-                                localStorage.setItem("product_name",item.product_name)
+                                localStorage.setItem(
+                                  "product_name",
+                                  item.product_name
+                                );
+                                getProductDetails(item.product_url);
                                 setModalShow1(true);
                               }}
                             >

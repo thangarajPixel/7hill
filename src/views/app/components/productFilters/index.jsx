@@ -4,7 +4,8 @@ import { Link } from "react-router-dom";
 import { RiFilter2Fill } from "react-icons/ri";
 import { IoMdClose } from "react-icons/io";
 
-const ProductFilters = () => {
+const ProductFilters = ({ menu }) => {
+  console.log(menu);
   const [isActive, setActive] = useState("false");
 
   const ToggleClass = () => {
@@ -23,6 +24,28 @@ const ProductFilters = () => {
           <IoMdClose />
         </Link>
         {["checkbox"].map((type) => (
+          <div key={`default-${type}`}>
+            {menu?.map((item, i) => {
+              return (
+                <div key={i}>
+                  <h6 className="heading6 text-orange">{item.title}</h6>
+                  {item?.attributes_fields.map((item, i) => {
+                    return (
+                      <Form.Check
+                        key={i}
+                        type={type}
+                        label={item.attribute_values}
+                        id={item.attribute_values}
+                      />
+                    );
+                  })}
+                </div>
+              );
+            })}
+            <button className="clear-btn">Clear All</button>
+          </div>
+        ))}
+        {/* {["checkbox"].map((type) => (
           <div key={`default-${type}`}>
             <h6 className="heading6 text-orange">Bed Size</h6>
             <Form.Check type={type} label={`Single`} id={`single`} />
@@ -44,11 +67,9 @@ const ProductFilters = () => {
             <Form.Check type={type} label={`Dark Walnut`} id={`darkwalnut`} />
             <Form.Check type={type} label={`Light Walnut`} id={`lightwalnut`} />
             <Form.Check type={type} label={`Rosewood`} id={`rosewood`} />
-            <Link to="/" className="clear-btn">
-              Clear All
-            </Link>
+            <button className="clear-btn">Clear All</button>
           </div>
-        ))}
+        ))} */}
       </Form>
       <div className={isActive ? "backdrop" : "active backdrop"}></div>
     </>
