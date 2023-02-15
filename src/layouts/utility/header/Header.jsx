@@ -50,15 +50,11 @@ const Header = () => {
   const getCategory = () => {
     return axios
       .get(
-<<<<<<< Updated upstream
         API_URL.CATEGORY,
-=======
-        "https://www.pixel-studios.net/7hills-admin/public/api/get/category",
->>>>>>> Stashed changes
         requestOptions
       )
       .then((res) => {
-        dispatch(productCategoryAction(res.data.data));
+        dispatch(productCategoryAction(res.data));
       })
       .catch((err) => console.error(err));
   };

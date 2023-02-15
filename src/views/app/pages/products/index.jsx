@@ -23,14 +23,7 @@ const Products = () => {
 
   const getProducts = () => {
     return axios
-<<<<<<< Updated upstream
       .post(`${API_URL.PRODUCTS}/${products}`)
-=======
-      .get(
-        "https://www.pixel-studios.net/7hills-admin/public/api/get/products",
-        requestOptions
-      )
->>>>>>> Stashed changes
       .then((res) => {
         setProduct(res.data[0]);
         // console.log(res.data[0]);
