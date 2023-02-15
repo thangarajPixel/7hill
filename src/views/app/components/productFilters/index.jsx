@@ -13,39 +13,43 @@ const ProductFilters = ({ menu }) => {
 
   return (
     <>
-      <h5 className="heading5">
-        <Link className="product-filter-btn" onClick={ToggleClass}>
-          <RiFilter2Fill /> Filters
-        </Link>
-      </h5>
-      <Form className={isActive ? "product-filters" : "active product-filters"}>
-        <Link className="close-btn" onClick={ToggleClass}>
-          <IoMdClose />
-        </Link>
-        {["checkbox"].map((type) => (
-          <div key={`default-${type}`}>
-            {menu?.map((item, i) => {
-              return (
-                <div key={i}>
-                  <h6 className="heading6 text-orange">{item.title}</h6>
-                  {item?.attributes_fields.map((item, i) => {
-                    return (
-                      <Form.Check
-                        key={i}
-                        type={type}
-                        label={item.attribute_values}
-                        id={item.attribute_values}
-                      />
-                    );
-                  })}
-                  {i !== menu.length-1 && <div className="divider"></div>}
-                </div>
-              );
-            })}
-            <button className="clear-btn">Clear All</button>
-          </div>
-        ))}
-        {/* {["checkbox"].map((type) => (
+      { menu && menu?.length !==0 && (
+        <>
+          <h5 className="heading5">
+            <Link className="product-filter-btn" onClick={ToggleClass}>
+              <RiFilter2Fill /> Filters
+            </Link>
+          </h5>
+          <Form
+            className={isActive ? "product-filters" : "active product-filters"}
+          >
+            <Link className="close-btn" onClick={ToggleClass}>
+              <IoMdClose />
+            </Link>
+            {["checkbox"].map((type) => (
+              <div key={`default-${type}`}>
+                {menu?.map((item, i) => {
+                  return (
+                    <div key={i}>
+                      <h6 className="heading6 text-orange">{item.title}</h6>
+                      {item?.attributes_fields.map((item, i) => {
+                        return (
+                          <Form.Check
+                            key={i}
+                            type={type}
+                            label={item.attribute_values}
+                            id={item.attribute_values}
+                          />
+                        );
+                      })}
+                      {i !== menu.length - 1 && <div className="divider"></div>}
+                    </div>
+                  );
+                })}
+                <button className="clear-btn">Clear All</button>
+              </div>
+            ))}
+            {/* {["checkbox"].map((type) => (
           <div key={`default-${type}`}>
             <h6 className="heading6 text-orange">Bed Size</h6>
             <Form.Check type={type} label={`Single`} id={`single`} />
@@ -70,8 +74,10 @@ const ProductFilters = ({ menu }) => {
             <button className="clear-btn">Clear All</button>
           </div>
         ))} */}
-      </Form>
-      <div className={isActive ? "backdrop" : "active backdrop"}></div>
+          </Form>
+          <div className={isActive ? "backdrop" : "active backdrop"}></div>
+        </>
+      )}
     </>
   );
 };
