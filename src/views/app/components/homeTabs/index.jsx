@@ -65,7 +65,7 @@ const HomeTabs = () => {
                           <ListGroup.Item key={i}>
                             <Link to={`/home-furniture/${item.slug}`}>
                               <img src={item.icon} alt="" />
-                              {item.name}
+                              {item.title ? item.title : item.name}
                             </Link>
                           </ListGroup.Item>
                         );
@@ -77,10 +77,11 @@ const HomeTabs = () => {
                     {institutionalFurniture &&
                       institutionalFurniture.map((item, i) => {
                         return (
-                          <ListGroup.Item>
+                          <ListGroup.Item key={i}>
+                    
                             <Link to={`/institutional-furniture/${item.slug}`}>
                               <img src={item.icon} alt="" />
-                              {item.name}
+                              {item.title ? item.title : item.name}
                             </Link>
                           </ListGroup.Item>
                         );
