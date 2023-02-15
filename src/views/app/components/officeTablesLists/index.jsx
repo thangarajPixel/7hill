@@ -4,6 +4,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { Link, useParams } from "react-router-dom";
 import { BsArrowRight } from "react-icons/bs";
+import NoProduct from "../../../../layouts/utility/notFound/NoProduct";
 // import Workstations from "../../../../assets/images/workstations.jpg";
 // import ExecutiveTables from "../../../../assets/images/executive-tables.jpg";
 // import DirectorTables from "../../../../assets/images/director-tables.jpg";
@@ -24,12 +25,12 @@ const OfficeTablesLists = ({ product }) => {
           <Row className="justify-content-center">
             <Col xs={12} sm={12} md={12} lg={10} xl={6}>
               <h2 className="heading2 mar-bot-20 text-center">
-                Our Range of Office Furniture that Boosts your Productivity
+                Our Range of {product.name} that Boosts your Productivity
               </h2>
             </Col>
           </Row>
           <Row className="justify-content-center">
-            {product &&
+            {product && product.child.length !== 0 ? (
               product.child?.map((item, i) => {
                 return (
                   <Col xs={12} sm={12} md={6} lg={4} xl={4} key={i}>
@@ -55,7 +56,10 @@ const OfficeTablesLists = ({ product }) => {
                     </Link>
                   </Col>
                 );
-              })}
+              })
+            ) : (
+              <NoProduct/>
+            )}
             {/* <Col xs={12} sm={12} md={6} lg={4} xl={4}>
               <Link
                 to="/institutional-furniture/office-tables/products"

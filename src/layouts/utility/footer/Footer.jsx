@@ -129,7 +129,6 @@ const Footer = () => {
             <div className="footer-links home-furniture">
               {homeFurniture &&
                 homeFurniture?.map((item, i) => {
-                  // console.log(item);
                   return (
                     <Link to={`/home-furniture/${item.slug}/`} key={i}>
                       {item.name}

@@ -10,6 +10,7 @@ import  ProductDetailsModal  from "./ProductDetailsModal";
 import axios from "axios";
 import { API_URL } from "../../../../redux/constant/ApiRoute";
 import NoImage from "../../../../assets/images/no_Image.jpg"
+import NoProduct from "../../../../layouts/utility/notFound/NoProduct";
 
 const ProductListing = ({ product }) => {
   let products = product.products;
@@ -94,34 +95,8 @@ const ProductListing = ({ product }) => {
                     );
                   })
                 ) : (
-                  <>
-                    <h2>No Products</h2>
-                  </>
+                 <NoProduct/>
                 )}
-                {/* <Col xs={12} sm={6} md={6} lg={4} xl={4}>
-                  <div className="products-div">
-                    <img
-                      src={ProductImage1}
-                      alt=""
-                      className="img-fluid w-100"
-                    />
-                    <p>Natural Finish Orchid Queen Bed - With Side Storage</p>
-                    <div className="products-buttons">
-                      <Button
-                        className="view-btn"
-                        onClick={() => setModalShow(true)}
-                      >
-                        View Details
-                      </Button>
-                      <Button
-                        className="enquire-btn"
-                        onClick={() => setModalShow1(true)}
-                      >
-                        Enquire Now
-                      </Button>
-                    </div>
-                  </div>
-                </Col> */}
                 {products && products.length > 10 && (
                   <Col
                     xs={12}
