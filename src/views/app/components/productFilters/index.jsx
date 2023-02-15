@@ -5,6 +5,7 @@ import { RiFilter2Fill } from "react-icons/ri";
 import { IoMdClose } from "react-icons/io";
 
 const ProductFilters = ({ menu }) => {
+  // console.log(menu);
   const [isActive, setActive] = useState("false");
 
   const ToggleClass = () => {
@@ -18,7 +19,7 @@ const ProductFilters = ({ menu }) => {
           <RiFilter2Fill /> Filters
         </Link>
       </h5>
-      {menu && menu?.length !== 0 ? (
+      {menu && menu.filter_menus?.length !== 0 ? (
         <>
           <Form
             className={isActive ? "product-filters" : "active product-filters"}
@@ -28,7 +29,7 @@ const ProductFilters = ({ menu }) => {
             </Link>
             {["checkbox"].map((type) => (
               <div key={`default-${type}`}>
-                {menu?.map((item, i) => {
+                {menu.filter_menus?.map((item, i) => {
                   return (
                     <div key={i}>
                       <h6 className="heading6 text-orange">{item.title}</h6>
@@ -39,10 +40,11 @@ const ProductFilters = ({ menu }) => {
                             type={type}
                             label={item.attribute_values}
                             id={item.attribute_values}
+                            value={item.id}
                           />
                         );
                       })}
-                      {i !== menu.length - 1 && <div className="divider"></div>}
+                      {i !== menu?.filter_menus.length - 1 && <div className="divider"></div>}
                     </div>
                   );
                 })}

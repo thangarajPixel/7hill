@@ -79,7 +79,7 @@ const HomeTabs = () => {
                         return (
                           <ListGroup.Item key={i}>
                     
-                            <Link to={`/institutional-furniture/${item.slug}`}>
+                            <Link to={`/institutional-furnitures/${item.slug}`}>
                               <img src={item.icon} alt="" />
                               {item.title ? item.title : item.name}
                             </Link>

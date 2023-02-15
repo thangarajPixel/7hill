@@ -43,7 +43,7 @@ const ProductListing = ({ product }) => {
         <Container>
           <Row>
             <Col xs={12} sm={12} md={3} lg={3} xl={2}>
-              <ProductFilters menu={product.filter_menus} />
+              <ProductFilters menu={product} />
             </Col>
             <Col xs={12} sm={12} md={9} lg={9} xl={10}>
               <p>

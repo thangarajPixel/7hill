@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet";
 import { Route, Routes } from "react-router";
 import { BrowserRouter } from "react-router-dom";
 import "../src/assets/css/style.css";
+import ForOffice from "./views/app/pages/forOffice";
 import NotFoundPage from "./views/app/pages/notFound";
 
 const Home = lazy(() => import("../src/views/app/pages/home"));
@@ -125,6 +126,20 @@ function App() {
                 }
               >
                 <OfficeTables />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/institutional-furnitures/:inst_sub_furn"
+            element={
+              <Suspense
+                fallback={
+                  <>
+                    <div className="preloader">Loading ...</div>
+                  </>
+                }
+              >
+                <ForOffice/>
               </Suspense>
             }
           />
