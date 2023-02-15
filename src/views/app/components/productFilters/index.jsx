@@ -13,13 +13,13 @@ const ProductFilters = ({ menu }) => {
 
   return (
     <>
-      { menu && menu?.length !==0 && (
+      <h5 className="heading5">
+        <Link className="product-filter-btn" onClick={ToggleClass}>
+          <RiFilter2Fill /> Filters
+        </Link>
+      </h5>
+      {menu && menu?.length !== 0 ? (
         <>
-          <h5 className="heading5">
-            <Link className="product-filter-btn" onClick={ToggleClass}>
-              <RiFilter2Fill /> Filters
-            </Link>
-          </h5>
           <Form
             className={isActive ? "product-filters" : "active product-filters"}
           >
@@ -76,6 +76,10 @@ const ProductFilters = ({ menu }) => {
         ))} */}
           </Form>
           <div className={isActive ? "backdrop" : "active backdrop"}></div>
+        </>
+      ) : (
+        <>
+          <small>No Filters Available</small>
         </>
       )}
     </>

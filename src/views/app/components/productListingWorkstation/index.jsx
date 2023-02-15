@@ -8,6 +8,8 @@ import { API_URL } from "../../../../redux/constant/ApiRoute";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import ProductFilters from "../productFilters";
+import NoProduct from "../../../../layouts/utility/notFound/NoProduct";
 // import WorkstationImage1 from "../../../../assets/images/workstation-image1.jpg";
 // import WorkstationImage2 from "../../../../assets/images/workstation-image2.jpg";
 // import WorkstationImage3 from "../../../../assets/images/workstation-image3.jpg";
@@ -371,7 +373,10 @@ const ProductListingWorkstation = ({ product }) => {
       <section className="pt-0">
         <Container>
           <Row>
-            <Col>
+            <Col xs={12} sm={12} md={3} lg={3} xl={2}>
+              <ProductFilters menu={product.filter_menus} />
+            </Col>
+            <Col xs={12} sm={12} md={9} lg={9} xl={10}>
               <p>
                 <small className="text-light-gray">
                   Showing {products && products.length ? products && "1" : "0"}{" "}
@@ -379,11 +384,13 @@ const ProductListingWorkstation = ({ product }) => {
                   {products && products.length} Results
                 </small>
               </p>
+
               <Row className="justify-content-center">
-                {products &&
+                {products && products.length !== 0 ? (
+                  products &&
                   products?.map((item, i) => {
                     return (
-                      <Col xs={12} sm={6} md={6} lg={4} xl={3} key={i}>
+                      <Col xs={12} sm={6} md={6} lg={4} xl={4} key={i}>
                         <div className="products-div">
                           <img
                             src={item.base_image}
@@ -422,7 +429,10 @@ const ProductListingWorkstation = ({ product }) => {
                         </div>
                       </Col>
                     );
-                  })}
+                  })
+                ) : (
+                  <NoProduct />
+                )}
                 {/* <Col xs={12} sm={6} md={6} lg={4} xl={3}>
                   <div className="products-div">
                     <img
