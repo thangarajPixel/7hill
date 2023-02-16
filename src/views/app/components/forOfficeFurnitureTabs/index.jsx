@@ -10,7 +10,7 @@ import { useEffect } from "react";
 
 const ForOfficeFurnitureTabs = ({ product }) => {
   // console.log(product && product.slug);
-  const category = useSelector((state) => state.category);
+  const category = useSelector((state) => state.category.value);
   const [officeFurniture, setOfficeFurniture] = useState("");
   useEffect(() => {
     let institutionalFurn = category?.filter(
@@ -39,7 +39,9 @@ const ForOfficeFurnitureTabs = ({ product }) => {
           </Row>
           <Row>
             <Col className="home-tabs institutional-tabs">
-              <h3 className="text-center">{officeFurniture && officeFurniture[0].title}</h3>
+              <h3 className="text-center">
+                {officeFurniture && officeFurniture[0].title}
+              </h3>
               <Row className="justify-content-center">
                 {officeFurniture &&
                   officeFurniture[0].child?.map((item, i) => (

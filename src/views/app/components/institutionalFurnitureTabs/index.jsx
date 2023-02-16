@@ -14,7 +14,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 
 const InstitutionalFurnitureTabs = () => {
-  const category = useSelector((state) => state.category);
+  const category = useSelector((state) => state.category.value);
   const [officeFurniture, setOfficeFurniture] = useState("");
   const [schoolFurniture, setSchoolFurniture] = useState("");
   const [hospitalsFurniture, setHospitalsFurniture] = useState("");

@@ -28,11 +28,11 @@ const Footer = () => {
   const { pathname } = location;
   const splitLocation = pathname.split("/");
 
-  const category = useSelector((state) => state.category);
+  const category = useSelector((state) => state.category.value);
   const [homeFurniture, setHomeFurniture] = useState("");
   const [institutionalFurniture, setInstitutionalFurniture] = useState("");
   useEffect(() => {
-    let homeFurn = category?.filter((item) => item.slug === "home-furniture");
+    let homeFurn = category && category?.filter((item) => item.slug === "home-furniture");
     let institutionalFurn = category?.filter(
       (item) => item.slug === "institutional-furniture"
     );

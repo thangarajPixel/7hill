@@ -5,6 +5,7 @@
   "dependencies": {
     "@fancyapps/fancybox": "^3.5.7",
     "@hookform/error-message": "^2.0.1",
+    "@reduxjs/toolkit": "^1.9.2",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",

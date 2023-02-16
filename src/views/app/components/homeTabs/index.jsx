@@ -11,11 +11,12 @@ import PageBg6 from "../../../../assets/images/page-bg-6.png";
 import { useSelector } from "react-redux";
 
 const HomeTabs = () => {
-  const category = useSelector((state) => state.category);
+  const category = useSelector((state) => state.category.value);
   const [homeFurniture, setHomeFurniture] = useState("");
   const [institutionalFurniture, setInstitutionalFurniture] = useState("");
   useEffect(() => {
-    let homeFurn = category?.filter((item) => item.slug === "home-furniture");
+    let homeFurn =
+      category && category?.filter((item) => item.slug === "home-furniture");
     let institutionalFurn = category?.filter(
       (item) => item.slug === "institutional-furniture"
     );
@@ -78,7 +79,6 @@ const HomeTabs = () => {
                       institutionalFurniture.map((item, i) => {
                         return (
                           <ListGroup.Item key={i}>
-                    
                             <Link to={`/institutional-furnitures/${item.slug}`}>
                               <img src={item.icon} alt="" />
                               {item.title ? item.title : item.name}

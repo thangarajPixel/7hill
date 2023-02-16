@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 
 const HomeFurnitureLists = () => {
 
-  const category = useSelector((state) => state.category);
+  const category = useSelector((state) => state.category.value);
   const [homeFurniture, setHomeFurniture] = useState("");
   useEffect(() => {
     let homeFurn = category?.filter((item) => item.slug === "home-furniture");

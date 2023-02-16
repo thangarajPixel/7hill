@@ -9,7 +9,7 @@ import { useSelector } from "react-redux";
 import { Helmet } from "react-helmet";
 
 const HomeFurniture = () => {
-  const category = useSelector((state) => state.category);
+  const category = useSelector((state) => state.category.value);
   const [homeFurnitureImage, setHomeFurnitureImage] = useState("");
   useEffect(() => {
     let homeFurn = category?.filter((item) => item.slug === "home-furniture");

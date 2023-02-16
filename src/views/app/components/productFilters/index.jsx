@@ -9,7 +9,7 @@ import axios from "axios";
 const ProductFilters = ({ menu }) => {
   // console.log(menu);
   const [isActive, setActive] = useState("false");
-  const [filterId, setFilterId] = useState();
+  // const [filterId, setFilterId] = useState();
 
   const ToggleClass = () => {
     setActive(!isActive);
@@ -18,7 +18,7 @@ const ProductFilters = ({ menu }) => {
   useEffect(() => {
     getProducts();
     // eslint-disable-next-line
-  }, [filterId]);
+  }, []);
 
   const getProducts = () => {
     return axios

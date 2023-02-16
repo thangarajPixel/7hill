@@ -9,7 +9,7 @@ import { useSelector } from "react-redux";
 import { Helmet } from "react-helmet";
 
 const InstitutionalFurniture = () => {
-  const category = useSelector((state) => state.category);
+  const category = useSelector((state) => state.category.value);
   const [institutionalFurniture, setInstitutionalFurniture] = useState("");
   useEffect(() => {
     let institutionalFurn = category?.filter(

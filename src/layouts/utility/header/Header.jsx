@@ -9,15 +9,17 @@ import { TfiEmail } from "react-icons/tfi";
 import { FiPhone } from "react-icons/fi";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import productCategoryAction from "../../../redux/action";
 import { API_URL } from "../../../redux/constant/ApiRoute";
+import { allMenu } from "../../../redux/features/category";
 
 const openInNewTab = (url) => {
   window.open(url, "_blank", "noopener,noreferrer");
 };
 
 const Header = () => {
+  const category = useSelector((state) => state.category.value);  
   const dispatch = useDispatch();
+
   const [isActive, setActive] = useState("false");
   const [isActive1, setActive1] = useState("false");
   const [isActive2, setActive2] = useState("false");
@@ -25,8 +27,6 @@ const Header = () => {
   const location = useLocation();
   const { pathname } = location;
   const splitLocation = pathname.split("/");
-
-  const category = useSelector((state) => state.category);
 
   useEffect(() => {
     getCategory();
@@ -49,12 +49,9 @@ const Header = () => {
 
   const getCategory = () => {
     return axios
-      .get(
-        API_URL.CATEGORY,
-        requestOptions
-      )
+      .get(API_URL.CATEGORY, requestOptions)
       .then((res) => {
-        dispatch(productCategoryAction(res.data));
+        dispatch(allMenu(res.data));
       })
       .catch((err) => console.error(err));
   };
@@ -116,7 +113,7 @@ const Header = () => {
                       <Container>
                         <Row>
                           <Col xs={12} sm={12} md={12} lg={6}>
-                            {category?.map((product, i) => (
+                            {category && category?.map((product, i) => (
                               <div key={i}>
                                 <h5>
                                   <Link to={`/${product.slug}`}>
@@ -138,7 +135,9 @@ const Header = () => {
                                   {product.child?.map((item, i) => {
                                     return (
                                       <li key={i}>
-                                          <strong style={{color:"black"}}>{item.title}</strong>              
+                                        <strong style={{ color: "black" }}>
+                                          {item.title}
+                                        </strong>
                                         {item.child?.map((item, i) => {
                                           return (
                                             <Link
@@ -156,7 +155,7 @@ const Header = () => {
                               </div>
                             ))}
                           </Col>
-                          {category?.map((product, i) => {
+                          {category && category?.map((product, i) => {
                             if (i === 0 || i === 1) {
                               return (
                                 <Col xs={12} sm={12} md={12} lg={3} key={i}>
@@ -183,27 +182,58 @@ const Header = () => {
                       </Container>
                     </ul>
                   </li>
-                  <li className={splitLocation[1] === "about" || splitLocation[1] === "our-team"? "active has-sub single" : "has-sub single"}><span className={isActive2 ? "submenu-button" : "submenu-opened submenu-button"} onClick={ToggleClass2}></span>
+                  <li
+                    className={
+                      splitLocation[1] === "about" ||
+                      splitLocation[1] === "our-team"
+                        ? "active has-sub single"
+                        : "has-sub single"
+                    }
+                  >
+                    <span
+                      className={
+                        isActive2
+                          ? "submenu-button"
+                          : "submenu-opened submenu-button"
+                      }
+                      onClick={ToggleClass2}
+                    ></span>
                     <Link to="/about">About Us</Link>
                     <ul className={isActive2 ? "closeed" : "open"}>
-                      <li className={splitLocation[1] === "about" ? "active" : ""}>
+                      <li
+                        className={splitLocation[1] === "about" ? "active" : ""}
+                      >
                         <Link to="/about">Company Overview</Link>
                       </li>
-                      <li className={splitLocation[1] === "our-team" ? "active" : ""}>
+                      <li
+                        className={
+                          splitLocation[1] === "our-team" ? "active" : ""
+                        }
+                      >
                         <Link to="/our-team">Our Team</Link>
                       </li>
                     </ul>
                   </li>
-                  <li className={splitLocation[1] === "dealers" ? "active" : ""}>
+                  <li
+                    className={splitLocation[1] === "dealers" ? "active" : ""}
+                  >
                     <Link to="/dealers">Dealers</Link>
                   </li>
-                  <li className={splitLocation[1] === "infrastructure" ? "active" : ""}>
+                  <li
+                    className={
+                      splitLocation[1] === "infrastructure" ? "active" : ""
+                    }
+                  >
                     <Link to="/infrastructure">Infrastructure</Link>
                   </li>
-                  <li className={splitLocation[1] === "careers" ? "active" : ""}>
+                  <li
+                    className={splitLocation[1] === "careers" ? "active" : ""}
+                  >
                     <Link to="/careers">Careers</Link>
                   </li>
-                  <li className={splitLocation[1] === "contact" ? "active" : ""}>
+                  <li
+                    className={splitLocation[1] === "contact" ? "active" : ""}
+                  >
                     <Link to="/contact">Contact Us</Link>
                   </li>
                 </ul>
