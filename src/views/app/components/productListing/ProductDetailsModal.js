@@ -54,21 +54,6 @@ function ProductDetailsModal(props) {
                         className="img-fluid w-100 h-25-rem" />
                     );
                   })}
-                  {/* <img
-              src={ProductDetailImage1}
-              alt=""
-              className="img-fluid w-100"
-            />
-            <img
-              src={ProductDetailImage2}
-              alt=""
-              className="img-fluid w-100"
-            />
-            <img
-              src={ProductDetailImage3}
-              alt=""
-              className="img-fluid w-100"
-            /> */}
                 </Slider>
               </Col>
               <Col xs={12} sm={12} md={12} lg={6} xl={5}>
@@ -77,22 +62,14 @@ function ProductDetailsModal(props) {
                   {props.product &&
                     props.product.attributes.map((item, i) => {
                       return (
-                        <>
+                        <div key={i}>
                           <h6 className="text-orange heading6 mb-0">
                             {item.title}
                           </h6>
                           <p>{item.items[0].attribute_values}</p>
-                        </>
+                        </div>
                       );
                     })}
-                  {/* <h6 className="text-orange heading6 mb-0">Wood Type</h6>
-            <p>Premium Teak Wood</p>
-            <h6 className="text-orange heading6 mb-0">Bed Size</h6>
-            <p>Queen</p>
-            <h6 className="text-orange heading6 mb-0">Storage Type</h6>
-            <p>Side Storage</p>
-            <h6 className="text-orange heading6 mb-0">Finish Type</h6>
-            <p>Natural</p> */}
                   <p className="text-center">
                     <Button
                       className="view-btn"

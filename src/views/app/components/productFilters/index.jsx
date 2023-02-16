@@ -1,17 +1,44 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Form from "react-bootstrap/Form";
 import { Link } from "react-router-dom";
 import { RiFilter2Fill } from "react-icons/ri";
 import { IoMdClose } from "react-icons/io";
+import { API_URL } from "../../../../redux/constant/ApiRoute";
+import axios from "axios";
 
 const ProductFilters = ({ menu }) => {
   // console.log(menu);
   const [isActive, setActive] = useState("false");
+  const [filterId, setFilterId] = useState();
 
   const ToggleClass = () => {
     setActive(!isActive);
   };
 
+  useEffect(() => {
+    getProducts();
+    // eslint-disable-next-line
+  }, [filterId]);
+
+  const getProducts = () => {
+    return axios
+      .post(API_URL.PRODUCT_FILTER, {
+        // category: menu.slug,
+        // filter_id: filterId,
+      })
+      .then((res) => {
+        // setProduct(res.data);
+        // console.log(res.data);
+      })
+      .catch((err) => console.error(err));
+  };
+  // let arr = [];
+  // const filterIdValue = (ids) => {
+  //   arr.push(ids);
+  //   arr.join('-')
+  //   // setFilterId(arr);
+  //   console.log(arr);
+  // };
   return (
     <>
       <h5 className="heading5">
@@ -41,10 +68,17 @@ const ProductFilters = ({ menu }) => {
                             label={item.attribute_values}
                             id={item.attribute_values}
                             value={item.id}
+                            // onChange={() => {
+                            //   setFilterId(item.id);
+                            //   filterIdValue(item.id)
+                            //   console.log(item.id);
+                            // }}
                           />
                         );
                       })}
-                      {i !== menu?.filter_menus.length - 1 && <div className="divider"></div>}
+                      {i !== menu?.filter_menus.length - 1 && (
+                        <div className="divider"></div>
+                      )}
                     </div>
                   );
                 })}

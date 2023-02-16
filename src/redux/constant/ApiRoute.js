@@ -7,4 +7,5 @@ export const API_URL = {
     PRODUCTS                            : `${process.env.REACT_APP_BASE_URL}/get/products`,
     PRODUCTS_BY_SLUG                    : `${process.env.REACT_APP_BASE_URL}/get/products/by/slug`,
     OTHER_CATEGORY                      : `${process.env.REACT_APP_BASE_URL}/get/other/category`,
+    PRODUCT_FILTER                      : `${process.env.REACT_APP_BASE_URL}/products_filter`,
 }

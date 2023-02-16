@@ -5,14 +5,14 @@ import Col from "react-bootstrap/Col";
 import ProductFilters from "../productFilters";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
-import  ProductEnquiryModal  from "./ProductEnquiryModal";
-import  ProductDetailsModal  from "./ProductDetailsModal";
+import ProductEnquiryModal from "./ProductEnquiryModal";
+import ProductDetailsModal from "./ProductDetailsModal";
 import axios from "axios";
 import { API_URL } from "../../../../redux/constant/ApiRoute";
-import NoImage from "../../../../assets/images/no_Image.jpg"
 import NoProduct from "../../../../layouts/utility/notFound/NoProduct";
+// import NoImage from "../../../../assets/images/no_Image.jpg";
 
-const ProductListing = ({ product }) => {
+const ProductListing = ({ product, filterMenu }) => {
   let products = product.products;
   const [modalShow, setModalShow] = useState(false);
   const [modalShow1, setModalShow1] = useState(false);
@@ -43,7 +43,7 @@ const ProductListing = ({ product }) => {
         <Container>
           <Row>
             <Col xs={12} sm={12} md={3} lg={3} xl={2}>
-              <ProductFilters menu={product} />
+              <ProductFilters menu={filterMenu} />
             </Col>
             <Col xs={12} sm={12} md={9} lg={9} xl={10}>
               <p>
@@ -61,7 +61,7 @@ const ProductListing = ({ product }) => {
                       <Col xs={12} sm={6} md={6} lg={4} xl={4} key={i}>
                         <div className="products-div">
                           <img
-                            src={item.base_image ? item.base_image : NoImage}
+                            src={item.base_image ? item.base_image : item.image }
                             alt=""
                             className="img-fluid w-100"
                           />
@@ -95,7 +95,7 @@ const ProductListing = ({ product }) => {
                     );
                   })
                 ) : (
-                 <NoProduct/>
+                  <NoProduct />
                 )}
                 {products && products.length > 10 && (
                   <Col

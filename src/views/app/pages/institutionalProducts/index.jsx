@@ -13,6 +13,7 @@ import axios from "axios";
 const InstitutionalProducts = () => {
   const { sub_products } = useParams();
   const [product, setProduct] = useState("");
+  const [productsDetails, setProductsDetails] = useState("");
   const [otherProducts, setOtherProducts] = useState("");
 
   useEffect(() => {
@@ -26,6 +27,7 @@ const InstitutionalProducts = () => {
       .post(`${API_URL.PRODUCTS}/${sub_products}`)
       .then((res) => {
         setProduct(res.data[0]);
+        setProductsDetails(res.data[0]);
         // console.log(res.data[0]);
       })
       .catch((err) => console.error(err));
@@ -55,9 +57,9 @@ const InstitutionalProducts = () => {
         />
       </Helmet>
       <Header />
-      <img src={product.image} alt="" className="img-fluid w-100 h-25-rem" />
-      <ProductListingContentWorkstation product={product} />
-      <ProductListingWorkstation product={product} />
+      <img src={productsDetails && productsDetails.image} alt="" className="img-fluid w-100 h-25-rem" />
+      <ProductListingContentWorkstation product={productsDetails} />
+      <ProductListingWorkstation filterMenu={productsDetails} product={product} />
       <OtherProductsScroll otherProducts={otherProducts}/>
       <Footer />
     </>
