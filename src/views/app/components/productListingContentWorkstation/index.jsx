@@ -28,7 +28,7 @@ const WorkstationContent = ({ product }) => {
                     <RiArrowRightSLine />
                   </li>
                   <li>
-                    <Link to="/institutional-furniture/office-tables">
+                    <Link to={`/institutional-furnitures/${product?.industrial &&  product?.industrial[0]?.slug}`}>
                       {product?.industrial && product?.industrial[0]?.title}
                     </Link>
                   </li>
