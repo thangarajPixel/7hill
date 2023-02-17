@@ -28,7 +28,7 @@ const Footer = () => {
   const { pathname } = location;
   const splitLocation = pathname.split("/");
 
-  const category = useSelector((state) => state.category.value);
+  const category = useSelector((state) => state.allMenu.value);
   const [homeFurniture, setHomeFurniture] = useState("");
   const [institutionalFurniture, setInstitutionalFurniture] = useState("");
   useEffect(() => {

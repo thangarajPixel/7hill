@@ -10,7 +10,7 @@ import { useEffect } from "react";
 
 const ForOfficeFurnitureTabs = ({ product }) => {
   // console.log(product && product.slug);
-  const category = useSelector((state) => state.category.value);
+  const category = useSelector((state) => state.allMenu.value);
   const [officeFurniture, setOfficeFurniture] = useState("");
   useEffect(() => {
     let institutionalFurn = category?.filter(

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -8,27 +8,27 @@ import Tabs from "react-bootstrap/Tabs";
 import ListGroup from "react-bootstrap/ListGroup";
 import PageBg4 from "../../../../assets/images/page-bg-4.png";
 import PageBg6 from "../../../../assets/images/page-bg-6.png";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { homeCategory } from "../../../../redux/features/homeCategory";
+import {institutionalCategory} from "../../../../redux/features/institutionalCategory";
 
 const HomeTabs = () => {
-  const category = useSelector((state) => state.category.value);
-  const [homeFurniture, setHomeFurniture] = useState("");
-  const [institutionalFurniture, setInstitutionalFurniture] = useState("");
+  const dispatch = useDispatch();
+  const category = useSelector((state) => state.allMenu.value);
+  const homeCategoryValue = useSelector((state) => state.homeCategory.value);
+  const institutionalCategoryValue = useSelector((state) => state.institutionalCategory.value);
+
   useEffect(() => {
     let homeFurn =
       category && category?.filter((item) => item.slug === "home-furniture");
     let institutionalFurn = category?.filter(
       (item) => item.slug === "institutional-furniture"
     );
-    homeFurn &&
-      homeFurn.forEach((item) => {
-        setHomeFurniture(item.child);
-      });
-    institutionalFurn &&
-      institutionalFurn.forEach((item) => {
-        setInstitutionalFurniture(item.child);
-      });
+    dispatch(homeCategory(homeFurn[0]));
+    dispatch(institutionalCategory(institutionalFurn[0]));
+      // eslint-disable-next-line
   }, [category]);
+
   return (
     <>
       <section className="page-bg-5">
@@ -60,8 +60,8 @@ const HomeTabs = () => {
               <Tabs defaultActiveKey="homefurniture" id="home-tabs">
                 <Tab eventKey="homefurniture" title="Home Furniture">
                   <ListGroup>
-                    {homeFurniture &&
-                      homeFurniture.map((item, i) => {
+                    {homeCategoryValue &&
+                      homeCategoryValue?.child.map((item, i) => {
                         return (
                           <ListGroup.Item key={i}>
                             <Link to={`/home-furniture/${item.slug}`}>
@@ -75,8 +75,8 @@ const HomeTabs = () => {
                 </Tab>
                 <Tab eventKey="institfurniture" title="Institutional Furniture">
                   <ListGroup>
-                    {institutionalFurniture &&
-                      institutionalFurniture.map((item, i) => {
+                    {institutionalCategoryValue &&
+                      institutionalCategoryValue?.child.map((item, i) => {
                         return (
                           <ListGroup.Item key={i}>
                             <Link to={`/institutional-furnitures/${item.slug}`}>

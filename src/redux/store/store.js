@@ -1,8 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
-import  categoryReducer from "../features/category";
+import categoryReducer from "../features/allMenu";
+import homeCategoryReducer from "../features/homeCategory";
+import institutionalCategoryReducer from "../features/institutionalCategory";
 
 export const store = configureStore({
   reducer: {
-    category: categoryReducer,
+    allMenu: categoryReducer,
+    homeCategory: homeCategoryReducer,
+    institutionalCategory: institutionalCategoryReducer,
   },
 });

@@ -9,7 +9,7 @@ import ForOfficeFurnitureTabs from "../../components/forOfficeFurnitureTabs";
 
 const ForOffice = () => {
   const { inst_sub_furn } = useParams();
-  const category = useSelector((state) => state.category.value);
+  const category = useSelector((state) => state.allMenu.value);
   const [institutionalFurniture, setInstitutionalFurniture] = useState("");
   useEffect(() => {
     let institutionalFurn = category?.filter(

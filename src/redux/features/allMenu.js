@@ -2,8 +2,8 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialStateValue = [];
 
-export const categorySlice = createSlice({
-  name: "category",
+export const allMenuSlice = createSlice({
+  name: "allMenu",
   initialState: { value: initialStateValue },
   reducers: {
     allMenu: (state, action) => {
@@ -12,6 +12,6 @@ export const categorySlice = createSlice({
   },
 });
 
-export const { allMenu } = categorySlice.actions;
+export const { allMenu } = allMenuSlice.actions;
 
-export default categorySlice.reducer;
+export default allMenuSlice.reducer;

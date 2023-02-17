@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Header from "../../../../layouts/utility/header/Header";
 import Footer from "../../../../layouts/utility/footer/Footer";
-// import HomeFurnitureBanner from '../../../../assets/images/home-furniture-banner.jpg';
 import HomeFurnitureContent from "../../components/homeFurnitureContent";
 import HomeFurnitureLists from "../../components/homeFurnitureLists";
 import HomeCTA from "../../components/homeCTA";
@@ -9,8 +8,9 @@ import { useSelector } from "react-redux";
 import { Helmet } from "react-helmet";
 
 const HomeFurniture = () => {
-  const category = useSelector((state) => state.category.value);
+  const category = useSelector((state) => state.allMenu.value);
   const [homeFurnitureImage, setHomeFurnitureImage] = useState("");
+
   useEffect(() => {
     let homeFurn = category?.filter((item) => item.slug === "home-furniture");
     homeFurn &&

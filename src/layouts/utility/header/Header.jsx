@@ -10,14 +10,14 @@ import { FiPhone } from "react-icons/fi";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { API_URL } from "../../../redux/constant/ApiRoute";
-import { allMenu } from "../../../redux/features/category";
+import { allMenu } from "../../../redux/features/allMenu";
 
 const openInNewTab = (url) => {
   window.open(url, "_blank", "noopener,noreferrer");
 };
 
 const Header = () => {
-  const category = useSelector((state) => state.category.value);  
+  const category = useSelector((state) => state.allMenu.value);  
   const dispatch = useDispatch();
 
   const [isActive, setActive] = useState("false");
