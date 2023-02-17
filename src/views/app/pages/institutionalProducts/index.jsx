@@ -9,8 +9,10 @@ import { Helmet } from "react-helmet";
 import { API_URL } from "../../../../redux/constant/ApiRoute";
 import { useParams } from "react-router";
 import axios from "axios";
+import { useSelector } from "react-redux";
 
 const InstitutionalProducts = () => {
+  const loader = useSelector((state) => state.loader.value);
   const { sub_products } = useParams();
   const [product, setProduct] = useState("");
   const [productsDetails, setProductsDetails] = useState("");
@@ -45,23 +47,36 @@ const InstitutionalProducts = () => {
   };
   return (
     <>
-      <Helmet>
-        <title>7Hill Furniture | Institutional Products</title>
-        <meta
-          name="description"
-          content="Home furniture, office furniture in Chennai in India"
-        />
-        <meta
-          name="keywords"
-          content="Furniture, Home furniture, office furniture"
-        />
-      </Helmet>
-      <Header />
-      <img src={productsDetails && productsDetails.image} alt="" className="img-fluid w-100 h-25-rem" />
-      <ProductListingContentWorkstation product={productsDetails} />
-      <ProductListingWorkstation filterMenu={productsDetails} product={product} />
-      <OtherProductsScroll otherProducts={otherProducts}/>
-      <Footer />
+      {loader ? (
+        <div className="preloader">Laoding...</div>
+      ) : (
+        <>
+          <Helmet>
+            <title>7Hill Furniture | Institutional Products</title>
+            <meta
+              name="description"
+              content="Home furniture, office furniture in Chennai in India"
+            />
+            <meta
+              name="keywords"
+              content="Furniture, Home furniture, office furniture"
+            />
+          </Helmet>
+          <Header />
+          <img
+            src={productsDetails && productsDetails.image}
+            alt=""
+            className="img-fluid w-100 h-25-rem"
+          />
+          <ProductListingContentWorkstation product={productsDetails} />
+          <ProductListingWorkstation
+            filterMenu={productsDetails}
+            product={product}
+          />
+          <OtherProductsScroll otherProducts={otherProducts} />
+          <Footer />
+        </>
+      )}
     </>
   );
 };

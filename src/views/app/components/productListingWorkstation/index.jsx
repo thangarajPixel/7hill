@@ -74,6 +74,10 @@ const ProductListingWorkstation = ({ product , filterMenu }) => {
                                   "product_name",
                                   item.product_name
                                 );
+                                localStorage.setItem(
+                                  "product_id",
+                                  item.id
+                                );
                                 getProductDetails(item.product_url);
                                 setModalShow(true);
                               }}
@@ -86,6 +90,10 @@ const ProductListingWorkstation = ({ product , filterMenu }) => {
                                 localStorage.setItem(
                                   "product_name",
                                   item.product_name
+                                );
+                                localStorage.setItem(
+                                  "product_id",
+                                  item.id
                                 );
                                 getProductDetails(item.product_url);
                                 setModalShow1(true);

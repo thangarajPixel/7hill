@@ -8,13 +8,20 @@ import { useForm } from "react-hook-form";
 import { ErrorMessage } from "@hookform/error-message";
 import { ProductEnquiryResponse } from "../../helpers/FormResponse";
 import { API_URL } from "../../../../redux/constant/ApiRoute";
+import { useDispatch } from "react-redux";
+import { setLoader } from "../../../../redux/features/loader";
 
 const ProductEnquiryModal = (props) => {
+  const dispatch = useDispatch();
   const {
-    register, formState: { errors }, handleSubmit, reset,
+    register,
+    formState: { errors },
+    handleSubmit,
+    reset,
   } = useForm();
 
   const onSubmit = (data) => {
+    dispatch(setLoader(true));
     // console.log(data);
     var formdata = new FormData();
     formdata.append("name", data.name);
@@ -22,7 +29,7 @@ const ProductEnquiryModal = (props) => {
     formdata.append("mobile", data.mobile);
     formdata.append("company_name", data.company_name);
     formdata.append("city", data.city);
-    formdata.append("product_id", data.product_id);
+    formdata.append("product_id", localStorage.getItem("product_id"));
 
     var requestOptions = {
       method: "POST",
@@ -33,6 +40,7 @@ const ProductEnquiryModal = (props) => {
     fetch(API_URL.PRODUCT_ENQUIRY, requestOptions)
       .then((response) => response.text())
       .then((result) => {
+        dispatch(setLoader(false));
         ProductEnquiryResponse();
         reset();
       })
@@ -59,13 +67,15 @@ const ProductEnquiryModal = (props) => {
                       placeholder="Name *"
                       {...register("name", {
                         required: "This is required.",
-                      })} />
+                      })}
+                    />
                     <ErrorMessage
                       errors={errors}
                       name="name"
                       render={({ message }) => (
                         <small className="text-danger ml-2">* {message}</small>
-                      )} />
+                      )}
+                    />
                   </Form.Group>
                   <Form.Group className="mar-bot-30" controlId="contactnumber">
                     <Form.Control
@@ -74,16 +84,19 @@ const ProductEnquiryModal = (props) => {
                       {...register("mobile", {
                         required: "This is required.",
                         pattern: {
-                          value: /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/,
+                          value:
+                            /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/,
                           message: "Not a valid Phone Number",
                         },
-                      })} />
+                      })}
+                    />
                     <ErrorMessage
                       errors={errors}
                       name="mobile"
                       render={({ message }) => (
                         <small className="text-danger ml-2">* {message}</small>
-                      )} />
+                      )}
+                    />
                   </Form.Group>
                   <Form.Group className="mar-bot-30" controlId="email">
                     <Form.Control
@@ -92,28 +105,33 @@ const ProductEnquiryModal = (props) => {
                       {...register("email", {
                         required: "This is required.",
                         pattern: {
-                          value: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
+                          value:
+                            /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
                           message: "Invalid email address!",
                         },
-                      })} />
+                      })}
+                    />
                     <ErrorMessage
                       errors={errors}
                       name="email"
                       render={({ message }) => (
                         <small className="text-danger ml-2">* {message}</small>
-                      )} />
+                      )}
+                    />
                   </Form.Group>
                   <Form.Group className="mar-bot-30" controlId="companyname">
                     <Form.Control
                       type="text"
                       placeholder="Company Name"
-                      {...register("company_name")} />
+                      {...register("company_name")}
+                    />
                     <ErrorMessage
                       errors={errors}
                       name="company_name"
                       render={({ message }) => (
                         <small className="text-danger ml-2">* {message}</small>
-                      )} />
+                      )}
+                    />
                   </Form.Group>
                   <Form.Group className="mar-bot-30" controlId="city">
                     <Form.Control
@@ -121,20 +139,23 @@ const ProductEnquiryModal = (props) => {
                       placeholder="City *"
                       {...register("city", {
                         required: "This is required.",
-                      })} />
+                      })}
+                    />
                     <ErrorMessage
                       errors={errors}
                       name="city"
                       render={({ message }) => (
                         <small className="text-danger ml-2">* {message}</small>
-                      )} />
+                      )}
+                    />
                   </Form.Group>
                   <Form.Group className="mar-bot-30" controlId="product_id">
                     <Form.Control
                       type="text"
                       defaultValue={localStorage.getItem("product_name")}
-                      {...register("product_id")}
-                      disabled />
+                      {...register("product_name")}
+                      disabled
+                    />
                   </Form.Group>
                   <p className="text-center mb-0">
                     <Button variant="primary" type="submit">
@@ -149,6 +170,6 @@ const ProductEnquiryModal = (props) => {
       </Modal.Body>
     </Modal>
   );
-}
+};
 
-export default ProductEnquiryModal
+export default ProductEnquiryModal;
