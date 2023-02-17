@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "../../../../layouts/utility/header/Header";
 import Footer from "../../../../layouts/utility/footer/Footer";
 import DealersBanner from '../../../../assets/images/dealers-banner.webp';
@@ -8,8 +8,13 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import { Helmet } from "react-helmet";
 
 const Dealers = () => {
+  const [loader, setLoader] = useState(false);
   return (
     <>
+      {loader ? (
+        <div className="preloader">Laoding...</div>
+      ) : (
+        <>
       <Helmet>
         <title>7Hill Furniture | Dealers</title>
         <meta
@@ -23,9 +28,11 @@ const Dealers = () => {
       </Helmet>
       <Header />
       <LazyLoadImage src={DealersBanner} alt="" className="img-fluid w-100" />
-      <DealersSection />
+      <DealersSection setLoader={setLoader} />
       <DealerIcons />
       <Footer />
+      </>
+      )}
     </>
   );
 };

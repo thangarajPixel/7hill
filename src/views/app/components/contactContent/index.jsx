@@ -12,7 +12,7 @@ const openInNewTab = url => {
     window.open(url, '_blank', 'noopener,noreferrer');
 };
 
-const ContactContent = () => {
+const ContactContent = ({setLoader}) => {
 
     return (
         <>
@@ -28,7 +28,7 @@ const ContactContent = () => {
                 </div>
               </Col>
               <Col xs={12} sm={12} md={12} lg={6} xl={6} className="orange-bg">
-                <ContactForm />                
+                <ContactForm setLoader={setLoader}/>                
               </Col>
               </Row>
             </Container>

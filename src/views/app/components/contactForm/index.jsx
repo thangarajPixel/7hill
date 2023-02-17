@@ -6,7 +6,8 @@ import { ErrorMessage } from "@hookform/error-message";
 import { ContactResponse } from "../../helpers/FormResponse";
 import { API_URL } from "../../../../redux/constant/ApiRoute";
 
-const ContactForm = () => {
+const ContactForm = ({setLoader}) => {
+  
   const {
     register,
     formState: { errors },
@@ -15,6 +16,7 @@ const ContactForm = () => {
   } = useForm();
 
   const onSubmit = (data) => {
+    setLoader(true)
     console.log(data);
     var formdata = new FormData();
     formdata.append("name", data.name);
@@ -34,6 +36,7 @@ const ContactForm = () => {
     )
       .then((response) => response.text())
       .then((result) => {
+        setLoader(false)
         ContactResponse();
         reset();
       })

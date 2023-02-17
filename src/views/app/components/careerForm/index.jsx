@@ -6,7 +6,7 @@ import { ErrorMessage } from "@hookform/error-message";
 import { CareerResponse } from "../../helpers/FormResponse";
 import { API_URL } from "../../../../redux/constant/ApiRoute";
 
-const CareersForm = () => {
+const CareersForm = ({setLoader}) => {
   const {
     register,
     formState: { errors },
@@ -15,6 +15,7 @@ const CareersForm = () => {
   } = useForm();
 
   const onSubmit = (data) => {
+    setLoader(true)
     console.log(data);
     var formdata = new FormData();
     formdata.append("name", data.name);
@@ -32,6 +33,7 @@ const CareersForm = () => {
     fetch(API_URL.CAREER, requestOptions)
       .then((response) => response.text())
       .then((result) => {
+        setLoader(false)
         CareerResponse();
         reset();
       })
