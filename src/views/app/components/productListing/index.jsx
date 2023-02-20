@@ -71,7 +71,7 @@ const ProductListing = ({ filterMenu }) => {
                           <p>{item.product_name}</p>
                           <div className="products-buttons">
                             <Button
-                              className="view-btn"
+                              className="viewdetails-btn"
                               onClick={() => {
                                 getProductDetails(item.product_url);
                                 setModalShow(true);

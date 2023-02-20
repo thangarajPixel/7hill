@@ -160,15 +160,8 @@ const Footer = () => {
         <Row className="footer-bottom">
           <Col xs={12} sm={12} md={12} lg={6} xl={6}>
             <p className="footer-bottom-text1">
-              Copyright &copy; {getCurrentYear()} 7Hill Furniture | All Rights
-              Reserved. Designed By{" "}
-              <Link
-                rel="noopener noreferrer"
-                onClick={() => openInNewTab("https://www.pixel-studios.com")}
-              >
-                Pixel Studios
-              </Link>
-            </p>
+              Copyright &copy; {getCurrentYear()} 7Hill Furniture. A unit of Hevea Furniture & Interior Pvt Ltd | All Rights
+              Reserved.</p>
           </Col>
           <Col xs={12} sm={12} md={12} lg={6} xl={6}>
             <p className="footer-bottom-text2">
@@ -179,7 +172,7 @@ const Footer = () => {
         </Row>
       </Container>
       {/* eslint-disable-next-line */}
-      <Link rel="noopener noreferrer" className="whatsapp-btn" onClick={() => openInNewTab('https://api.whatsapp.com/send?phone=919840896388')} >
+      <Link rel="noopener noreferrer" className="whatsapp-btn" onClick={() => openInNewTab('https://api.whatsapp.com/send?phone=918881381388')} >
           <img src={WhatsappIcon} alt="" />
         </Link>
     </footer>

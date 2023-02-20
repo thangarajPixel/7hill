@@ -66,11 +66,19 @@ function ProductDetailsModal(props) {
                           <h6 className="text-orange heading6 mb-0">
                             {item.title}
                           </h6>
-                          <p>{item.items[0].attribute_values}</p>
+                          <p>{item.items[0].attribute_values}</p>                          
                         </div>
                       );
                     })}
-                  <p className="text-center">
+                    <h6 className="text-orange heading6 mb-0">
+                            Description
+                          </h6>
+                    <p>Item Description</p>
+                    <h6 className="text-orange heading6 mb-0">
+                            Specifications
+                          </h6>
+                    <p>Item Specifications</p>
+                  <p>
                     <Button
                       className="view-btn"
                       onClick={() => [
