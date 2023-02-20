@@ -60,6 +60,7 @@ function ProductDetailsModal(props) {
               <Col xs={12} sm={12} md={12} lg={6} xl={5}>
                 <div>
                   <h3 className="heading3">{props.product.product_name}</h3>
+                  <div className="product-specifications-scroll">
                   {props.product.attributes &&
                     props.product.attributes.map((item, i) => {
                       return (
@@ -79,6 +80,7 @@ function ProductDetailsModal(props) {
                             Specifications
                           </h6>
                     <p>Item Specifications</p>
+                    </div>
                   <p>
                     <Button
                       className="view-btn"

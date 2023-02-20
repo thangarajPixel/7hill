@@ -344,11 +344,11 @@ a:hover {
 }
 
 .viewdetails-btn, .viewdetails-btn:focus, .viewdetails-btn.btn-primary, .viewdetails-btn.btn-primary:focus{
-    background: var(--color-black) !important;
-    color: var(--color-white) !important;
+    background: var(--color-white) !important;
+    color: var(--color-orange) !important;
     padding: 10px 30px !important;
+    border: 1px solid var(--color-orange) !important;
     font-size: 14px !important;
-    border: none !important;
     font-weight: 500 !important;
     text-align: center !important;
     position: relative !important;
@@ -357,8 +357,9 @@ a:hover {
 }
 
 .viewdetails-btn:hover, .viewdetails-btn.btn-primary:hover{
-    background: var(--color-orange) !important;
+    background: var(--color-black) !important;
     color: var(--color-white) !important;
+    border: 1px solid var(--color-black) !important;
     transition: all 0.3s ease;
 }
 
@@ -1575,6 +1576,10 @@ form.product-filters .close-btn{
     padding: 0px;
 }
 
+.modal-content .modal-body .product-specifications-scroll{
+    max-height: 400px;
+    overflow-x: auto;
+}
 
 .modal-content .modal-header .btn-close{
     padding: 0px;
