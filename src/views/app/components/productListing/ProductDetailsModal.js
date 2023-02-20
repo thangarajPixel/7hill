@@ -8,6 +8,7 @@ import Container from "react-bootstrap/Container";
 import  ProductEnquiryModal from "./ProductEnquiryModal";
 
 function ProductDetailsModal(props) {
+  console.log(props);
   const [modalShow1, setModalShow1] = useState(false);
 
   var settings = {
@@ -59,7 +60,7 @@ function ProductDetailsModal(props) {
               <Col xs={12} sm={12} md={12} lg={6} xl={5}>
                 <div>
                   <h3 className="heading3">{props.product.product_name}</h3>
-                  {props.product &&
+                  {props.product.attributes &&
                     props.product.attributes.map((item, i) => {
                       return (
                         <div key={i}>
