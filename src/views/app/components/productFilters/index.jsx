@@ -1,16 +1,24 @@
 import { useEffect, useState } from "react";
 import Form from "react-bootstrap/Form";
-import { Link } from "react-router-dom";
+import {
+  Link,
+  useParams,
+  // useNavigate,
+  // useSearchParams,
+} from "react-router-dom";
 import { RiFilter2Fill } from "react-icons/ri";
 import { IoMdClose } from "react-icons/io";
 import { API_URL } from "../../../../redux/constant/ApiRoute";
 import axios from "axios";
+import { useDispatch } from "react-redux";
+import { filterProducts } from "../../../../redux/features/filterProducts";
 
 const ProductFilters = ({ menu }) => {
-  // console.log(menu);
+  const dispatch = useDispatch();
+  // const navigate = useNavigate();
+  const { products } = useParams();
   const [isActive, setActive] = useState("false");
-  // const [filterId, setFilterId] = useState();
-
+  // const [searchParams, setSearchParams] = useSearchParams();
   const ToggleClass = () => {
     setActive(!isActive);
   };
@@ -18,27 +26,30 @@ const ProductFilters = ({ menu }) => {
   useEffect(() => {
     getProducts();
     // eslint-disable-next-line
-  }, []);
+  }, [products]);
 
+  const getFilterProduct = (e) => {
+    var array = [];
+    var checkboxes = document.querySelectorAll(".filter_brand:checked");
+    console.log(checkboxes);
+    for (var i = 0; i < checkboxes.length; i++) {
+      array.push(checkboxes[i].value);
+    }
+
+  };
   const getProducts = () => {
     return axios
       .post(API_URL.PRODUCT_FILTER, {
-        // category: menu.slug,
+        category: products,
         // filter_id: filterId,
       })
       .then((res) => {
-        // setProduct(res.data);
-        // console.log(res.data);
+        dispatch(filterProducts(res.data.products));
+        // console.log(res.data.products);
       })
       .catch((err) => console.error(err));
   };
-  // let arr = [];
-  // const filterIdValue = (ids) => {
-  //   arr.push(ids);
-  //   arr.join('-')
-  //   // setFilterId(arr);
-  //   console.log(arr);
-  // };
+
   return (
     <>
       <h5 className="heading5">
@@ -68,11 +79,9 @@ const ProductFilters = ({ menu }) => {
                             label={item.attribute_values}
                             id={item.attribute_values}
                             value={item.id}
-                            // onChange={() => {
-                            //   setFilterId(item.id);
-                            //   filterIdValue(item.id)
-                            //   console.log(item.id);
-                            // }}
+                            className="filter_brand"
+                            // checked={ (brandSelected.includes(item.slug) ? 'checked' : '')}
+                            onChange={() => getFilterProduct(item.id)}
                           />
                         );
                       })}
@@ -85,31 +94,6 @@ const ProductFilters = ({ menu }) => {
                 <button className="clear-btn">Clear All</button>
               </div>
             ))}
-            {/* {["checkbox"].map((type) => (
-          <div key={`default-${type}`}>
-            <h6 className="heading6 text-orange">Bed Size</h6>
-            <Form.Check type={type} label={`Single`} id={`single`} />
-            <Form.Check type={type} label={`Queen`} id={`queen`} />
-            <Form.Check type={type} label={`King`} id={`king`} />
-            <Form.Check type={type} label={`Super King`} id={`superking`} />
-            <div className="divider"></div>
-            <h6 className="heading6 text-orange">Storage Type</h6>
-            <Form.Check type={type} label={`No Storage`} id={`nostorage`} />
-            <Form.Check type={type} label={`Side Storage`} id={`sidestorage`} />
-            <Form.Check
-              type={type}
-              label={`Hydraulic Storage`}
-              id={`hydraulicstorage`}
-            />
-            <div className="divider"></div>
-            <h6 className="heading6 text-orange">Finishes</h6>
-            <Form.Check type={type} label={`Natural`} id={`natural`} />
-            <Form.Check type={type} label={`Dark Walnut`} id={`darkwalnut`} />
-            <Form.Check type={type} label={`Light Walnut`} id={`lightwalnut`} />
-            <Form.Check type={type} label={`Rosewood`} id={`rosewood`} />
-            <button className="clear-btn">Clear All</button>
-          </div>
-        ))} */}
           </Form>
           <div className={isActive ? "backdrop" : "active backdrop"}></div>
         </>

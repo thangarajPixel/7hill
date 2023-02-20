@@ -10,10 +10,13 @@ import ProductDetailsModal from "./ProductDetailsModal";
 import axios from "axios";
 import { API_URL } from "../../../../redux/constant/ApiRoute";
 import NoProduct from "../../../../layouts/utility/notFound/NoProduct";
-// import NoImage from "../../../../assets/images/no_Image.jpg";
+import { useSelector } from "react-redux";
 
-const ProductListing = ({ product, filterMenu }) => {
-  let products = product.products;
+
+const ProductListing = ({ filterMenu }) => {
+  // console.log(filterMenu);
+  const filterProductsValue = useSelector((state)=> state.getProducts.value)
+  let products = filterProductsValue;
   const [modalShow, setModalShow] = useState(false);
   const [modalShow1, setModalShow1] = useState(false);
   const [productDetails, setProductDetails] = useState("");

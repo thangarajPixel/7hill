@@ -1,5 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import categoryReducer from "../features/allMenu";
+import filterProductsReducer from "../features/filterProducts";
 import homeCategoryReducer from "../features/homeCategory";
 import institutionalCategoryReducer from "../features/institutionalCategory";
 import loaderReducer from "../features/loader";
@@ -10,5 +11,6 @@ export const store = configureStore({
     homeCategory: homeCategoryReducer,
     institutionalCategory: institutionalCategoryReducer,
     loader: loaderReducer,
+    getProducts: filterProductsReducer,
   },
 });
