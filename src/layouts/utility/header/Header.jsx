@@ -121,24 +121,13 @@ const Header = () => {
                                   </Link>
                                 </h5>
                                 <ul className="mar-bot-20">
-                                  {product.child?.map((item, i) => {
-                                    return (
-                                      <li key={i}>
-                                        <Link
-                                          to={`/${product.slug}/${item.slug}/`}
-                                        >
-                                          {item.name}
-                                        </Link>
-                                      </li>
-                                    );
-                                  })}
-                                  {product.child?.map((item, i) => {
+                                  {product.child && product.child?.map((item, i) => {
                                     return (
                                       <li key={i}>
                                         <strong style={{ color: "black" }}>
                                           {item.title}
                                         </strong>
-                                        {item.child?.map((item, i) => {
+                                        {item.child && item.child?.map((item, i) => {
                                           return (
                                             <Link
                                               to={`/institutional-furniture/${item.slug}`}

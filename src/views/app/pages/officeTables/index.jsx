@@ -12,7 +12,7 @@ import { API_URL } from "../../../../redux/constant/ApiRoute";
 const OfficeTables = () => {
   const { inst_sub_furn } = useParams();
   const [product, setProduct] = useState("");
-
+  // console.log(product);
   useEffect(() => {
     getProducts();
     // eslint-disable-next-line
@@ -43,11 +43,11 @@ const OfficeTables = () => {
       </Helmet>
       <Header />
       <img
-        src={product.image}
+        src={product.banner_image}
         alt=""
         className="img-fluid w-100 h-22-rem"
       />
-      <OfficeTablesContent product={product}/>
+      <OfficeTablesContent product={product} />
       <OfficeTablesLists product={product} />
       <Footer />
     </>

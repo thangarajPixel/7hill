@@ -1,9 +1,6 @@
 import { useState } from "react";
 import Form from "react-bootstrap/Form";
-import {
-  Link,
-  useNavigate,
-} from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { RiFilter2Fill } from "react-icons/ri";
 import { IoMdClose } from "react-icons/io";
 import { API_URL } from "../../../../redux/constant/ApiRoute";
@@ -26,7 +23,6 @@ const ProductFilters = ({ menu }) => {
 
   const searchParams = new URLSearchParams(location.search);
 
-
   const getProducts = (filter_id = "") => {
     return axios
       .post(API_URL.PRODUCT_FILTER, {
@@ -48,7 +44,7 @@ const ProductFilters = ({ menu }) => {
     const SUrl = `/${menu.industrial[0].slug}/${menu.slug}/`;
     var array = [];
     var checkboxes = document.querySelectorAll(".filter_input:checked");
-
+    // console.log(checkboxes);
     for (var i = 0; i < checkboxes.length; i++) {
       array.push(checkboxes[i].value);
     }
@@ -97,18 +93,18 @@ const ProductFilters = ({ menu }) => {
                       <h6 className="heading6 text-orange">{item.title}</h6>
                       {item?.attributes_fields.map((item, i) => {
                         return (
-                          <div class="filter_brand form-check">
+                          <div className="filter_brand form-check">
                             <input
                               type="checkbox"
                               id={item.attribute_values}
-                              class="form-check-input filter_input"
+                              className="form-check-input filter_input"
                               value={item.id}
                               onChange={() => getFilterProduct(item.id)}
                             />
                             <label
                               title=""
-                              for={item.attribute_values}
-                              class="form-check-label"
+                              htmlFor={item.attribute_values}
+                              className="form-check-label"
                             >
                               {item.attribute_values}
                             </label>

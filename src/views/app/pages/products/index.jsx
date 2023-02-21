@@ -64,7 +64,7 @@ const Products = () => {
           </Helmet>
           <Header />
           <img
-            src={productsDetails && productsDetails.image}
+            src={productsDetails && productsDetails.banner_image}
             alt=""
             className="img-fluid w-100 h-25-rem"
           />
