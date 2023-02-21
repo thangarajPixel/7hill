@@ -39,7 +39,7 @@ const ForOffice = () => {
       </Helmet>
       <Header />
       <img
-        src={institutionalFurniture && institutionalFurniture[0].image}
+        src={institutionalFurniture && institutionalFurniture[0].banner_image}
         alt=""
         className="img-fluid w-100 h-25-rem"
       />
