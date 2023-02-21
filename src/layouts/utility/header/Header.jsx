@@ -17,7 +17,7 @@ const openInNewTab = (url) => {
 };
 
 const Header = () => {
-  const category = useSelector((state) => state.allMenu.value);  
+  const category = useSelector((state) => state.allMenu.value);
   const dispatch = useDispatch();
 
   const [isActive, setActive] = useState("false");
@@ -113,60 +113,71 @@ const Header = () => {
                       <Container>
                         <Row>
                           <Col xs={12} sm={12} md={12} lg={6}>
-                            {category && category?.map((product, i) => (
-                              <div key={i}>
-                                <h5>
-                                  <Link to={`/${product.slug}`}>
-                                    {product.title}
-                                  </Link>
-                                </h5>
-                                <ul className="mar-bot-20">
-                                  {product.child && product.child?.map((item, i) => {
-                                    return (
-                                      <li key={i}>
-                                        <strong style={{ color: "black" }}>
-                                          {item.title}
-                                        </strong>
-                                        {item.child && item.child?.map((item, i) => {
-                                          return (
-                                            <Link
-                                              to={`/institutional-furniture/${item.slug}`}
-                                              key={i}
-                                            >
-                                              {item.name}
-                                            </Link>
-                                          );
-                                        })}
-                                      </li>
-                                    );
-                                  })}
-                                </ul>
-                              </div>
-                            ))}
-                          </Col>
-                          {category && category?.map((product, i) => {
-                            if (i === 0 || i === 1) {
-                              return (
-                                <Col xs={12} sm={12} md={12} lg={3} key={i}>
-                                  <div className="furniture-menu">
-                                    <img
-                                      src={product.image}
-                                      alt=""
-                                      className="img-fluid h-22-rem"
-                                    />
-                                    <div className="furniture-menu-hover">
+                            {category &&
+                              category?.map((product, i) => (
+                                <div key={i}>
+                                  <h5>
+                                    <Link to={`/${product.slug}`}>
                                       {product.title}
-                                      <Link to={`/${product.slug}`}>
-                                        View Collections
-                                      </Link>
+                                    </Link>
+                                  </h5>
+                                  <ul className="mar-bot-20">
+                                    {product.child?.map((item, i) => {
+                                      return !item.subChild ? (
+                                        <li key={i}>
+                                          <Link
+                                            to={`/${product.slug}/${item.slug}/`}
+                                          >
+                                            {item.name}
+                                          </Link>
+                                        </li>
+                                      ) : (
+                                        <li key={i}>
+                                          <strong style={{ color: "black" }}>
+                                            {item.title}
+                                          </strong>
+                                          {item.subChild &&
+                                            item.subChild?.map((item, i) => {
+                                              return (
+                                                <Link
+                                                  to={`/institutional-furniture/${item.slug}`}
+                                                  key={i}
+                                                >
+                                                  {item.name}
+                                                </Link>
+                                              );
+                                            })}
+                                        </li>
+                                      );
+                                    })}
+                                  </ul>
+                                </div>
+                              ))}
+                          </Col>
+                          {category &&
+                            category?.map((product, i) => {
+                              if (i === 0 || i === 1) {
+                                return (
+                                  <Col xs={12} sm={12} md={12} lg={3} key={i}>
+                                    <div className="furniture-menu">
+                                      <img
+                                        src={product.image}
+                                        alt=""
+                                        className="img-fluid h-22-rem"
+                                      />
+                                      <div className="furniture-menu-hover">
+                                        {product.title}
+                                        <Link to={`/${product.slug}`}>
+                                          View Collections
+                                        </Link>
+                                      </div>
                                     </div>
-                                  </div>
-                                </Col>
-                              );
-                            } else {
-                              return <></>;
-                            }
-                          })}
+                                  </Col>
+                                );
+                              } else {
+                                return <></>;
+                              }
+                            })}
                         </Row>
                       </Container>
                     </ul>
