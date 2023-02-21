@@ -8,7 +8,7 @@ import Container from "react-bootstrap/Container";
 import  ProductEnquiryModal from "./ProductEnquiryModal";
 
 function ProductDetailsModal(props) {
-  console.log(props);
+  // console.log(props);
   const [modalShow1, setModalShow1] = useState(false);
 
   var settings = {

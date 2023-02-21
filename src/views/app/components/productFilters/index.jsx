@@ -1,11 +1,8 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Form from "react-bootstrap/Form";
 import {
   Link,
   useNavigate,
-  useParams,
-  // useNavigate,
-  // useSearchParams,
 } from "react-router-dom";
 import { RiFilter2Fill } from "react-icons/ri";
 import { IoMdClose } from "react-icons/io";
@@ -17,22 +14,23 @@ import { useLocation } from "react-router";
 import { useMemo } from "react";
 
 const ProductFilters = ({ menu }) => {
+  // console.log(menu);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
-  const { products } = useParams();
   const [isActive, setActive] = useState("false");
-  // const [searchParams, setSearchParams] = useSearchParams();
+
   const ToggleClass = () => {
     setActive(!isActive);
   };
 
   const searchParams = new URLSearchParams(location.search);
 
-  const getProducts = (filter_id = '') => {
+
+  const getProducts = (filter_id = "") => {
     return axios
       .post(API_URL.PRODUCT_FILTER, {
-        category: products,
+        category: menu.slug,
         filter_id: filter_id,
       })
       .then((res) => {
@@ -44,12 +42,10 @@ const ProductFilters = ({ menu }) => {
   useMemo(() => {
     getProducts();
     // eslint-disable-next-line
-  }, [products]);
+  }, [menu]);
 
-  const getFilterProduct = (e) => {
-
-    const SUrl = "/home-furniture/cots-home-furniture/";
-
+  const getFilterProduct = () => {
+    const SUrl = `/${menu.industrial[0].slug}/${menu.slug}/`;
     var array = [];
     var checkboxes = document.querySelectorAll(".filter_input:checked");
 
@@ -65,22 +61,18 @@ const ProductFilters = ({ menu }) => {
     }
 
     var filter_data = searchParams.toString();
-    filter_data = filter_data.split("=")
-    filter_data = filter_data[1].toString();
-
-    navigate(SUrl + '?' + searchParams.toString());
+    filter_data = filter_data.split("=");
+    filter_data = filter_data[1] && filter_data[1].toString();
+    navigate(SUrl + "?" + searchParams.toString());
     getProducts(filter_data);
-
   };
 
   const clearFilter = () => {
-    const SUrl = "/home-furniture/cots-home-furniture/";
+    const SUrl = `/${menu.industrial[0].slug}/${menu.slug}/`;
     searchParams.delete("filter");
     navigate(SUrl);
     getProducts();
-  }
-
-
+  };
 
   return (
     <>
@@ -106,10 +98,21 @@ const ProductFilters = ({ menu }) => {
                       {item?.attributes_fields.map((item, i) => {
                         return (
                           <div class="filter_brand form-check">
-                            <input type="checkbox" id={item.attribute_values} class="form-check-input filter_input" value={item.id} onChange={() => getFilterProduct(item.id)} />
-                            <label title="" for={item.attribute_values} class="form-check-label">{item.attribute_values}</label>
+                            <input
+                              type="checkbox"
+                              id={item.attribute_values}
+                              class="form-check-input filter_input"
+                              value={item.id}
+                              onChange={() => getFilterProduct(item.id)}
+                            />
+                            <label
+                              title=""
+                              for={item.attribute_values}
+                              class="form-check-label"
+                            >
+                              {item.attribute_values}
+                            </label>
                           </div>
-
                         );
                       })}
                       {i !== menu?.filter_menus.length - 1 && (
@@ -118,7 +121,13 @@ const ProductFilters = ({ menu }) => {
                     </div>
                   );
                 })}
-                <button type="button" className="clear-btn" onClick={clearFilter}>Clear All</button>
+                <button
+                  type="button"
+                  className="clear-btn"
+                  onClick={clearFilter}
+                >
+                  Clear All
+                </button>
               </div>
             ))}
           </Form>
