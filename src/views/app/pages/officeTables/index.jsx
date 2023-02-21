@@ -31,7 +31,7 @@ const OfficeTables = () => {
   return (
     <>
       <Helmet>
-        <title>7Hill Furniture | Office Table</title>
+        <title>7Hill Furniture | {product && product.name}</title>
         <meta
           name="description"
           content="Home furniture, office furniture in Chennai in India"

@@ -14,7 +14,7 @@ const ForOfficeContent = ({ product }) => {
           <Row className="justify-content-center">
             <Col xs={12} sm={12} md={12} lg={10} xl={9}>
               <h1 className="heading2 mar-bot-20 text-center capitalize">
-                {product && product.title}
+                {product && (product.title || product.name)}
               </h1>
               <Breadcrumb>
                 <ul>
@@ -26,7 +26,7 @@ const ForOfficeContent = ({ product }) => {
                   <li>
                     <RiArrowRightSLine />
                   </li>
-                  <li className="capitalize">{product && product.title}</li>
+                  <li className="capitalize">{product && (product.title || product.name)}</li>
                 </ul>
               </Breadcrumb>
               <p className="text-center mar-bot-20">

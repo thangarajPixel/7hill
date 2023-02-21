@@ -23,7 +23,7 @@ const ForOffice = () => {
       });
       // eslint-disable-next-line
   }, [category]);
-//   console.log(institutionalFurniture);
+  // console.log(institutionalFurniture[0]);
   return (
     <>
       <Helmet>

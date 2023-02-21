@@ -24,7 +24,7 @@ const ForOfficeFurnitureTabs = ({ product }) => {
         ?.filter((item) => item.slug === product.slug);
     setOfficeFurniture(officeFurn && officeFurn);
   }, [product, category]);
-
+  // console.log(officeFurniture);
   return (
     <>
       <section className="orange-bg">
