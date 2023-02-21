@@ -121,7 +121,7 @@ const ContactForm = ({setLoader}) => {
               )}
             />
           </Form.Group>
-          <p className="mandatory-fields text-right"><small className="text-danger">* Manditory Fields</small></p>
+          <p className="mandatory-fields text-right"><small className="text-danger">* Mandatory Fields</small></p>
           <Button variant="primary" type="submit">
             Submit
           </Button>

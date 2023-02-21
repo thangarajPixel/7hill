@@ -384,7 +384,7 @@ const DealersSection = ({ setLoader }) => {
                     className="text-center"
                   >
                     <p className="mandatory-fields">
-                      <small className="text-danger">* Manditory Fields</small>
+                      <small className="text-danger">* Mandatory Fields</small>
                     </p>
                     <Button variant="primary" type="submit">
                       Submit
