@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Form from "react-bootstrap/Form";
 import {
   Link,
+  useNavigate,
   useParams,
   // useNavigate,
   // useSearchParams,
@@ -12,10 +13,13 @@ import { API_URL } from "../../../../redux/constant/ApiRoute";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { filterProducts } from "../../../../redux/features/filterProducts";
+import { useLocation } from "react-router";
+import { useMemo } from "react";
 
 const ProductFilters = ({ menu }) => {
   const dispatch = useDispatch();
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
+  const location = useLocation();
   const { products } = useParams();
   const [isActive, setActive] = useState("false");
   // const [searchParams, setSearchParams] = useSearchParams();
@@ -23,32 +27,60 @@ const ProductFilters = ({ menu }) => {
     setActive(!isActive);
   };
 
-  useEffect(() => {
+  const searchParams = new URLSearchParams(location.search);
+
+  const getProducts = (filter_id = '') => {
+    return axios
+      .post(API_URL.PRODUCT_FILTER, {
+        category: products,
+        filter_id: filter_id,
+      })
+      .then((res) => {
+        dispatch(filterProducts(res.data.products));
+      })
+      .catch((err) => console.error(err));
+  };
+
+  useMemo(() => {
     getProducts();
     // eslint-disable-next-line
   }, [products]);
 
   const getFilterProduct = (e) => {
+
+    const SUrl = "/home-furniture/cots-home-furniture/";
+
     var array = [];
-    var checkboxes = document.querySelectorAll(".filter_brand:checked");
-    console.log(checkboxes);
+    var checkboxes = document.querySelectorAll(".filter_input:checked");
+
     for (var i = 0; i < checkboxes.length; i++) {
       array.push(checkboxes[i].value);
     }
 
+    if (array.length > 0) {
+      let checkedAvailabilityString = array.join("-");
+      searchParams.set("filter", checkedAvailabilityString);
+    } else {
+      searchParams.delete("filter");
+    }
+
+    var filter_data = searchParams.toString();
+    filter_data = filter_data.split("=")
+    filter_data = filter_data[1].toString();
+
+    navigate(SUrl + '?' + searchParams.toString());
+    getProducts(filter_data);
+
   };
-  const getProducts = () => {
-    return axios
-      .post(API_URL.PRODUCT_FILTER, {
-        category: products,
-        // filter_id: filterId,
-      })
-      .then((res) => {
-        dispatch(filterProducts(res.data.products));
-        // console.log(res.data.products);
-      })
-      .catch((err) => console.error(err));
-  };
+
+  const clearFilter = () => {
+    const SUrl = "/home-furniture/cots-home-furniture/";
+    searchParams.delete("filter");
+    navigate(SUrl);
+    getProducts();
+  }
+
+
 
   return (
     <>
@@ -73,16 +105,11 @@ const ProductFilters = ({ menu }) => {
                       <h6 className="heading6 text-orange">{item.title}</h6>
                       {item?.attributes_fields.map((item, i) => {
                         return (
-                          <Form.Check
-                            key={i}
-                            type={type}
-                            label={item.attribute_values}
-                            id={item.attribute_values}
-                            value={item.id}
-                            className="filter_brand"
-                            // checked={ (brandSelected.includes(item.slug) ? 'checked' : '')}
-                            onChange={() => getFilterProduct(item.id)}
-                          />
+                          <div class="filter_brand form-check">
+                            <input type="checkbox" id={item.attribute_values} class="form-check-input filter_input" value={item.id} onChange={() => getFilterProduct(item.id)} />
+                            <label title="" for={item.attribute_values} class="form-check-label">{item.attribute_values}</label>
+                          </div>
+
                         );
                       })}
                       {i !== menu?.filter_menus.length - 1 && (
@@ -91,7 +118,7 @@ const ProductFilters = ({ menu }) => {
                     </div>
                   );
                 })}
-                <button className="clear-btn">Clear All</button>
+                <button type="button" className="clear-btn" onClick={clearFilter}>Clear All</button>
               </div>
             ))}
           </Form>
