@@ -65,6 +65,10 @@ const ProductFilters = ({ menu }) => {
 
   const clearFilter = () => {
     const SUrl = `/${menu.industrial[0].slug}/${menu.slug}/`;
+    var checkboxes = document.querySelectorAll(".filter_input:checked");
+    for (var i = 0; i < checkboxes.length; i++) {
+      checkboxes[i].checked = false
+    }
     searchParams.delete("filter");
     navigate(SUrl);
     getProducts();
