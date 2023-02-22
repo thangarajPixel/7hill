@@ -10,7 +10,7 @@ import { filterProducts } from "../../../../redux/features/filterProducts";
 import { useLocation } from "react-router";
 import { useMemo } from "react";
 
-const ProductFilters = ({ menu }) => {
+const ProductFilters = ({ menu, loadMore }) => {
   // console.log(menu);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -28,9 +28,10 @@ const ProductFilters = ({ menu }) => {
       .post(API_URL.PRODUCT_FILTER, {
         category: menu.slug,
         filter_id: filter_id,
+        page: loadMore,
       })
       .then((res) => {
-        dispatch(filterProducts(res.data.products));
+        dispatch(filterProducts(res.data));
       })
       .catch((err) => console.error(err));
   };
@@ -38,7 +39,7 @@ const ProductFilters = ({ menu }) => {
   useMemo(() => {
     getProducts();
     // eslint-disable-next-line
-  }, [menu]);
+  }, [menu, loadMore]);
 
   const getFilterProduct = () => {
     const SUrl = `/${menu.industrial[0].slug}/${menu.slug}/`;
@@ -67,7 +68,7 @@ const ProductFilters = ({ menu }) => {
     const SUrl = `/${menu.industrial[0].slug}/${menu.slug}/`;
     var checkboxes = document.querySelectorAll(".filter_input:checked");
     for (var i = 0; i < checkboxes.length; i++) {
-      checkboxes[i].checked = false
+      checkboxes[i].checked = false;
     }
     searchParams.delete("filter");
     navigate(SUrl);

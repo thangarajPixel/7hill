@@ -3,7 +3,6 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import ProductFilters from "../productFilters";
-import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import ProductEnquiryModal from "./ProductEnquiryModal";
 import ProductDetailsModal from "./ProductDetailsModal";
@@ -12,14 +11,13 @@ import { API_URL } from "../../../../redux/constant/ApiRoute";
 import NoProduct from "../../../../layouts/utility/notFound/NoProduct";
 import { useSelector } from "react-redux";
 
-
 const ProductListing = ({ filterMenu }) => {
-  // console.log(filterMenu);
-  const filterProductsValue = useSelector((state)=> state.getProducts.value)
-  let products = filterProductsValue;
+  const filterProductsValue = useSelector((state) => state.getProducts.value);
+  let products = filterProductsValue.products;
   const [modalShow, setModalShow] = useState(false);
   const [modalShow1, setModalShow1] = useState(false);
   const [productDetails, setProductDetails] = useState("");
+  const [loadMore, setLoadMore] = useState(0);
 
   const getProductDetails = (item) => {
     return axios
@@ -46,14 +44,15 @@ const ProductListing = ({ filterMenu }) => {
         <Container>
           <Row>
             <Col xs={12} sm={12} md={3} lg={3} xl={2}>
-              <ProductFilters menu={filterMenu} />
+              <ProductFilters menu={filterMenu} loadMore={loadMore} />
             </Col>
             <Col xs={12} sm={12} md={9} lg={9} xl={10}>
               <p>
                 <small className="text-light-gray">
                   Showing {products && products.length ? products && "1" : "0"}{" "}
                   - {products && products.length} Results out of{" "}
-                  {products && products.length} Results
+                  {filterProductsValue && filterProductsValue.total_count}{" "}
+                  Results
                 </small>
               </p>
               <Row className="justify-content-center">
@@ -64,7 +63,7 @@ const ProductListing = ({ filterMenu }) => {
                       <Col xs={12} sm={6} md={6} lg={4} xl={4} key={i}>
                         <div className="products-div">
                           <img
-                            src={item.base_image ? item.base_image : item.image }
+                            src={item.base_image ? item.base_image : item.image}
                             alt=""
                             className="img-fluid w-100"
                           />
@@ -86,10 +85,7 @@ const ProductListing = ({ filterMenu }) => {
                                   "product_name",
                                   item.product_name
                                 );
-                                localStorage.setItem(
-                                  "product_id",
-                                  item.id
-                                );
+                                localStorage.setItem("product_id", item.id);
                                 getProductDetails(item.product_url);
                                 setModalShow1(true);
                               }}
@@ -104,20 +100,29 @@ const ProductListing = ({ filterMenu }) => {
                 ) : (
                   <NoProduct />
                 )}
-                {products && products.length > 10 && (
-                  <Col
-                    xs={12}
-                    sm={12}
-                    md={12}
-                    lg={12}
-                    xl={12}
-                    className="text-center"
-                  >
-                    <Link to="/" className="enquire-btn load-more-btn">
-                      Load More
-                    </Link>
-                  </Col>
-                )}
+                {products &&
+                  products.length > 10 &&
+                  products.length !==
+                    (filterProductsValue &&
+                      filterProductsValue.total_count) && (
+                    <Col
+                      xs={12}
+                      sm={12}
+                      md={12}
+                      lg={12}
+                      xl={12}
+                      className="text-center"
+                    >
+                      <button
+                        onClick={() => {
+                          setLoadMore((prev) => prev + 1);
+                        }}
+                        className="enquire-btn load-more-btn"
+                      >
+                        Load More
+                      </button>
+                    </Col>
+                  )}
               </Row>
             </Col>
           </Row>
