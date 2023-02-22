@@ -1185,6 +1185,115 @@ img.shadow1{
     bottom: 0px;
 }
 
+
+.dealers-bg2{
+    background: url(../images/bg-2.jpg) center center no-repeat #fae5e4 fixed;
+    background-size: cover;
+    position: relative;
+}
+
+.dealers-bg2:before{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    content: "";
+    background: var(--color-orange);
+    z-index: 0;
+    opacity: 0.15;
+    mix-blend-mode: color-burn;
+}
+
+.dealers-procedure-image{
+    position: relative;
+    font-size: 18px;
+    font-weight: 500;
+    text-align: center;
+    color: var(--color-black);
+    padding: 40px 20px 20px 20px;
+}
+
+.dealers-procedure-image.mar-top{
+    margin-top: 100px;
+}
+
+@media (max-width: 760px) {
+    .dealers-procedure-image.mar-top{
+        margin-top: 0px;
+    }
+}
+
+.dealers-procedure-image img{
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+.dealers-procedure-image img.dealers-number{
+    position: absolute;
+    left: 10px;
+    top: 30px;
+}
+
+.dealers-procedure-image img.dealers-number.animate1{
+    animation: MoveUpDown1 5s linear infinite;
+}
+
+.dealers-procedure-image img.dealers-number.animate2{
+    animation: MoveUpDown2 5s linear infinite;
+}
+
+
+@keyframes MoveUpDown1 {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(50px);
+    }
+}
+
+@keyframes MoveUpDown2 {
+    0%, 100% {
+      transform: translateY(50px);
+    }
+    50% {
+      transform: translateY(0px);
+    }
+}
+
+.dealers-icons{
+    padding: 10px 20px 20px 100px;
+    margin-bottom: 20px;
+    background: var(--color-white);
+    border-radius: 7px;
+    position: relative;
+    font-size: 20px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.07);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.dealers-icons:hover{
+    transition: all 0.3s ease;
+    box-shadow: 7px 7px 0px var(--color-orange);
+}
+
+.dealers-icons img{
+    position: absolute;
+    left: 15px;
+    top: 10px;
+}
+
+.dealers-icons small{
+    display: block;
+    font-weight: 400;
+    color: var(--color-darkgray);
+    font-size: 14px;
+}
+
 .dealers-list .list-group{
     display: flex;
     align-items: flex-start;
