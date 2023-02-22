@@ -15,28 +15,53 @@ import { useEffect } from "react";
 
 const InstitutionalFurnitureTabs = () => {
   const category = useSelector((state) => state.allMenu.value);
+  // console.log(category);
   const [officeFurniture, setOfficeFurniture] = useState("");
   const [schoolFurniture, setSchoolFurniture] = useState("");
   const [hospitalsFurniture, setHospitalsFurniture] = useState("");
   useEffect(() => {
-    let institutionalFurn = category?.filter(
-      (item) => item.slug === "institutional-furniture"
-    );
+    let institutionalFurn =
+      category &&
+      category?.filter((item) => item.slug === "institutional-furniture");
     // console.log(institutionalFurn);
-    let officeFurn = institutionalFurn
-      ?.map((item) => item.child[0])
-      // ?.filter((item) => item.slug === "for-offices");
-    setOfficeFurniture(officeFurn && officeFurn);
+    let officeFurn = institutionalFurn.map((item) =>
+      item.child.find((item) => {
+        if (item.slug === "for-offices") {
+          return item;
+        }
+      })
+    );
+    // console.log(officeFurn[0]);
+    // let officeFurn = institutionalFurn
+    //   ?.map((item) => item?.child[0])
+    //   // ?.filter((item) => item.slug === "for-offices");
+    // // console.log(officeFurn[0]);
+    setOfficeFurniture(officeFurn[0]);
 
-    let schoolFurn = institutionalFurn
-      ?.map((item) => item.child[1])
-      // ?.filter((item) => item.slug === "for-school");
-    setSchoolFurniture(schoolFurn && schoolFurn);
+    let schoolFurn = institutionalFurn.map((item) =>
+      item.child.find((item) => {
+        if (item.slug === "for-school") {
+          return item;
+        }
+      })
+    );
+    // let schoolFurn = institutionalFurn?.map((item) => item?.child[1]);
+    // ?.filter((item) => item.slug === "for-school");
 
-    let hospitalsFurn = institutionalFurn
-      ?.map((item) => item.child[2])
-      // ?.filter((item) => item.slug === "for-labs-hospitals");
-    setHospitalsFurniture(hospitalsFurn && hospitalsFurn);
+    setSchoolFurniture(schoolFurn[0]);
+
+    let hospitalsFurn = institutionalFurn.map((item) =>
+      item.child.find((item) => {
+        if (item.slug === "for-labs-hospitals") {
+          return item;
+        }
+      })
+    );
+    // console.log(hospitalsFurn);
+    // let hospitalsFurn = institutionalFurn
+    //   ?.map((item) => item?.child)
+    //   ?.filter((item) => item.slug === "for-labs-hospitals");
+    setHospitalsFurniture(hospitalsFurn[0]);
   }, [category]);
 
   return (
@@ -53,95 +78,100 @@ const InstitutionalFurnitureTabs = () => {
           </Row>
           <Row>
             <Col className="home-tabs institutional-tabs">
-              <Tabs defaultActiveKey="forOffices" id="home-tabs">
-                <Tab eventKey="forOffices" title="For Offices">
-                  <Row className="justify-content-center">
-                    {officeFurniture &&
-                      officeFurniture[0].child?.map((item, i) => (
-                        <Col xs={12} sm={12} md={6} lg={4} xl={4} key={i}>
-                          <Link
-                            to={`/institutional-furniture/${item.slug}`}
-                            className="product-list"
-                          >
-                            <div className="blog-img">
-                              <img
-                                src={item.image}
-                                alt=""
-                                className="img-fluid w-100 h-15-rem"
-                              />
-                            </div>
-                            <div className="product-list-content">
-                              <h3>
-                                {item.name}
-                                <span>
-                                  <BsArrowRight />
-                                </span>
-                              </h3>
-                            </div>
-                          </Link>
-                        </Col>
-                      ))}
-                  </Row>
-                </Tab>
-                <Tab eventKey="forSchools" title="For Schools">
-                  <Row className="justify-content-center">
-                    {schoolFurniture &&
-                      schoolFurniture[0].child?.map((item, i) => (
-                        <Col xs={12} sm={12} md={6} lg={4} xl={4} key={i}>
-                          
-                          <Link
-                            to={`/institutional-furniture/${item.slug}`}
-                            className="product-list"
-                          >
-                            <div className="blog-img">
-                              <img
-                                src={item.image}
-                                alt=""
-                                className="img-fluid w-100 h-15-rem"
-                              />
-                            </div>
-                            <div className="product-list-content">
-                              <h3>
-                                {item.name}
-                                <span>
-                                  <BsArrowRight />
-                                </span>
-                              </h3>
-                            </div>
-                          </Link>
-                        </Col>
-                      ))}
-                  </Row>
-                </Tab>
-                <Tab eventKey="forlabs" title="For Labs & Hospitals">
-                  <Row className="justify-content-center">
-                    {hospitalsFurniture &&
-                      hospitalsFurniture[0].child?.map((item, i) => (
-                        <Col xs={12} sm={12} md={6} lg={4} xl={4} key={i}>
-                          <Link
-                            to={`/institutional-furniture/${item.slug}`}
-                            className="product-list"
-                          >
-                            <div className="blog-img">
-                              <img
-                                src={item.image}
-                                alt=""
-                                className="img-fluid w-100 h-15-rem"
-                              />
-                            </div>
-                            <div className="product-list-content">
-                              <h3>
-                                {item.name}
-                                <span>
-                                  <BsArrowRight />
-                                </span>
-                              </h3>
-                            </div>
-                          </Link>
-                        </Col>
-                      ))}
-                  </Row>
-                </Tab>
+              <Tabs>
+                {officeFurniture && (
+                  <Tab eventKey="forOffices" title="For Offices">
+                    <Row className="justify-content-center">
+                      {officeFurniture &&
+                        officeFurniture.subChild?.map((item, i) => (
+                          <Col xs={12} sm={12} md={6} lg={4} xl={4} key={i}>
+                            <Link
+                              to={`/institutional-furniture/${item.slug}`}
+                              className="product-list"
+                            >
+                              <div className="blog-img">
+                                <img
+                                  src={item.image}
+                                  alt=""
+                                  className="img-fluid w-100 h-15-rem"
+                                />
+                              </div>
+                              <div className="product-list-content">
+                                <h3>
+                                  {item.name}
+                                  <span>
+                                    <BsArrowRight />
+                                  </span>
+                                </h3>
+                              </div>
+                            </Link>
+                          </Col>
+                        ))}
+                    </Row>
+                  </Tab>
+                )}
+                {schoolFurniture && (
+                  <Tab eventKey="forSchools" title="For Schools">
+                    <Row className="justify-content-center">
+                      {schoolFurniture &&
+                        schoolFurniture.subChild?.map((item, i) => (
+                          <Col xs={12} sm={12} md={6} lg={4} xl={4} key={i}>
+                            <Link
+                              to={`/institutional-furniture/${item.slug}`}
+                              className="product-list"
+                            >
+                              <div className="blog-img">
+                                <img
+                                  src={item.image}
+                                  alt=""
+                                  className="img-fluid w-100 h-15-rem"
+                                />
+                              </div>
+                              <div className="product-list-content">
+                                <h3>
+                                  {item.name}
+                                  <span>
+                                    <BsArrowRight />
+                                  </span>
+                                </h3>
+                              </div>
+                            </Link>
+                          </Col>
+                        ))}
+                    </Row>
+                  </Tab>
+                )}
+                {hospitalsFurniture && (
+                  <Tab eventKey="forlabs" title="For Labs & Hospitals">
+                    <Row className="justify-content-center">
+                      {hospitalsFurniture &&
+                        hospitalsFurniture.subChild?.map((item, i) => (
+                          <Col xs={12} sm={12} md={6} lg={4} xl={4} key={i}>
+                            <Link
+                              to={`/institutional-furniture/${item.slug}`}
+                              className="product-list"
+                            >
+                              <div className="blog-img">
+                                <img
+                                  src={item.image}
+                                  alt=""
+                                  className="img-fluid w-100 h-15-rem"
+                                />
+                              </div>
+                              <div className="product-list-content">
+                                <h3>
+                                  {item.name}
+                                  <span>
+                                    <BsArrowRight />
+                                  </span>
+                                </h3>
+                              </div>
+                            </Link>
+                          </Col>
+                        ))}
+                    </Row>
+                  </Tab>
+                )}
               </Tabs>
             </Col>
           </Row>

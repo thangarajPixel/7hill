@@ -34,7 +34,7 @@ const InstitutionalFurniture = () => {
       </Helmet>
       <Header />
       <img
-        src={institutionalFurniture}
+        src={institutionalFurniture && institutionalFurniture}
         alt=""
         className="img-fluid w-100 h-25-rem"
       />

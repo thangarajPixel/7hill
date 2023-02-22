@@ -58,7 +58,9 @@ const HomeTabs = () => {
               </h2>
             </Col>
           </Row>
-          {homeCategoryValue.length !==0 || institutionalCategoryValue.length !==0 ? (
+          {(homeCategoryValue && homeCategoryValue.length !== 0) ||
+          (institutionalCategoryValue &&
+            institutionalCategoryValue.length !== 0) ? (
             <Row>
               <Col className="home-tabs">
                 <Tabs defaultActiveKey="homefurniture" id="home-tabs">
