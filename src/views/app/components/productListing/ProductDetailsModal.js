@@ -72,14 +72,14 @@ function ProductDetailsModal(props) {
                         </div>
                       );
                     })}
-                    <h6 className="text-orange heading6 mb-0">
+                    {/* <h6 className="text-orange heading6 mb-0">
                             Description
                           </h6>
                     <p>Item Description</p>
                     <h6 className="text-orange heading6 mb-0">
                             Specifications
                           </h6>
-                    <p>Item Specifications</p>
+                    <p>Item Specifications</p> */}
                     </div>
                   <p>
                     <Button

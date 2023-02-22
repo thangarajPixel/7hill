@@ -4,9 +4,6 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
-// import OfficeTables from "../../../../assets/images/office-tables.jpg";
-// import OfficeSeating from "../../../../assets/images/office-seating.jpg";
-// import OfficeSofas from "../../../../assets/images/office-sofas.jpg";
 import { Link } from "react-router-dom";
 import { BsArrowRight } from "react-icons/bs";
 import { useSelector } from "react-redux";
@@ -15,53 +12,55 @@ import { useEffect } from "react";
 
 const InstitutionalFurnitureTabs = () => {
   const category = useSelector((state) => state.allMenu.value);
-  // console.log(category);
   const [officeFurniture, setOfficeFurniture] = useState("");
   const [schoolFurniture, setSchoolFurniture] = useState("");
   const [hospitalsFurniture, setHospitalsFurniture] = useState("");
+
   useEffect(() => {
     let institutionalFurn =
       category &&
       category?.filter((item) => item.slug === "institutional-furniture");
-    // console.log(institutionalFurn);
+
     let officeFurn = institutionalFurn.map((item) =>
+      // eslint-disable-next-line
       item.child.find((item) => {
         if (item.slug === "for-offices") {
           return item;
         }
       })
     );
-    // console.log(officeFurn[0]);
-    // let officeFurn = institutionalFurn
-    //   ?.map((item) => item?.child[0])
-    //   // ?.filter((item) => item.slug === "for-offices");
-    // // console.log(officeFurn[0]);
     setOfficeFurniture(officeFurn[0]);
 
     let schoolFurn = institutionalFurn.map((item) =>
+      // eslint-disable-next-line
       item.child.find((item) => {
         if (item.slug === "for-school") {
           return item;
         }
       })
     );
-    // let schoolFurn = institutionalFurn?.map((item) => item?.child[1]);
-    // ?.filter((item) => item.slug === "for-school");
-
     setSchoolFurniture(schoolFurn[0]);
 
     let hospitalsFurn = institutionalFurn.map((item) =>
+      // eslint-disable-next-line
       item.child.find((item) => {
         if (item.slug === "for-labs-hospitals") {
           return item;
         }
       })
     );
-    // console.log(hospitalsFurn);
+    setHospitalsFurniture(hospitalsFurn[0]);
+
+    // let officeFurn = institutionalFurn
+    //   ?.map((item) => item?.child[0])
+    //   ?.filter((item) => item.slug === "for-offices");
+
+    // let schoolFurn = institutionalFurn?.map((item) => item?.child[1]);
+    // ?.filter((item) => item.slug === "for-school");
+
     // let hospitalsFurn = institutionalFurn
     //   ?.map((item) => item?.child)
     //   ?.filter((item) => item.slug === "for-labs-hospitals");
-    setHospitalsFurniture(hospitalsFurn[0]);
   }, [category]);
 
   return (
