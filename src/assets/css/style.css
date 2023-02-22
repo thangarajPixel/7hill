@@ -770,20 +770,11 @@ section.home-cta-bg h2.heading2 strong{
 }
 
 .home-tabs ul.nav-tabs li.nav-item:first-child{
-    border-right: 2px solid rgba(0, 0, 0, 0.3);
+    border-left: none;
 }
 
-.home-tabs.institutional-tabs ul.nav-tabs li.nav-item:nth-child(2){
-    border-right: 2px solid rgba(0, 0, 0, 0.3);
-}
-
-.home-tabs.products-tab ul.nav-tabs li.nav-item{
-    border-right: 2px solid rgba(0, 0, 0, 0.3);
-}
-
-
-.home-tabs.products-tab ul.nav-tabs li.nav-item:last-child{
-    border-right: none;
+.home-tabs ul.nav-tabs li.nav-item{
+    border-left: 2px solid rgba(0, 0, 0, 0.3);
 }
 
 .home-tabs ul.nav-tabs li.nav-item button.nav-link{
