@@ -94,32 +94,34 @@ const ProductFilters = ({ menu, loadMore }) => {
               <div key={`default-${type}`}>
                 {menu.filter_menus?.map((item, i) => {
                   return (
-                    <div key={i}>
-                      <h6 className="heading6 text-orange">{item.title}</h6>
-                      {item?.attributes_fields.map((item, i) => {
-                        return (
-                          <div className="filter_brand form-check">
-                            <input
-                              type="checkbox"
-                              id={item.attribute_values}
-                              className="form-check-input filter_input"
-                              value={item.id}
-                              onChange={() => getFilterProduct(item.id)}
-                            />
-                            <label
-                              title=""
-                              htmlFor={item.attribute_values}
-                              className="form-check-label"
-                            >
-                              {item.attribute_values}
-                            </label>
-                          </div>
-                        );
-                      })}
-                      {i !== menu?.filter_menus.length - 1 && (
-                        <div className="divider"></div>
-                      )}
-                    </div>
+                    item.attributes_fields.length !== 0 && (
+                      <div key={i}>
+                        <h6 className="heading6 text-orange">{item.title}</h6>
+                        {item?.attributes_fields.map((item, i) => {
+                          return (
+                            <div className="filter_brand form-check" key={i}>
+                              <input
+                                type="checkbox"
+                                id={item.attribute_values}
+                                className="form-check-input filter_input"
+                                value={item.id}
+                                onChange={() => getFilterProduct(item.id)}
+                              />
+                              <label
+                                title=""
+                                htmlFor={item.attribute_values}
+                                className="form-check-label"
+                              >
+                                {item.attribute_values}
+                              </label>
+                            </div>
+                          );
+                        })}
+                        {(i !== menu?.filter_menus.length - 1) && (
+                          <div className="divider"></div>
+                        )}
+                      </div>
+                    )
                   );
                 })}
                 <button

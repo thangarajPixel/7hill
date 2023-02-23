@@ -16,10 +16,6 @@ import NoProduct from "../../../../layouts/utility/notFound/NoProduct";
 const HomeTabs = () => {
   const dispatch = useDispatch();
   const category = useSelector((state) => state.allMenu.value);
-  const homeCategoryValue = useSelector((state) => state.homeCategory.value);
-  const institutionalCategoryValue = useSelector(
-    (state) => state.institutionalCategory.value
-  );
 
   useEffect(() => {
     let homeFurn =
@@ -58,53 +54,31 @@ const HomeTabs = () => {
               </h2>
             </Col>
           </Row>
-          {(homeCategoryValue && homeCategoryValue.length !== 0) ||
-          (institutionalCategoryValue &&
-            institutionalCategoryValue.length !== 0) ? (
-            <Row>
-              <Col className="home-tabs">
-                <Tabs defaultActiveKey="homefurniture" id="home-tabs">
-                  <Tab eventKey="homefurniture" title="Home Furniture">
-                    <ListGroup>
-                      {homeCategoryValue &&
-                        homeCategoryValue?.child.map((item, i) => {
-                          return (
-                            <ListGroup.Item key={i}>
-                              <Link to={`/home-furniture/${item.slug}`}>
-                                <img src={item.icon} alt="" />
-                                {item.title ? item.title : item.name}
-                              </Link>
-                            </ListGroup.Item>
-                          );
-                        })}
-                    </ListGroup>
+
+          <Row>
+            <Col className="home-tabs">
+              <Tabs>
+                {category.map((prod, i) => (
+                  <Tab eventKey={prod.slug} title={prod.title} key={i}>
+                    {prod.child ? (
+                      <ListGroup>
+                        {prod?.child.map((item, i) => (
+                          <ListGroup.Item key={i}>
+                            <Link to={`/home-furniture/${item.slug}`}>
+                              <img src={item.icon} alt="" />
+                              {item.title ? item.title : item.name}
+                            </Link>
+                          </ListGroup.Item>
+                        ))}
+                      </ListGroup>
+                    ) : (
+                      <NoProduct />
+                    )}
                   </Tab>
-                  <Tab
-                    eventKey="institfurniture"
-                    title="Institutional Furniture"
-                  >
-                    <ListGroup>
-                      {institutionalCategoryValue &&
-                        institutionalCategoryValue?.child.map((item, i) => {
-                          return (
-                            <ListGroup.Item key={i}>
-                              <Link
-                                to={`/institutional-furnitures/${item.slug}`}
-                              >
-                                <img src={item.icon} alt="" />
-                                {item.title ? item.title : item.name}
-                              </Link>
-                            </ListGroup.Item>
-                          );
-                        })}
-                    </ListGroup>
-                  </Tab>
-                </Tabs>
-              </Col>
-            </Row>
-          ) : (
-            <NoProduct />
-          )}
+                ))}
+              </Tabs>
+            </Col>
+          </Row>
         </Container>
       </section>
     </>
