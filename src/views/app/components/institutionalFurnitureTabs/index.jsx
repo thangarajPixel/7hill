@@ -27,7 +27,7 @@ const InstitutionalFurnitureTabs = () => {
           <Row>
             <Col className="home-tabs institutional-tabs">
               <Tabs>
-                {institutionalCategory.child.map((prod, i) => (
+                {institutionalCategory && institutionalCategory.child.map((prod, i) => (
                   <Tab eventKey={prod.slug} title={prod.title} key={i}>
                     <Row className="justify-content-center">
                       {prod.subChild?.map((item, i) => (

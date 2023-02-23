@@ -11,10 +11,12 @@ const ForOffice = () => {
   const { inst_sub_furn } = useParams();
   const category = useSelector((state) => state.allMenu.value);
   const [institutionalFurniture, setInstitutionalFurniture] = useState("");
+  const [institutionalImage, setInstitutionalImage] = useState("");
   useEffect(() => {
     let institutionalFurn = category?.filter(
       (item) => item.slug === "institutional-furniture"
     );
+    setInstitutionalImage(institutionalFurn[0].banner_image)
     institutionalFurn &&
       institutionalFurn.forEach((item) => {
         setInstitutionalFurniture(
@@ -39,7 +41,7 @@ const ForOffice = () => {
       </Helmet>
       <Header />
       <img
-        src={institutionalFurniture && institutionalFurniture[0].banner_image}
+        src={institutionalImage && institutionalImage}
         alt=""
         className="img-fluid w-100 h-25-rem"
       />

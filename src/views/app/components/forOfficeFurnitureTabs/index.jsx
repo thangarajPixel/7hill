@@ -12,6 +12,7 @@ const ForOfficeFurnitureTabs = ({ product }) => {
   // console.log(product && product.slug);
   const category = useSelector((state) => state.allMenu.value);
   const [officeFurniture, setOfficeFurniture] = useState("");
+  // console.log(officeFurniture);
   useEffect(() => {
     let institutionalFurn = category?.filter(
       (item) => item.slug === "institutional-furniture"
@@ -44,7 +45,7 @@ const ForOfficeFurnitureTabs = ({ product }) => {
               </h3>
               <Row className="justify-content-center">
                 {officeFurniture &&
-                  officeFurniture[0].child?.map((item, i) => (
+                  officeFurniture[0].subChild?.map((item, i) => (
                     <Col xs={12} sm={12} md={6} lg={4} xl={4} key={i}>
                       <Link
                         to={`/institutional-furniture/${item.slug}`}
