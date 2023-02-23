@@ -101,7 +101,7 @@ const ProductListing = ({ filterMenu }) => {
                   <NoProduct />
                 )}
                 {products &&
-                  products.length > 10 &&
+                  products.length >= 12 &&
                   products.length !==
                     (filterProductsValue &&
                       filterProductsValue.total_count) && (

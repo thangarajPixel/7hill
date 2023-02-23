@@ -1,6 +1,9 @@
 import { useState } from "react";
 import Form from "react-bootstrap/Form";
-import { Link, useNavigate } from "react-router-dom";
+import {
+  Link,
+  // useNavigate
+} from "react-router-dom";
 import { RiFilter2Fill } from "react-icons/ri";
 import { IoMdClose } from "react-icons/io";
 import { API_URL } from "../../../../redux/constant/ApiRoute";
@@ -13,7 +16,7 @@ import { useMemo } from "react";
 const ProductFilters = ({ menu, loadMore }) => {
   // console.log(menu);
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const location = useLocation();
   const [isActive, setActive] = useState("false");
 
@@ -42,7 +45,7 @@ const ProductFilters = ({ menu, loadMore }) => {
   }, [menu, loadMore]);
 
   const getFilterProduct = () => {
-    const SUrl = `/${menu.industrial[0].slug}/${menu.slug}/`;
+    // const SUrl = `/${menu.industrial[0].slug}/${menu.slug}/`;
     var array = [];
     var checkboxes = document.querySelectorAll(".filter_input:checked");
     // console.log(checkboxes);
@@ -60,18 +63,18 @@ const ProductFilters = ({ menu, loadMore }) => {
     var filter_data = searchParams.toString();
     filter_data = filter_data.split("=");
     filter_data = filter_data[1] && filter_data[1].toString();
-    navigate(SUrl + "?" + searchParams.toString());
+    // navigate(SUrl + "?" + searchParams.toString());
     getProducts(filter_data);
   };
 
   const clearFilter = () => {
-    const SUrl = `/${menu.industrial[0].slug}/${menu.slug}/`;
+    // const SUrl = `/${menu.industrial[0].slug}/${menu.slug}/`;
     var checkboxes = document.querySelectorAll(".filter_input:checked");
     for (var i = 0; i < checkboxes.length; i++) {
       checkboxes[i].checked = false;
     }
     searchParams.delete("filter");
-    navigate(SUrl);
+    // navigate(SUrl);
     getProducts();
   };
 
@@ -117,7 +120,7 @@ const ProductFilters = ({ menu, loadMore }) => {
                             </div>
                           );
                         })}
-                        {(i !== menu?.filter_menus.length - 1) && (
+                        {i !== menu?.filter_menus.length - 1 && (
                           <div className="divider"></div>
                         )}
                       </div>
