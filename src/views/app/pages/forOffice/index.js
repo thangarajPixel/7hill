@@ -24,7 +24,7 @@ const ForOffice = () => {
         );
       });
       // eslint-disable-next-line
-  }, [category]);
+  }, [category,inst_sub_furn]);
   // console.log(institutionalFurniture[0]);
   return (
     <>

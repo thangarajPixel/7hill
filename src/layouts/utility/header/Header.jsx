@@ -133,9 +133,16 @@ const Header = () => {
                                         </li>
                                       ) : (
                                         <li key={i}>
-                                          <strong style={{ color: "black" }}>
+                                          <Link
+                                            style={{
+                                              color: "black",
+                                              fontWeight: "600",
+                                            }}
+                                            to={`/institutional-furnitures/${item.slug}`}
+                                            key={i}
+                                          >
                                             {item.title}
-                                          </strong>
+                                          </Link>
                                           {item.subChild &&
                                             item.subChild?.map((item, i) => {
                                               return (
