@@ -8,10 +8,9 @@ import { API_URL } from "../../../../redux/constant/ApiRoute";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import ProductFilters from "../productFilters";
 import NoProduct from "../../../../layouts/utility/notFound/NoProduct";
 
-const ProductListingWorkstation = ({ product , filterMenu }) => {
+const ProductListingWorkstation = ({ product }) => {
   let products = product?.products;
   const [modalShow, setModalShow] = useState(false);
   const [modalShow1, setModalShow1] = useState(false);
@@ -41,10 +40,7 @@ const ProductListingWorkstation = ({ product , filterMenu }) => {
       <section className="pt-0">
         <Container>
           <Row>
-            <Col xs={12} sm={12} md={3} lg={3} xl={2}>
-              <ProductFilters menu={filterMenu} />
-            </Col>
-            <Col xs={12} sm={12} md={9} lg={9} xl={10}>
+            <Col>
               <p>
                 <small className="text-light-gray">
                   Showing {products && products.length ? products && "1" : "0"}{" "}

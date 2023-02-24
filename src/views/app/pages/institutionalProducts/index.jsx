@@ -70,7 +70,6 @@ const InstitutionalProducts = () => {
           />
           <ProductListingContentWorkstation product={productsDetails} />
           <ProductListingWorkstation
-            filterMenu={productsDetails}
             product={product}
           />
           <OtherProductsScroll otherProducts={otherProducts} />
