@@ -38,8 +38,19 @@ const ProductFilters = ({ menu, loadMore }) => {
       })
       .catch((err) => console.error(err));
   };
+  
+  const isFilterMenuItemsAvails = () => {
+    let i = 0;
+    menu && menu.filter_menus.forEach((item) => {
+      if(item.attributes_fields.length!==0){
+        i++
+      }
+    });
+    return i;
+  };
 
   useMemo(() => {
+    isFilterMenuItemsAvails();
     getProducts();
     // eslint-disable-next-line
   }, [menu, loadMore]);
@@ -85,7 +96,7 @@ const ProductFilters = ({ menu, loadMore }) => {
           <RiFilter2Fill /> Filters
         </Link>
       </h5>
-      {menu && menu.filter_menus?.length !== 0 ? (
+      {isFilterMenuItemsAvails() !==0  ? (
         <>
           <Form
             className={isActive ? "product-filters" : "active product-filters"}
