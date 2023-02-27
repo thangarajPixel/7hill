@@ -15,7 +15,7 @@ const HomeFurniture = () => {
     let homeFurn = category?.filter((item) => item.slug === "home-furniture");
     homeFurn &&
       homeFurn.forEach((item) => {
-        setHomeFurnitureImage(item.image);
+        setHomeFurnitureImage(item.banner_image);
       });
   }, [category]);
   return (

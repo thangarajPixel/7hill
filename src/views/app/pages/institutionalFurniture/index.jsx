@@ -16,7 +16,7 @@ const InstitutionalFurniture = () => {
     );
     institutionalFurn &&
       institutionalFurn.forEach((item) => {
-        setInstitutionalFurniture(item.image);
+        setInstitutionalFurniture(item.banner_image);
       });
   }, [category]);
   return (

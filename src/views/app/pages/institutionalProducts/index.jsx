@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Header from "../../../../layouts/utility/header/Header";
 import Footer from "../../../../layouts/utility/footer/Footer";
-// import WorkstationsBanner from "../../../../assets/images/workstations-banner.jpg";
 import ProductListingContentWorkstation from "../../components/productListingContentWorkstation";
 import ProductListingWorkstation from "../../components/productListingWorkstation";
 import OtherProductsScroll from "../../components/otherProductScroll";
@@ -64,14 +63,12 @@ const InstitutionalProducts = () => {
           </Helmet>
           <Header />
           <img
-            src={productsDetails && productsDetails.image}
+            src={productsDetails && productsDetails.banner_image}
             alt=""
             className="img-fluid w-100 h-25-rem"
           />
           <ProductListingContentWorkstation product={productsDetails} />
-          <ProductListingWorkstation
-            product={product}
-          />
+          <ProductListingWorkstation product={product} />
           <OtherProductsScroll otherProducts={otherProducts} />
           <Footer />
         </>
