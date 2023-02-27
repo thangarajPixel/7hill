@@ -38,14 +38,15 @@ const ProductFilters = ({ menu, loadMore }) => {
       })
       .catch((err) => console.error(err));
   };
-  
+
   const isFilterMenuItemsAvails = () => {
     let i = 0;
-    menu && menu.filter_menus.forEach((item) => {
-      if(item.attributes_fields.length!==0){
-        i++
-      }
-    });
+    menu &&
+      menu.filter_menus.forEach((item) => {
+        if (item.attributes_fields.length !== 0) {
+          i++;
+        }
+      });
     return i;
   };
 
@@ -54,7 +55,9 @@ const ProductFilters = ({ menu, loadMore }) => {
     getProducts();
     // eslint-disable-next-line
   }, [menu, loadMore]);
-
+  let filterSelected = document.querySelectorAll(
+    ".filter_input:checked"
+  ).length;
   const getFilterProduct = () => {
     // const SUrl = `/${menu.industrial[0].slug}/${menu.slug}/`;
     var array = [];
@@ -96,7 +99,7 @@ const ProductFilters = ({ menu, loadMore }) => {
           <RiFilter2Fill /> Filters
         </Link>
       </h5>
-      {isFilterMenuItemsAvails() !==0  ? (
+      {isFilterMenuItemsAvails() !== 0 ? (
         <>
           <Form
             className={isActive ? "product-filters" : "active product-filters"}
@@ -138,13 +141,17 @@ const ProductFilters = ({ menu, loadMore }) => {
                     )
                   );
                 })}
-                <button
-                  type="button"
-                  className="clear-btn"
-                  onClick={clearFilter}
-                >
-                  Clear All
-                </button>
+                {filterSelected ? (
+                  <button
+                    type="button"
+                    className="clear-btn"
+                    onClick={clearFilter}
+                  >
+                    Clear All
+                  </button>
+                ) : (
+                  ""
+                )}
               </div>
             ))}
           </Form>
