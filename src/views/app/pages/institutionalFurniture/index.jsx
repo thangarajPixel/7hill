@@ -36,7 +36,7 @@ const InstitutionalFurniture = () => {
       <img
         src={institutionalFurniture && institutionalFurniture}
         alt=""
-        className="img-fluid w-100 h-25-rem"
+        className="img-fluid w-100"
       />
       <InstitutionalFurnitureContent />
       <InstitutionalFurnitureTabs />

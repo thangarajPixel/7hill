@@ -43,7 +43,7 @@ const ForOffice = () => {
       <img
         src={institutionalImage && institutionalImage}
         alt=""
-        className="img-fluid w-100 h-25-rem"
+        className="img-fluid w-100"
       />
       <ForOfficeContent product={institutionalFurniture[0]} />
       <ForOfficeFurnitureTabs product={institutionalFurniture[0]} />

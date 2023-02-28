@@ -52,7 +52,7 @@ function ProductDetailsModal(props) {
                         key={i}
                         src={item}
                         alt=""
-                        className="img-fluid w-100 h-25-rem" />
+                        className="img-fluid w-100" />
                     );
                   })}
                 </Slider>

@@ -35,7 +35,7 @@ const HomeFurniture = () => {
       <img
         src={homeFurnitureImage}
         alt=""
-        className="img-fluid w-100 h-25-rem"
+        className="img-fluid w-100"
       />
       <HomeFurnitureContent />
       <HomeFurnitureLists />

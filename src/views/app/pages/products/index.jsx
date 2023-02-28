@@ -66,7 +66,7 @@ const Products = () => {
           <img
             src={productsDetails && productsDetails.banner_image}
             alt=""
-            className="img-fluid w-100 h-25-rem"
+            className="img-fluid w-100"
           />
           <ProductListingContent product={productsDetails} />
           <ProductListing

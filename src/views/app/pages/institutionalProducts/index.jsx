@@ -65,7 +65,7 @@ const InstitutionalProducts = () => {
           <img
             src={productsDetails && productsDetails.banner_image}
             alt=""
-            className="img-fluid w-100 h-25-rem"
+            className="img-fluid w-100"
           />
           <ProductListingContentWorkstation product={productsDetails} />
           <ProductListingWorkstation product={product} />
