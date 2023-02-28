@@ -29,7 +29,7 @@ const OfficeTablesLists = ({ product }) => {
               </h2>
             </Col>
           </Row>
-          <Row className="justify-content-center">
+          <Row>
             {product && product.child.length !== 0 ? (
               product.child?.map((item, i) => {
                 return (

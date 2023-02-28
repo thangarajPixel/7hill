@@ -49,7 +49,7 @@ const ProductListingWorkstation = ({ product }) => {
                 </small>
               </p>
 
-              <Row className="justify-content-center">
+              <Row>
                 {products && products.length !== 0 ? (
                   products &&
                   products?.map((item, i) => {
@@ -64,7 +64,7 @@ const ProductListingWorkstation = ({ product }) => {
                           <p>{item.product_name}</p>
                           <div className="products-buttons">
                             <Button
-                              className="view-btn"
+                              className="viewdetails-btn"
                               onClick={() => {
                                 localStorage.setItem(
                                   "product_name",

@@ -55,7 +55,7 @@ const ProductListing = ({ filterMenu }) => {
                   Results
                 </small>
               </p>
-              <Row className="justify-content-center">
+              <Row>
                 {products && products.length !== 0 ? (
                   products &&
                   products?.map((item, i) => {
