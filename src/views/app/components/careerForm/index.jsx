@@ -21,7 +21,7 @@ const CareersForm = ({setLoader}) => {
     formdata.append("name", data.name);
     formdata.append("email", data.email);
     formdata.append("mobile", data.mobile);
-    formdata.append("message", data.message);
+    formdata.append("cover_letter", data.cover_letter);
     formdata.append("file", data.chooseFile[0], data.chooseFile[0].name);
 
     var requestOptions = {
@@ -101,18 +101,18 @@ const CareersForm = ({setLoader}) => {
               )}
             />
           </Form.Group>
-          <Form.Group className="mar-bot-30 position-relative" controlId="message">
+          <Form.Group className="mar-bot-30 position-relative" controlId="cover_letter">
             <Form.Control
               as="textarea"
               rows={3}
               placeholder="Cover Letter *"
-              {...register("message", {
+              {...register("cover_letter", {
                 required: "Enter your Message",
               })}
             />
             <ErrorMessage
               errors={errors}
-              name="message"
+              name="cover_letter"
               render={({ message }) => (
                 <small className="text-danger ml-2">* {message}</small>
               )}
