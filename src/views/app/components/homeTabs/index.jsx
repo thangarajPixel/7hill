@@ -67,7 +67,7 @@ const HomeTabs = () => {
                   <Tab eventKey="homefurniture" title="Home Furniture">
                     <ListGroup>
                       {homeCategoryValue &&
-                        homeCategoryValue?.child.map((item, i) => {
+                        homeCategoryValue?.child.slice(0, 10).map((item, i) => {
                           return (
                             <ListGroup.Item key={i}>
                               <Link to={`/home-furniture/${item.slug}`}>
@@ -85,7 +85,7 @@ const HomeTabs = () => {
                   >
                     <ListGroup>
                       {institutionalCategoryValue &&
-                        institutionalCategoryValue?.child.map((item, i) => {
+                        institutionalCategoryValue?.child.slice(0, 10).map((item, i) => {
                           return (
                             <ListGroup.Item key={i}>
                               <Link
