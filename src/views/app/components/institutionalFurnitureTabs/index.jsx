@@ -6,10 +6,9 @@ import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 import { Link } from "react-router-dom";
 import { BsArrowRight } from "react-icons/bs";
-import { useSelector } from "react-redux";
 
 const InstitutionalFurnitureTabs = ({ institutionalFurniture }) => {
-  console.log(institutionalFurniture && institutionalFurniture);
+  // console.log(institutionalFurniture && institutionalFurniture);
   return (
     institutionalFurniture && (
       <>
