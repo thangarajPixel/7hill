@@ -18,7 +18,7 @@ const ProductListing = ({ filterMenu }) => {
   const [modalShow1, setModalShow1] = useState(false);
   const [productDetails, setProductDetails] = useState("");
   const [loadMore, setLoadMore] = useState(0);
-
+  // console.log(products);
   const getProductDetails = (item) => {
     return axios
       .get(`${API_URL.PRODUCTS_BY_SLUG}/${item}`)
@@ -68,6 +68,7 @@ const ProductListing = ({ filterMenu }) => {
                             className="img-fluid w-100"
                           />
                           <p>{item.product_name}</p>
+                          {/* <p>{item.description}</p> */}
                           <div className="products-buttons">
                             <Button
                               className="viewdetails-btn"

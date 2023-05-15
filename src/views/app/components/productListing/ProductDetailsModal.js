@@ -5,10 +5,10 @@ import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Container from "react-bootstrap/Container";
-import  ProductEnquiryModal from "./ProductEnquiryModal";
+import ProductEnquiryModal from "./ProductEnquiryModal";
 
 function ProductDetailsModal(props) {
-  // console.log(props);
+  console.log(props);
   const [modalShow1, setModalShow1] = useState(false);
 
   var settings = {
@@ -26,7 +26,8 @@ function ProductDetailsModal(props) {
       <ProductEnquiryModal
         {...props}
         show={modalShow1}
-        onHide={() => setModalShow1(false)} />
+        onHide={() => setModalShow1(false)}
+      />
       <Modal
         {...props}
         size="lg"
@@ -52,7 +53,8 @@ function ProductDetailsModal(props) {
                         key={i}
                         src={item}
                         alt=""
-                        className="img-fluid w-100" />
+                        className="img-fluid w-100"
+                      />
                     );
                   })}
                 </Slider>
@@ -61,33 +63,48 @@ function ProductDetailsModal(props) {
                 <div>
                   <h3 className="heading3">{props.product.product_name}</h3>
                   <div className="product-specifications-scroll">
-                  {props.product.attributes &&
-                    props.product.attributes.map((item, i) => {
-                      return (
-                        <div key={i}>
-                          <h6 className="text-orange heading6 mb-0">
-                            {item.title}
-                          </h6>
-                          <p>{item.items[0].attribute_values}</p>                          
-                        </div>
-                      );
-                    })}
-                    {/* <h6 className="text-orange heading6 mb-0">
-                            Description
-                          </h6>
-                    <p>Item Description</p>
-                    <h6 className="text-orange heading6 mb-0">
-                            Specifications
-                          </h6>
-                    <p>Item Specifications</p> */}
-                    </div>
+                    {props.product.description && (
+                      <>
+                        <h6 className="text-orange heading6 mb-0">
+                          Description
+                        </h6>
+                        <p>{props.product.description}</p>
+                      </>
+                    )}
+                    {props.product.specification && (
+                      <>
+                        <h6 className="text-orange heading6 mb-0">
+                          Specifications
+                        </h6>
+                        <p>{props.product.specification}</p>
+                      </>
+                    )}
+
+                    {props.product.attributes &&
+                      props.product.attributes.map((item, i) => {
+                        return (
+                          <div key={i}>
+                            <h6 className="text-orange heading6 mb-0">
+                              {item.title}
+                            </h6>
+                            <p>{item.items[0].attribute_values}</p>
+                          </div>
+                        );
+                      })}
+
+                    {/* <h6 className="text-orange heading6 mb-0">Description</h6>
+                    <p>Item Description</p> */}
+                  </div>
                   <p>
                     <Button
                       className="view-btn"
                       onClick={() => [
                         setModalShow1(true),
                         props.onHide(),
-                        localStorage.setItem("product_name", props.product.product_name),
+                        localStorage.setItem(
+                          "product_name",
+                          props.product.product_name
+                        ),
                       ]}
                     >
                       Enquire Now
@@ -103,4 +120,4 @@ function ProductDetailsModal(props) {
   );
 }
 
-export default ProductDetailsModal
+export default ProductDetailsModal;
