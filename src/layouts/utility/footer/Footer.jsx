@@ -193,7 +193,7 @@ const Footer = () => {
 
           <Col xs={12} sm={12} md={6} lg={3} xl={3}>
             <h5>Institutional Furniture</h5>
-            <div className="footer-links">
+            <div className="footer-links home-furniture">
               {institutionalFurniture &&
                 institutionalFurniture.map((item) => {
                   return item.subChild?.map((item, i) => {
