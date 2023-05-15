@@ -10,15 +10,18 @@ import { Helmet } from "react-helmet";
 const InstitutionalFurniture = () => {
   const category = useSelector((state) => state.allMenu.value);
   const [institutionalFurniture, setInstitutionalFurniture] = useState("");
+  const [institutionalFurnitureImage, setInstitutionalFurnitureImage] = useState("");
   useEffect(() => {
     let institutionalFurn = category?.filter(
       (item) => item.slug === "institutional-furniture"
     );
+    setInstitutionalFurniture(institutionalFurn)
     institutionalFurn &&
       institutionalFurn.forEach((item) => {
-        setInstitutionalFurniture(item.banner_image);
+        setInstitutionalFurnitureImage(item.banner_image);
       });
   }, [category]);
+  console.log(institutionalFurniture);
   return (
     <>
       <Helmet>
@@ -34,12 +37,12 @@ const InstitutionalFurniture = () => {
       </Helmet>
       <Header />
       <img
-        src={institutionalFurniture && institutionalFurniture}
+        src={institutionalFurnitureImage && institutionalFurnitureImage}
         alt=""
         className="img-fluid w-100"
       />
       <InstitutionalFurnitureContent />
-      <InstitutionalFurnitureTabs />
+      <InstitutionalFurnitureTabs institutionalFurniture={institutionalFurniture}/>
       <HomeCTA />
       <Footer />
     </>
