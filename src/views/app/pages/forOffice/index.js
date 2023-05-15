@@ -11,12 +11,11 @@ const ForOffice = () => {
   const { inst_sub_furn } = useParams();
   const category = useSelector((state) => state.allMenu.value);
   const [institutionalFurniture, setInstitutionalFurniture] = useState("");
-  const [institutionalImage, setInstitutionalImage] = useState("");
+
   useEffect(() => {
     let institutionalFurn = category?.filter(
       (item) => item.slug === "institutional-furniture"
     );
-    setInstitutionalImage(institutionalFurn[0].banner_image)
     institutionalFurn &&
       institutionalFurn.forEach((item) => {
         setInstitutionalFurniture(
@@ -25,7 +24,8 @@ const ForOffice = () => {
       });
       // eslint-disable-next-line
   }, [category,inst_sub_furn]);
-  // console.log(institutionalFurniture[0]);
+
+  // console.log(institutionalFurniture && institutionalFurniture[0]);
   return (
     <>
       <Helmet>
@@ -41,7 +41,7 @@ const ForOffice = () => {
       </Helmet>
       <Header />
       <img
-        src={institutionalImage && institutionalImage}
+        src={institutionalFurniture[0] && institutionalFurniture[0]?.banner_image}
         alt=""
         className="img-fluid w-100"
       />
