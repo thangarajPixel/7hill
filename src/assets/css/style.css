@@ -1681,6 +1681,39 @@ form.product-filters .close-btn{
     overflow-x: auto;
 }
 
+.modal-content .modal-body .product-specifications-scroll .heading6{
+    font-size: 20px;
+    margin-bottom: 10px !important;
+}
+
+.modal-content .modal-body .product-specifications-scroll ul li{
+    list-style: none;
+    position: relative;
+    padding: 0px 0px 10px 25px;
+}
+
+.modal-content .modal-body .product-specifications-scroll ul li:before{
+    position: absolute;
+    top: 10px;
+    left: 5px;
+    content: "";
+    width: 8px;
+    height: 2px;
+    background: var(--color-orange);
+    transform: rotate(45deg);
+}
+
+.modal-content .modal-body .product-specifications-scroll ul li:after{
+    position: absolute;
+    top: 15px;
+    left: 5px;
+    content: "";
+    width: 8px;
+    height: 2px;
+    background: var(--color-orange);
+    transform: rotate(-45deg);
+}
+
 .modal-content .modal-header .btn-close{
     padding: 0px;
     width: 30px;
