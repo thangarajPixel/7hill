@@ -69,12 +69,12 @@ function ProductDetailsModal(props) {
                           Description
                         </h6>
                         {/* <p>{props.product.description}</p> */}
-                        <p
+                        <div
                           className="desc-text"
                           dangerouslySetInnerHTML={{
                             __html: props.product.description,
                           }}
-                        ></p>
+                        ></div>
                       </>
                     )}
                     {props.product.specification && (
@@ -83,12 +83,12 @@ function ProductDetailsModal(props) {
                           Specifications
                         </h6>
                         {/* <p>{props.product.specification}</p> */}
-                        <p
+                        <div
                           className="desc-text"
                           dangerouslySetInnerHTML={{
                             __html: props.product.specification,
                           }}
-                        ></p>
+                        ></div>
                       </>
                     )}
 
